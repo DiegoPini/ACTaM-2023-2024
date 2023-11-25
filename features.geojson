@@ -18,6 +18,36 @@
     {
       "type": "Feature",
       "properties": {
+        "name": "United States",
+        "description": "prova"
+      },
+      "geometry": {
+        "coordinates": [
+          -103.344285,
+          41.597032
+        ],
+        "type": "Point"
+      },
+      "id": "30561658f2e8227d12ebe10b22de49db"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Brazil",
+        "description": "prova"
+      },
+      "geometry": {
+        "coordinates": [
+          -47.925408,
+          -14.137098
+        ],
+        "type": "Point"
+      },
+      "id": "4801007452d20a950c36e56469f39075"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "Name": "Italy",
         "Description": "prova"
       },
@@ -33,6 +63,36 @@
     {
       "type": "Feature",
       "properties": {
+        "name": "Jamaica",
+        "description": "prova"
+      },
+      "geometry": {
+        "coordinates": [
+          -77.40076,
+          18.121372
+        ],
+        "type": "Point"
+      },
+      "id": "745b9c15522e700c506f971119aadac8"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Australia",
+        "description": "prova"
+      },
+      "geometry": {
+        "coordinates": [
+          133.765712,
+          -23.639126
+        ],
+        "type": "Point"
+      },
+      "id": "77e7ba793e836596e4666fe012203bb9"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "Name": "France",
         "Description": "prova"
       },
@@ -44,6 +104,36 @@
         "type": "Point"
       },
       "id": "9d2d26721e2a58bcf1ef3b3ed4edc265"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "United Kingdom",
+        "description": "prova"
+      },
+      "geometry": {
+        "coordinates": [
+          -1.85758,
+          52.515663
+        ],
+        "type": "Point"
+      },
+      "id": "bf3d2a5c046cf2cf62b7a483c15e9fa2"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Austria",
+        "description": "prova"
+      },
+      "geometry": {
+        "coordinates": [
+          14.076533,
+          47.26967
+        ],
+        "type": "Point"
+      },
+      "id": "c0391a7451452e44690f27c9dd5d8a55"
     }
   ],
   "type": "FeatureCollection"
