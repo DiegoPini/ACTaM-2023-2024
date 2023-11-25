@@ -1,0 +1,50 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Spain",
+        "Description": "prova"
+      },
+      "geometry": {
+        "coordinates": [
+          -3.590161,
+          40.186099
+        ],
+        "type": "Point"
+      },
+      "id": "22cc8c77e8732fae3165aae4bb89982b"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Italy",
+        "Description": "prova"
+      },
+      "geometry": {
+        "coordinates": [
+          12.190023,
+          42.958461
+        ],
+        "type": "Point"
+      },
+      "id": "6387e68a0a5bfaf5cc2576cca61c16c6"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "France",
+        "Description": "prova"
+      },
+      "geometry": {
+        "coordinates": [
+          2.764236,
+          46.784178
+        ],
+        "type": "Point"
+      },
+      "id": "9d2d26721e2a58bcf1ef3b3ed4edc265"
+    }
+  ],
+  "type": "FeatureCollection"
+}
