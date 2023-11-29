@@ -1,0 +1,76 @@
+[
+    {
+        "MatDiscoDrumBeat" : [[1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+                        [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+                        [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+                        [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0]] // Kick, Snare, Closed HiHat, Open HiHat
+    }
+    {
+        "DiscoDrumBeat" : {"State" : "France", "bpm" : 125, "TimeSignature" : "4/4"}
+    }
+    {
+        "MatReggaeDrumBeat" : [[0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+                    [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+                    [1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0]]  // Kick, Snare, Closed HiHat, Open HiHat
+    }
+    {
+        "ReggaeDrumBeat" : {"State" : "Jamaica", "bpm" : 75, "TimeSignature" : "4/4"}
+    }
+    {
+        "MatRockDrumBeat" : [[1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+        [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+        [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]] // Kick, Snare, Closed HiHat, Open HiHat
+    }
+    {
+        "RockDrumBeat" : {"State" : "USA", "bpm" : 120, "TimeSignature" : "4/4"}
+    }
+    {
+        "MatFunkDrumBeat" : [[1, 0, 1, 0, 1, 0, 1, 0],
+                    [0, 0, 1, 0, 0, 0, 1, 0],
+                    [1, 0, 1, 0, 1, 0, 1, 0],
+                    [0, 0, 1, 0, 0, 0, 1, 0]] // Kick, Snare, Closed HiHat, Open HiHat      DA CORREGGERE
+    }
+    {
+        "FunkDrumBeat" : {"State" : "USA", "bpm" : 120, "TimeSignature" : "4/4"}
+    }
+    {
+        "MatBluesDrumBeat" : [[1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0],
+                            [0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0],
+                            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]] // Kick, Snare, Closed HiHat, Open HiHat
+    }
+    {
+        "BluesDrumBeat" : {"State" : "USA", "bpm" : 120, "TimeSignature" : "12/8"}
+    }
+    {
+        "MatJazzDrumBeat" : [[1, 0, 1, 0, 1, 0, 1, 0],
+                    [0, 0, 1, 0, 0, 0, 1, 0],
+                    [1, 0, 1, 0, 1, 0, 1, 0],
+                    [0, 0, 1, 0, 0, 0, 1, 0]] // Kick, Snare, Closed HiHat, Open HiHat      DA CORREGGERE
+    }
+    {
+        "JazzDrumBeat" : {"State" : "USA", "bpm" : 120, "TimeSignature" : "12/8"}
+    }
+    {
+        "MatSambaDrumBeat" : [[1, 0, 1, 0, 1, 0, 1, 0],
+                    [0, 0, 1, 0, 0, 0, 1, 0],
+                    [1, 0, 1, 0, 1, 0, 1, 0],
+                    [0, 0, 1, 0, 0, 0, 1, 0]] // Kick, Snare, Closed HiHat, Open HiHat      DA CORREGGERE
+    }
+    {
+        "SambaDrumBeat" : {"State" : "Brazil", "bpm" : 100}
+    }
+    {
+        "MatSalsaDrumBeat" : [[1, 0, 1, 0, 1, 0, 1, 0],
+                    [0, 0, 1, 0, 0, 0, 1, 0],
+                    [1, 0, 1, 0, 1, 0, 1, 0],
+                    [0, 0, 1, 0, 0, 0, 1, 0]] // Kick, Snare, Closed HiHat, Open HiHat      DA CORREGGERE
+    }
+    {
+        "SalsaDrumBeat" : {"State" : "Cuba", "bpm" : 100}
+    }
+    {
+        "MatSkaDrumBeat" : [[1, 0, 1, 0, 1, 0, 1, 0
+]
