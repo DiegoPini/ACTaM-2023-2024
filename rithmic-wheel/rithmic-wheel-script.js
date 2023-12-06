@@ -150,14 +150,33 @@ function drawRotatingLine(angle) {
 
 drawRotatingLine(0);
 
-let counter = 0;
+let counter = 1;
+let intervalId;
+var angle = 0;
+let stopRotation = 0;
+function setupRotation(bpm, sign) {
+  if (sign === 1) {
+    stopRotation = 17;
+    angle = 22.5;
+  } else {
+    stopRotation = 13;
+    angle = 30;
+  }
+}
+function startRotation(bpm, sign) {
+  if (sign === 1) {
+    stopRotation = 17;
+    angle = 22.5;
+  } else {
+    stopRotation = 13;
+    angle = 30;
+  }
 
-function startRotation(bpm) {
-  setInterval(() => {
-    drawRotatingLine(22.5 * (Math.PI / 180) * counter);
+  intervalId = setInterval(() => {
+    drawRotatingLine(angle * (Math.PI / 180) * counter);
     counter++;
+    if (counter == stopRotation) clearInterval(intervalId);
   }, 60000 / bpm);
-  counter = 0;
 }
 
 function drawButtons34(
@@ -241,4 +260,15 @@ function playSound(bpm) {
       changeButtonColor(ctx, HihatButtons[(time * bpm) / 60000], "yellow");
     }, time + 400);
   });
+}
+
+function setup(bpm, beat, sign) {
+  selectTempo(sign);
+  saveTime(bpm, beat);
+  selectBeatColor(beat, sign);
+}
+
+function play(bpm, sign) {
+  startRotation(bpm, sign);
+  playSound(bpm);
 }
