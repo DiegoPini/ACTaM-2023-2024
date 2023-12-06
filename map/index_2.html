@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!-- 
     mappa "Musical countries"
  -->
@@ -12,7 +11,10 @@
     <meta name='viewport' content='width=device-width, initial-scale=1' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />
-    
+    <script src ='../circle-of-fifths/Circle_of_fifths.js'></script>
+    <script src='../rithmic-wheel/rithmic-wheel-script.js'></script>
+    <link rel='stylesheet' href='../circle-of-fifths/Circle_of_fifths.css' />
+
     <!-- CSS in the style section -->
     <style>
       body { 
@@ -55,6 +57,19 @@
           return;
         }
         const feature = features[0];
+        // const { lng, lat } = event.lngLat;
+        // const stateName = features.properties.name;
+
+        const popupContent = `
+          <div>
+            <h3>${feature.properties.name}</h3>
+            <p>${feature.properties.description}</p>
+            <div id ="customPopup">
+              <iframe src='../rithmic-wheel/index.html' width='500' height='500'></iframe>
+              <iframe src='../circle-of-fifths/Circle_of_fifths.html' width='500' height='500'></iframe> 
+            <div/>
+          </div>
+        `;
 
         /* 
         Create a popup, specify its options 
@@ -62,87 +77,12 @@
         */
         const popup = new mapboxgl.Popup({ offset: [0, -15] })
           .setLngLat(feature.geometry.coordinates)
-          .setHTML(
-            `<h3>${feature.properties.name}</h3><p>${feature.properties.description}</p>`
-          )
+          .setHTML(popupContent)
+          .setMaxWidth('20000px')
           .addTo(map);
       });
 
-      
+      var id = features.properties.name;
     </script>
-  </body>
-=======
-<!-- 
-    mappa "Musical countries"
- -->
-
-
-<!DOCTYPE html>
-<html lang='en'>
-  <head>
-    <meta charset='utf-8' />
-    <title>Musical countries</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1' />
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />
-    
-    <!-- CSS in the style section -->
-    <style>
-      body { 
-        margin: 0; 
-        padding: 0; 
-      }
-
-      #map { 
-        position: absolute; 
-        top: 0; 
-        bottom: 0; 
-        width: 100%; 
-      }
-    </style>
-  </head>
-  <body>
-    <div id='map'></div>
-
-    <!-- JS in the script section -->
-    <script>
-      mapboxgl.accessToken = 'pk.eyJ1IjoiY2hpYWx1bmdoaSIsImEiOiJjbG5vbHhqb3gwZWQyMnZwZjZkZDlxa2FhIn0.hT_7Fs3WyTZHUA3fNOsCsQ'; 
-      const map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/chialunghi/clpecviq600d901padnab3zej',
-        // center: punto da cui di default appare la mappa, in questo caso Roma 
-        center: [12.4964, 41.9028],   
-        zoom: 3
-      });
-
-      /* 
-      Add an event listener that runs
-      when a user clicks on the map element.
-      */
-      map.on('click', (event) => {
-        // If the user clicked on one of your markers, get its information.
-        const features = map.queryRenderedFeatures(event.point, {
-          layers: ['countries'] // layer name in the Style that is referred to the data (markers)
-        });
-        if (!features.length) {
-          return;
-        }
-        const feature = features[0];
-
-        /* 
-        Create a popup, specify its options 
-        and properties, and add it to the map.
-        */
-        const popup = new mapboxgl.Popup({ offset: [0, -15] })
-          .setLngLat(feature.geometry.coordinates)
-          .setHTML(
-            `<h3>${feature.properties.name}</h3><p>${feature.properties.description}</p>`
-          )
-          .addTo(map);
-      });
-
-      
-    </script>
-  </body>
->>>>>>> 8e4398f06adfd605f573085cf27fa8198992dd97
+  </body>    
 </html>
