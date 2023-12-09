@@ -10,7 +10,7 @@
 
     {
         "State" : "Jamaica", "bpm" : 75, "TimeSignature" : 1, "genre" : "Reggae",
-        "Samples" : ["Samples/Kick1.wav", "Samples/Snare1.wav", "Samples/HHCLosed1.wav", "Samples/HHOpen1.wav"],
+        "Samples" : ["../Samples/Kick1.wav", "../Samples/Snare1.wav", "../Samples/HHCLosed1.wav", "../Samples/HHOpen1.wav"],
         "DrumBeat" : [[0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
                       [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
                       [1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1],
@@ -19,7 +19,7 @@
 
     {
         "State" : "USA", "bpm" : 120, "TimeSignature" : 1, "genre" : "Rock",
-        "Samples" : ["Samples/Kick1.wav", "Samples/Snare1.wav", "Samples/HHCLosed1.wav", "Samples/HHOpen1.wav"],
+        "Samples" : ["../Samples/Kick1.wav", "../Samples/Snare1.wav", "../Samples/HHCLosed1.wav", "../Samples/HHOpen1.wav"],
         "DrumBeat" : [[1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
                       [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
                       [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
@@ -28,7 +28,7 @@
 
     {
         "State" : "USA", "bpm" : 120, "TimeSignature" : 1, "genre" : "Funk",
-        "Samples" : ["Samples/Kick1.wav", "Samples/Snare1.wav", "Samples/HHCLosed1.wav", "Samples/HHOpen1.wav"],
+        "Samples" : ["../Samples/Kick1.wav", "Samples/Snare1.wav", "Samples/HHCLosed1.wav", "Samples/HHOpen1.wav"],
         "DrumBeat" : [[1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0],
                       [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
                       [1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1],
@@ -55,7 +55,7 @@
 
     {
         "State" : "Brazil", "bpm" : 100, "TimeSignature" : 1, "genre" : "Bossa Nova",
-        "Samples" : ["Samples/Kick1.wav", "Samples/Snare1.wav", "Samples/HHCLosed1.wav", "Samples/Ride1.wav"],
+        "Samples" : ["../Samples/Kick1.wav", "../Samples/Snare1.wav", "../Samples/HHCLosed1.wav", "../Samples/Ride1.wav"],
         "DrumBeat" : [[1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1],
                       [0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0],
                       [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0],
