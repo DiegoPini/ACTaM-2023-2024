@@ -1,7 +1,7 @@
 [
     {
         "State" : "France", "bpm" : 125, "TimeSignature" : 1, "genre" : "Disco",
-        "Samples" : ["Samples/Kick1.wav", "Samples/Snare1.wav", "Samples/HHCLosed1.wav", "Samples/HHOpen1.wav"],
+        "Samples" : ["../Samples/Kick1.wav", "../Samples/Snare1.wav", "../Samples/HHCLosed1.wav", "../Samples/HHOpen1.wav"],
         "DrumBeat" : [[1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
                       [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
                       [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],

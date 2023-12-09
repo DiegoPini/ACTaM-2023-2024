@@ -34,6 +34,10 @@ function drawButton(ctx, x, y, radius, color) {
 }
 
 let circles = [];
+let sound1;
+let sound2;
+let sound3;
+let sound4;
 
 function drawButtons44(
   ctx,
@@ -59,15 +63,15 @@ function changeButtonColor(ctx, circle, newColor) {
   drawButton(ctx, circle.x, circle.y, circle.radius, circle.color);
 }
 
-let ClapsButtons = [];
-let SoundButtons = [];
-let KickButtons = [];
-let HihatButtons = [];
+let sound1But = [];
+let sound2But = [];
+let sound3But = [];
+let sound4But = [];
 
-let clapTimes = [];
-let soundTimes = [];
-let kickTimes = [];
-let hihatTimes = [];
+let sound1Times = [];
+let sound2Times = [];
+let sound3Times = [];
+let sound4Times = [];
 
 function selectBeatColor(beat, check) {
   if (check == 1) beatColor44(beat);
@@ -105,31 +109,31 @@ function beatColor34(beat) {
 }
 
 function beatColor44(beat) {
-  ClapsButtons = circles.slice(0, 16);
-  SoundButtons = circles.slice(16, 32);
-  KickButtons = circles.slice(32, 48);
-  HihatButtons = circles.slice(48, 64);
+  sound1But = circles.slice(0, 16);
+  sound2But = circles.slice(16, 32);
+  sound3But = circles.slice(32, 48);
+  sound4But = circles.slice(48, 64);
 
   for (let i = 0; i < 16; i++) {
     if (beat[0][i] === 1) {
-      changeButtonColor(ctx, ClapsButtons[i], "yellow");
+      changeButtonColor(ctx, sound1But[i], "yellow");
     } else {
-      changeButtonColor(ctx, ClapsButtons[i], "blue");
+      changeButtonColor(ctx, sound1But[i], "blue");
     }
     if (beat[1][i] === 1) {
-      changeButtonColor(ctx, SoundButtons[i], "yellow");
+      changeButtonColor(ctx, sound2But[i], "yellow");
     } else {
-      changeButtonColor(ctx, SoundButtons[i], "green");
+      changeButtonColor(ctx, sound2But[i], "green");
     }
     if (beat[2][i] === 1) {
-      changeButtonColor(ctx, KickButtons[i], "yellow");
+      changeButtonColor(ctx, sound3But[i], "yellow");
     } else {
-      changeButtonColor(ctx, KickButtons[i], "red");
+      changeButtonColor(ctx, sound3But[i], "red");
     }
     if (beat[3][i] === 1) {
-      changeButtonColor(ctx, HihatButtons[i], "yellow");
+      changeButtonColor(ctx, sound4But[i], "yellow");
     } else {
-      changeButtonColor(ctx, HihatButtons[i], "pink");
+      changeButtonColor(ctx, sound4But[i], "pink");
     }
   }
 }
@@ -177,6 +181,10 @@ function startRotation(bpm, sign) {
     counter++;
     if (counter == stopRotation) clearInterval(intervalId);
   }, 60000 / bpm);
+
+  setTimeout(() => {
+    counter = 1;
+  }, (60000 / bpm) * 17);
 }
 
 function drawButtons34(
@@ -213,52 +221,81 @@ function selectTempo(tempo) {
 function saveTime(bpm, beat) {
   for (let i = 0; i < beat[0].length; i++) {
     if (beat[0][i] === 1) {
-      clapTimes.push((i * 60000) / bpm);
+      sound1Times.push((i * 60000) / bpm);
     }
     if (beat[1][i] === 1) {
-      soundTimes.push((i * 60000) / bpm);
+      sound2Times.push((i * 60000) / bpm);
     }
     if (beat[2][i] === 1) {
-      kickTimes.push((i * 60000) / bpm);
+      sound3Times.push((i * 60000) / bpm);
     }
     if (beat[3][i] === 1) {
-      hihatTimes.push((i * 60000) / bpm);
+      sound4Times.push((i * 60000) / bpm);
     }
   }
 }
+function loadSounds(sound1D, sound2D, sound3D, sound4D) {
+  sound1 = new Audio(sound1D);
+  sound2 = new Audio(sound2D);
+  sound3 = new Audio(sound3D);
+  sound4 = new Audio(sound4D);
+}
 
 function playSound(bpm) {
-  clapTimes.forEach((time) => {
+  sound1Times.forEach((time) => {
     setTimeout(() => {
-      changeButtonColor(ctx, ClapsButtons[(time * bpm) / 60000], "purple");
+      changeButtonColor(ctx, sound1But[(time * bpm) / 60000], "purple");
+      sound1.play();
     }, time);
     setTimeout(() => {
-      changeButtonColor(ctx, ClapsButtons[(time * bpm) / 60000], "yellow");
+      changeButtonColor(ctx, sound1But[(time * bpm) / 60000], "yellow");
     }, time + 400);
+    setTimeout(() => {
+      sound1.pause();
+      sound1.currentTime = 0;
+    }, time + 700);
   });
-  soundTimes.forEach((time) => {
+  sound2Times.forEach((time) => {
     setTimeout(() => {
-      changeButtonColor(ctx, SoundButtons[(time * bpm) / 60000], "purple");
+      changeButtonColor(ctx, sound2But[(time * bpm) / 60000], "purple");
+      sound2.play();
     }, time);
     setTimeout(() => {
-      changeButtonColor(ctx, SoundButtons[(time * bpm) / 60000], "yellow");
+      changeButtonColor(ctx, sound2But[(time * bpm) / 60000], "yellow");
     }, time + 400);
+
+    setTimeout(() => {
+      sound2.pause();
+      sound2.currentTime = 0;
+    }, time + 700);
   });
-  kickTimes.forEach((time) => {
+  sound3Times.forEach((time) => {
     setTimeout(() => {
-      changeButtonColor(ctx, KickButtons[(time * bpm) / 60000], "purple");
+      sound3.play();
+      changeButtonColor(ctx, sound3But[(time * bpm) / 60000], "purple");
     }, time);
     setTimeout(() => {
-      changeButtonColor(ctx, KickButtons[(time * bpm) / 60000], "yellow");
+      changeButtonColor(ctx, sound3But[(time * bpm) / 60000], "yellow");
     }, time + 400);
+    setTimeout(() => {
+      sound3.pause();
+      sound3.currentTime = 0;
+    }, time + 700);
   });
-  hihatTimes.forEach((time) => {
+  sound4Times.forEach((time) => {
     setTimeout(() => {
-      changeButtonColor(ctx, HihatButtons[(time * bpm) / 60000], "purple");
+      changeButtonColor(ctx, sound4But[(time * bpm) / 60000], "purple");
+      sound4.play();
     }, time);
     setTimeout(() => {
-      changeButtonColor(ctx, HihatButtons[(time * bpm) / 60000], "yellow");
+      changeButtonColor(ctx, sound4But[(time * bpm) / 60000], "yellow");
+      sound4.pause();
+      sound4.currentTime = 0;
     }, time + 400);
+    setTimeout(() => {
+      sound4.pause();
+      sound4.currentTime = 0;
+    }, time + 700);
   });
 }
 
