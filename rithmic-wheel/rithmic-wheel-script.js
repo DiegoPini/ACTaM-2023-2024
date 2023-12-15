@@ -234,12 +234,6 @@ function saveTime(bpm, beat) {
     }
   }
 }
-function loadSounds(sound1D, sound2D, sound3D, sound4D) {
-  sound1 = new Audio(sound1D);
-  sound2 = new Audio(sound2D);
-  sound3 = new Audio(sound3D);
-  sound4 = new Audio(sound4D);
-}
 
 function playSound(bpm) {
   sound1Times.forEach((time) => {
@@ -250,10 +244,6 @@ function playSound(bpm) {
     setTimeout(() => {
       changeButtonColor(ctx, sound1But[(time * bpm) / 60000], "yellow");
     }, time + 400);
-    setTimeout(() => {
-      sound1.pause();
-      sound1.currentTime = 0;
-    }, time + 700);
   });
   sound2Times.forEach((time) => {
     setTimeout(() => {
@@ -263,11 +253,6 @@ function playSound(bpm) {
     setTimeout(() => {
       changeButtonColor(ctx, sound2But[(time * bpm) / 60000], "yellow");
     }, time + 400);
-
-    setTimeout(() => {
-      sound2.pause();
-      sound2.currentTime = 0;
-    }, time + 700);
   });
   sound3Times.forEach((time) => {
     setTimeout(() => {
@@ -277,10 +262,6 @@ function playSound(bpm) {
     setTimeout(() => {
       changeButtonColor(ctx, sound3But[(time * bpm) / 60000], "yellow");
     }, time + 400);
-    setTimeout(() => {
-      sound3.pause();
-      sound3.currentTime = 0;
-    }, time + 700);
   });
   sound4Times.forEach((time) => {
     setTimeout(() => {
@@ -289,13 +270,7 @@ function playSound(bpm) {
     }, time);
     setTimeout(() => {
       changeButtonColor(ctx, sound4But[(time * bpm) / 60000], "yellow");
-      sound4.pause();
-      sound4.currentTime = 0;
     }, time + 400);
-    setTimeout(() => {
-      sound4.pause();
-      sound4.currentTime = 0;
-    }, time + 700);
   });
 }
 
@@ -308,4 +283,11 @@ function setup(bpm, beat, sign) {
 function play(bpm, sign) {
   startRotation(bpm, sign);
   playSound(bpm);
+}
+
+function loadSounds(sound1D, sound2D, sound3D, sound4D) {
+  sound1 = new Audio(sound1D);
+  sound2 = new Audio(sound2D);
+  sound3 = new Audio(sound3D);
+  sound4 = new Audio(sound4D);
 }
