@@ -10,15 +10,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //listener per il menù a tendina cambio scala
     change_scale.addEventListener('change', function() {
-        if (change_scale.value == "minor_nat_scale")
+        if (change_scale.value === "minor_nat_scale")
           chosen_scale = minor_nat_scale;
-        else if (change_scale.value == "minor_arm_scale")
+        else if (change_scale.value === "minor_arm_scale")
             chosen_scale = minor_arm_scale;
-        else if (change_scale.value == "major_scale")
+        else if (change_scale.value === "major_scale")
             chosen_scale = major_scale;
-        else if (change_scale.value == "ionic_scale")
+        else if (change_scale.value === "ionic_scale")
               chosen_scale = ionic_scale;
-        else if (change_scale.value == "phrygian_scale")
+        else if (change_scale.value === "phrygian_scale")
             chosen_scale = phrygian_scale;
         else
           console.log("error") 
