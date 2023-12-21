@@ -1,0 +1,34 @@
+.btnInfo {
+  background-color: grey;
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.btnInfo:hover{
+  background: #eee;
+}
+
+.btnInfo .tooltip-content {
+display: none;
+position: absolute;
+bottom: -500%;
+left: 5%;
+right: 5%;
+background-color: grey;
+padding: .5em;
+min-width: 10rem;
+width: 400px;
+height: 200px;
+}
+
+.btnInfo:hover .tooltip-content {
+display: block;
+}
