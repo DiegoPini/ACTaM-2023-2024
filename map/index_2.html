@@ -9,133 +9,310 @@
     <title>Musical countries</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+    <script src="../circle-of-fifths/Circle_of_fifths.js"></script>
+
+
+
     <link
       href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
       rel="stylesheet"
     />
-    <script src="../circle-of-fifths/Circle_of_fifths.js"></script>
+    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="../circle-of-fifths/Circle_of_fifths.css" />
 
-    <!-- CSS in the style section -->
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
 
-      #map {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-      }
-    </style>
   </head>
+
   <body>
     <div id="map"></div>
-    <!-- JS in the script section -->
+    <div id="customPopup">
 
-    <script>
-      mapboxgl.accessToken =
-        "pk.eyJ1IjoiY2hpYWx1bmdoaSIsImEiOiJjbG5vbHhqb3gwZWQyMnZwZjZkZDlxa2FhIn0.hT_7Fs3WyTZHUA3fNOsCsQ";
-      const map = new mapboxgl.Map({
-        container: "map",
-        style: "mapbox://styles/chialunghi/clpecviq600d901padnab3zej",
-        // center: punto da cui di default appare la mappa, in questo caso Roma
-        center: [12.4964, 41.9028],
-        zoom: 3,
-      });
+      <div id="rightSide" style="float: right; width: 50%">
+        <label for="change_scale">Choose the scale:</label>
+        <select id="change_scale">
+          <option value="major_scale">Major scale</option>
+          <option value="minor_nat_scale">Minor natural scale</option>
+          <option value="minor_arm_scale">Minor armonic scale</option>
+          <option value="ionic_scale">Ionic scale</option>
+          <option value="phrygian_scale">Phrygian scale</option>
+        </select>
 
-      /*
-           Add an event listener that runs
-           when a user clicks on the map element.
-           */
-      var myJSON = [];
-      async function loadJSON() {
-        try {
-          const response = await fetch("../MusicBeat.json");
-          myJSON = await response.json();
-        } catch (error) {
-          console.error("Error loading JSON:", error);
-        }
-      }
-      loadJSON();
+        <svg id="app" class="cf" viewBox="0 0 300 300">
+          <g class="cf-arcs">
+            <path
+              class="scale"
+              id="A"
+              d="M250.00,150.00A100,100,0,0,1,235.72,201.50L210.00,186.05A70,70,0,0,0,220.00,150.00Z"
+            ></path>
+            <path
+              class="note"
+              id="a"
+              d="M220.00,150.00A70,70,0,0,1,210.00,186.05L184.29,170.60A40,40,0,0,0,190.00,150.00Z"
+            ></path>
+          </g>
+          <g transform="translate(260, 0)"></g>
+          <text x="235" y="153" class="cf-text-middle">A</text>
+          <text x="205" y="152" class="cf-text-inner">A</text>
 
-      function loadIndex(country) {
-        for (i = 0; i < myJSON.length; i++) {
-          if (myJSON[i].State == country) {
-            return i;
-          }
-        }
-      }
-      var id;
-      let playRWjs;
-      var index;
-      map.on("click", (event) => {
-        // If the user clicked on one of your markers, get its information.
-        const features = map.queryRenderedFeatures(event.point, {
-          layers: ["countries"], // layer name in the Style that is referred to the data (markers)
-        });
-        if (!features.length) {
-          return;
-        }
-        const feature = features[0];
-        var id = features[0].properties.name;
-        // const { lng, lat } = event.lngLat;
-        // const stateName = features.properties.name;
+          <g class="cf-arcs">
+            <path
+              class="scale"
+              id="E"
+              d="M236.60,200.00A100,100,0,0,1,198.48,237.46L183.94,211.22A70,70,0,0,0,210.62,185.00Z"
+            ></path>
+            <path
+              class="note"
+              id="e"
+              d="M210.62,185.00A70,70,0,0,1,183.94,211.22L169.39,184.98A40,40,0,0,0,184.64,170.00Z"
+            ></path>
+          </g>
+          <g transform="translate(243.25317547305485, 62.5)"></g>
+          <text x="223.6121593216773" y="195.5" class="cf-text-middle">E</text>
+          <text x="197.63139720814414" y="179.5" class="cf-text-inner">E</text>
 
-        index = loadIndex(feature.properties.name);
+          <g class="cf-arcs">
+            <path
+              class="scale"
+              id="B"
+              d="M200.00,236.60A100,100,0,0,1,148.25,249.98L148.78,219.99A70,70,0,0,0,185.00,210.62Z"
+            ></path>
+            <path
+              class="note"
+              id="b"
+              d="M185.00,210.62A70,70,0,0,1,148.78,219.99L149.30,189.99A40,40,0,0,0,170.00,184.64Z"
+            ></path>
+          </g>
+          <g transform="translate(197.5, 108.25317547305485)"></g>
+          <text x="192.5" y="226.61215932167727" class="cf-text-middle">B</text>
+          <text x="177.5" y="199.6313972081441" class="cf-text-inner">B</text>
 
-        const popupContent = `
-               <div>
-                 <h3>${feature.properties.name}</h3>
-                 <p>${feature.properties.description}</p>
-                 <div id ="customPopup">
-                  <button id = "play" onClick = "playRW()">Play</button>
-                   <iframe id = "RW" src='../rithmic-wheel/index.html' width='550' height='550'></iframe>
-                   <iframe src='../circle-of-fifths/Circle_of_fifths.html' width='550' height='550'></iframe>
-                   
-                 <div/>
-               </div>
-             `;
-        /*
-             Create a popup, specify its options
-             and properties, and add it to the map.
-             */
-        const popup = new mapboxgl.Popup({ offset: [0, -15] })
-          .setLngLat(feature.geometry.coordinates)
-          .setHTML(popupContent)
-          .setMaxWidth("30000px")
-          .addTo(map);
+          <g class="cf-arcs">
+            <path
+              class="scale"
+              id="Gb"
+              d="M150.00,250.00A100,100,0,0,1,98.496,235.72L113.95,210.00A70,70,0,0,0,150.00,220.00Z"
+            ></path>
+            <path
+              class="note"
+              id="gb"
+              d="M150.00,220.00A70,70,0,0,1,113.95,210.00L129.40,184.29A40,40,0,0,0,150.00,190.00Z"
+            ></path>
+          </g>
+          <g transform="translate(135, 125)"></g>
+          <text x="150" y="238" class="cf-text-middle">Gb</text>
+          <text x="150" y="207" class="cf-text-inner">Gb</text>
 
-        // Ottieni l'iframe dopo che il popup è stato aggiunto alla mappa
-        const iframe = document.getElementById("RW");
+          <g class="cf-arcs">
+            <path
+              class="scale"
+              id="Db"
+              d="M100.00,236.60A100,100,0,0,1,62.538,198.48L88.777,183.94A70,70,0,0,0,115.00,210.62Z"
+            ></path>
+            <path
+              class="note"
+              id="db"
+              d="M115.00,210.62A70,70,0,0,1,88.777,183.94L115.02,169.39A40,40,0,0,0,130.00,184.64Z"
+            ></path>
+          </g>
+          <g transform="translate(72.50000000000003, 108.25317547305485)"></g>
+          <text
+            x="107.50000000000003"
+            y="226.6121593216773"
+            class="cf-text-middle"
+          >
+            Db
+          </text>
+          <text
+            x="122.50000000000001"
+            y="199.63139720814414"
+            class="cf-text-inner"
+          >
+            Db
+          </text>
 
-        // Assicurati che l'iframe sia completamente caricato prima di tentare di accedere alle sue funzioni
-        iframe.onload = function () {
-          // Accedi alla funzione desiderata
-          const setupFunction = iframe.contentWindow.setup;
-          const setupSoundFunction = iframe.contentWindow.loadSounds;
-          playRWjs = iframe.contentWindow.play;
+          <g class="cf-arcs">
+            <path
+              class="scale"
+              id="Ab"
+              d="M63.397,200.00A100,100,0,0,1,50.015,148.25L80.011,148.78A70,70,0,0,0,89.378,185.00Z"
+            ></path>
+            <path
+              class="note"
+              id="ab"
+              d="M89.378,185.00A70,70,0,0,1,80.011,148.78L110.01,149.30A40,40,0,0,0,115.36,170.00Z"
+            ></path>
+          </g>
+          <g transform="translate(26.74682452694516, 62.5)"></g>
+          <text x="76.3878406783227" y="195.5" class="cf-text-middle">Ab</text>
+          <text x="102.36860279185586" y="179.5" class="cf-text-inner">Ab</text>
 
-          setupFunction(
-            myJSON[index].bpm,
-            myJSON[index].DrumBeat,
-            myJSON[index].TimeSignature
-          );
+          <g class="cf-arcs">
+            <path
+              class="scale"
+              id="Eb"
+              d="M50.000,150.00A100,100,0,0,1,64.283,98.496L89.998,113.95A70,70,0,0,0,80.000,150.00Z"
+            ></path>
+            <path
+              class="note"
+              id="eb"
+              d="M80.000,150.00A70,70,0,0,1,89.998,113.95L115.71,129.40A40,40,0,0,0,110.00,150.00Z"
+            ></path>
+          </g>
+          <g transform="translate(10, 2.842170943040401e-14)"></g>
+          <text x="65" y="153" class="cf-text-middle">Eb</text>
+          <text x="95" y="152" class="cf-text-inner">Eb</text>
 
-          setupSoundFunction(
-            myJSON[index].Samples[0],
-            myJSON[index].Samples[1],
-            myJSON[index].Samples[2],
-            myJSON[index].Samples[3]
-          );
-        };
-      });
+          <g class="cf-arcs">
+            <path
+              class="scale"
+              id="Bb"
+              d="M63.397,100.00A100,100,0,0,1,101.52,62.538L116.06,88.777A70,70,0,0,0,89.378,115.00Z"
+            ></path>
+            <path
+              class="note"
+              id="bb"
+              d="M89.378,115.00A70,70,0,0,1,116.06,88.777L130.61,115.02A40,40,0,0,0,115.36,130.00Z"
+            ></path>
+          </g>
+          <g transform="translate(26.746824526945176, -62.500000000000014)"></g>
+          <text x="76.38784067832272" y="110.5" class="cf-text-middle">Bb</text>
+          <text x="102.36860279185588" y="124.5" class="cf-text-inner">Bb</text>
 
-      function playRW() {
-        playRWjs(myJSON[index].bpm, myJSON[index].TimeSignature);
-      }
-    </script>
+          <g class="cf-arcs">
+            <path
+              class="scale"
+              id="F"
+              d="M100.00,63.397A100,100,0,0,1,151.75,50.015L151.22,80.011A70,70,0,0,0,115.00,89.378Z"
+            ></path>
+            <path
+              class="note"
+              id="f"
+              d="M115.00,89.378A70,70,0,0,1,151.22,80.011L150.70,110.01A40,40,0,0,0,130.00,115.36Z"
+            ></path>
+          </g>
+          <g transform="translate(72.49999999999994, -108.25317547305481)"></g>
+          <text
+            x="107.49999999999997"
+            y="79.38784067832273"
+            class="cf-text-middle"
+          >
+            F
+          </text>
+          <text
+            x="122.49999999999997"
+            y="104.36860279185589"
+            class="cf-text-inner"
+          >
+            F
+          </text>
+
+          <g class="cf-arcs">
+            <path
+              class="scale"
+              id="C"
+              d="M150.00,50.000A100,100,0,0,1,201.50,64.283L186.05,89.998A70,70,0,0,0,150.00,80.000Z"
+            ></path>
+            <path
+              class="note"
+              id="c"
+              d="M150.00,80.000A70,70,0,0,1,186.05,89.998L170.60,115.71A40,40,0,0,0,150.00,110.00Z"
+            ></path>
+          </g>
+          <g transform="translate(134.99999999999997, -125)"></g>
+          <text x="149.99999999999997" y="68" class="cf-text-middle">C</text>
+          <text x="150" y="97" class="cf-text-inner">C</text>
+
+          <g class="cf-arcs">
+            <path
+              class="scale"
+              id="G"
+              d="M200.00,63.397A100,100,0,0,1,237.46,101.52L211.22,116.06A70,70,0,0,0,185.00,89.378Z"
+            ></path>
+            <path
+              class="note"
+              id="g"
+              d="M185.00,89.378A70,70,0,0,1,211.22,116.06L184.98,130.61A40,40,0,0,0,170.00,115.36Z"
+            ></path>
+          </g>
+          <g transform="translate(197.5, -108.25317547305482)"></g>
+          <text x="192.5" y="79.38784067832272" class="cf-text-middle">G</text>
+          <text x="177.5" y="104.36860279185588" class="cf-text-inner">G</text>
+
+          <g class="cf-arcs">
+            <path
+              class="scale"
+              id="D"
+              d="M236.60,100.00A100,100,0,0,1,249.98,151.75L219.99,151.22A70,70,0,0,0,210.62,115.00Z"
+            ></path>
+            <path
+              class="note"
+              id="d"
+              d="M210.62,115.00A70,70,0,0,1,219.99,151.22L189.99,150.70A40,40,0,0,0,184.64,130.00Z"
+            ></path>
+          </g>
+          <g transform="translate(243.2531754730548, -62.50000000000006)"></g>
+          <text
+            x="223.61215932167727"
+            y="110.49999999999997"
+            class="cf-text-middle"
+          >
+            D
+          </text>
+          <text
+            x="197.6313972081441"
+            y="124.49999999999997"
+            class="cf-text-inner"
+          >
+            D
+          </text>
+        </svg>
+
+        <svg
+          style="position: absolute; width: 0; height: 0; overflow: hidden"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <defs>
+            <symbol id="staff" viewBox="0 0 203.18 132.08">
+              <path
+                style="stroke: var(--light); stroke-width: 1pt; fill: none"
+                d="m89.253 345.53 177.07.72m-175.63 21.24 177.07.72m-176.35 21.05 177.07.72m-178.87 21.5 177.07.72m-176.35 21.06 177.07.72"
+                transform="matrix(1.1144 0 0 1 -96.674 -331.49)"
+              />
+              <path
+                fill="var(--light)"
+                transform="matrix(.907 0 0 .91953 -8.112 -4.363)"
+                d="M39.542 140.49c.022 8.47 18.816 7.39 18.753-6.57.025-13.61-17.954-89.748-18.155-104.31-.211-11.556 6.122-24.509 11.548-24.368 4.299.141 8.338 9.873 8.316 21.986.326 39.173-33.981 36.641-33.981 63.409 0 17.303 14.363 21.873 21.545 21.873 24.32-.16 20.239-29.381 4.734-29.381-9.141-.328-17.139 12.076-5.06 22.359-20.403-8.977-9.467-30.685 6.692-30.848 21.545.163 25.299 39.658-6.366 39.828-18.933.16-26.931-16.488-26.768-29.546 0-25.135 37.051-39.662 36.561-60.881 0-13.384-13.873-7.345-14.2 14.201.327 13.384 17.628 84.056 17.465 94.996 0 22.52-28.89 15.18-28.89 3.75.163-16.32 16.975-4.73 11.752-4.24-4.081 7.18-3.946 7.74-3.946 7.74z"
+              />
+              <path
+                fill="var(--light)"
+                transform="matrix(.907 0 0 .91953 -8.112 -4.363)"
+                d="M47.37 133.39c0 3.79-3.161 6.87-7.054 6.87s-7.053-3.08-7.053-6.87 3.16-6.86 7.053-6.86 7.054 3.07 7.054 6.86z"
+              />
+            </symbol>
+          </defs>
+        </svg>
+        <button id="close">X</button>
+        <button id="play">Play</button>
+      </div>
+
+      <div id="leftSide" style="float: left; width: 50%">
+        <canvas
+          id="myCanvas"
+          width="550"
+          height="550"
+          style="position: absolute; left: 0; top: 0"
+        ></canvas>
+        <canvas
+          id="lineCanvas"
+          width="550"
+          height="550"
+          style="position: absolute; left: 0; top: 0"
+        ></canvas>
+      </div>
+    </div>
+    <script src="../rithmic-wheel/rithmic-wheel-script.js"></script>
+    <script src="map.js"></script>
   </body>
 </html>
