@@ -4,24 +4,32 @@ let ctx = canvas.getContext("2d");
 let lineCanvas = document.getElementById("lineCanvas");
 let lineCtx = lineCanvas.getContext("2d");
 
+let X_init = 0;
+let Y_init = 0;
+let DIM = 350;
+let MAX_RADIUS = DIM/2;
+let X_center = MAX_RADIUS + X_init;
+let Y_center = MAX_RADIUS + Y_init;
+
+
 ctx.beginPath();
-ctx.arc(275, 275, 275, 0, 2 * Math.PI);
-ctx.fillStyle = "pink";
+ctx.arc(X_center, Y_center, MAX_RADIUS, 0, 2 * Math.PI);
+ctx.fillStyle = "#FE938C";
 ctx.fill();
 
 ctx.beginPath();
-ctx.arc(275, 275, 225, 0, 2 * Math.PI);
-ctx.fillStyle = "red";
+ctx.arc(X_center, Y_center, MAX_RADIUS*9/11, 0, 2 * Math.PI);
+ctx.fillStyle = "#E6B89C";
 ctx.fill();
 
 ctx.beginPath();
-ctx.arc(275, 275, 175, 0, 2 * Math.PI);
-ctx.fillStyle = "green";
+ctx.arc(X_center, Y_center, MAX_RADIUS*7/11, 0, 2 * Math.PI);
+ctx.fillStyle = "#91B6B7";
 ctx.fill();
 
 ctx.beginPath();
-ctx.arc(275, 275, 125, 0, 2 * Math.PI);
-ctx.fillStyle = "blue";
+ctx.arc(X_center, Y_center, MAX_RADIUS*5/11, 0, 2 * Math.PI);
+ctx.fillStyle = "#4281A4";
 ctx.fill();
 
 function drawButton(ctx, x, y, radius, color) {
@@ -39,14 +47,7 @@ let sound2;
 let sound3;
 let sound4;
 
-function drawButtons44(
-  ctx,
-  centerX,
-  centerY,
-  circleRadius,
-  buttonRadius,
-  color
-) {
+function drawButtons44(ctx, centerX, centerY, circleRadius, buttonRadius, color) {
   const numberOfButtons = 16;
   for (let i = 0; i < numberOfButtons; i++) {
     const angle = 22.5 * i * (Math.PI / 180);
@@ -60,7 +61,7 @@ function drawButtons44(
 
 function changeButtonColor(ctx, circle, newColor) {
   circle.color = newColor;
-  drawButton(ctx, circle.x, circle.y, circle.radius, circle.color);
+  drawButton(ctx, circle.x, circle.y, circle.radius + 1, circle.color);
 }
 
 let sound1But = [];
@@ -86,24 +87,24 @@ function beatColor34(beat) {
 
   for (let i = 0; i < 12; i++) {
     if (beat[0][i] === 1) {
-      changeButtonColor(ctx, ClapsButtons[i], "yellow");
+      changeButtonColor(ctx, ClapsButtons[i], "#EAE26D");
     } else {
-      changeButtonColor(ctx, ClapsButtons[i], "blue");
+      changeButtonColor(ctx, ClapsButtons[i], "#4281A4");
     }
     if (beat[1][i] === 1) {
-      changeButtonColor(ctx, SoundButtons[i], "yellow");
+      changeButtonColor(ctx, SoundButtons[i], "#EAE26D");
     } else {
-      changeButtonColor(ctx, SoundButtons[i], "green");
+      changeButtonColor(ctx, SoundButtons[i], "#91B6B7");
     }
     if (beat[2][i] === 1) {
-      changeButtonColor(ctx, KickButtons[i], "yellow");
+      changeButtonColor(ctx, KickButtons[i], "#EAE26D");
     } else {
-      changeButtonColor(ctx, KickButtons[i], "red");
+      changeButtonColor(ctx, KickButtons[i], "#E6B89C");
     }
     if (beat[3][i] === 1) {
-      changeButtonColor(ctx, HihatButtons[i], "yellow");
+      changeButtonColor(ctx, HihatButtons[i], "#EAE26D");
     } else {
-      changeButtonColor(ctx, HihatButtons[i], "pink");
+      changeButtonColor(ctx, HihatButtons[i], "#FE938C");
     }
   }
 }
@@ -116,34 +117,34 @@ function beatColor44(beat) {
 
   for (let i = 0; i < 16; i++) {
     if (beat[0][i] === 1) {
-      changeButtonColor(ctx, sound1But[i], "yellow");
+      changeButtonColor(ctx, sound1But[i], "#EAE26D");
     } else {
-      changeButtonColor(ctx, sound1But[i], "blue");
+      changeButtonColor(ctx, sound1But[i], "#4281A4");
     }
     if (beat[1][i] === 1) {
-      changeButtonColor(ctx, sound2But[i], "yellow");
+      changeButtonColor(ctx, sound2But[i], "#EAE26D");
     } else {
-      changeButtonColor(ctx, sound2But[i], "green");
+      changeButtonColor(ctx, sound2But[i], "#91B6B7");
     }
     if (beat[2][i] === 1) {
-      changeButtonColor(ctx, sound3But[i], "yellow");
+      changeButtonColor(ctx, sound3But[i], "#EAE26D");
     } else {
-      changeButtonColor(ctx, sound3But[i], "red");
+      changeButtonColor(ctx, sound3But[i], "#E6B89C");
     }
     if (beat[3][i] === 1) {
-      changeButtonColor(ctx, sound4But[i], "yellow");
+      changeButtonColor(ctx, sound4But[i], "#EAE26D");
     } else {
-      changeButtonColor(ctx, sound4But[i], "pink");
+      changeButtonColor(ctx, sound4But[i], "#FE938C");
     }
   }
 }
 
 function drawRotatingLine(angle) {
-  lineCtx.clearRect(0, 0, canvas.width, canvas.height);
+  lineCtx.clearRect(X_init, Y_init, canvas.width, canvas.height);
   let startX = canvas.width / 2;
   let startY = canvas.height / 2;
-  let endX = startX + Math.cos(angle) * 250;
-  let endY = startY + Math.sin(angle) * 250;
+  let endX = startX + Math.cos(angle) * MAX_RADIUS * 0.9;
+  let endY = startY + Math.sin(angle) * MAX_RADIUS * 0.9;
 
   lineCtx.beginPath();
   lineCtx.moveTo(startX, startY);
@@ -198,8 +199,8 @@ function drawButtons34(
   const numberOfButtons = 12;
   for (let i = 0; i < numberOfButtons; i++) {
     const angle = 30 * i * (Math.PI / 180);
-    const buttonX = centerX + circleRadius * Math.cos(angle);
-    const buttonY = centerY + circleRadius * Math.sin(angle);
+    const buttonX = centerX + circleRadius * Math.cos(angle) *0.5;
+    const buttonY = centerY + circleRadius * Math.sin(angle) *0.5;
     const circle = drawButton(ctx, buttonX, buttonY, buttonRadius, color);
 
     circles.push(circle);
@@ -209,11 +210,11 @@ function drawButtons34(
 function selectTempo(tempo) {
   if (tempo == 1) {
     for (i = 0; i < 4; i++) {
-      drawButtons44(ctx, 275, 275, 100 + i * 50, 10, "white");
+      drawButtons44(ctx, MAX_RADIUS, MAX_RADIUS, MAX_RADIUS*(4/11 + i*2/11), 5, "white");
     }
   } else {
     for (i = 0; i < 4; i++) {
-      drawButtons34(ctx, 275, 275, 100 + i * 50, 10, "white");
+      drawButtons34(ctx, MAX_RADIUS, MAX_RADIUS, MAX_RADIUS*(4/11 + i*2/11), 5, "white");
     }
   }
 }
@@ -242,7 +243,7 @@ function playSound(bpm) {
       sound1.play();
     }, time);
     setTimeout(() => {
-      changeButtonColor(ctx, sound1But[(time * bpm) / 60000], "yellow");
+      changeButtonColor(ctx, sound1But[(time * bpm) / 60000], "#EAE26D");
     }, time + 400);
   });
   sound2Times.forEach((time) => {
@@ -251,7 +252,7 @@ function playSound(bpm) {
       sound2.play();
     }, time);
     setTimeout(() => {
-      changeButtonColor(ctx, sound2But[(time * bpm) / 60000], "yellow");
+      changeButtonColor(ctx, sound2But[(time * bpm) / 60000], "#EAE26D");
     }, time + 400);
   });
   sound3Times.forEach((time) => {
@@ -260,7 +261,7 @@ function playSound(bpm) {
       changeButtonColor(ctx, sound3But[(time * bpm) / 60000], "purple");
     }, time);
     setTimeout(() => {
-      changeButtonColor(ctx, sound3But[(time * bpm) / 60000], "yellow");
+      changeButtonColor(ctx, sound3But[(time * bpm) / 60000], "#EAE26D");
     }, time + 400);
   });
   sound4Times.forEach((time) => {
@@ -269,7 +270,7 @@ function playSound(bpm) {
       sound4.play();
     }, time);
     setTimeout(() => {
-      changeButtonColor(ctx, sound4But[(time * bpm) / 60000], "yellow");
+      changeButtonColor(ctx, sound4But[(time * bpm) / 60000], "#EAE26D");
     }, time + 400);
   });
 }
