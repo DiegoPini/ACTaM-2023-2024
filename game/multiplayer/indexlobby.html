@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Server</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+  </head>
+  <body>
+    <h1>Lobby System</h1>
+
+    <!-- Create Lobby Form -->
+    <h2>Create Lobby</h2>
+    <form id="create-lobby-form">
+      <label for="lobby-name">User ID:</label>
+      <input type="text" id="creator" required />
+      <button type="button" id="create-lobby">Create Lobby</button>
+    </form>
+    <!-- Join Lobby Form -->
+    <h2>Join Lobby</h2>
+    <form id="join-lobby-form">
+      <label for="lobby-id">Lobby ID:</label>
+      <input type="text" id="lobby-id" required />
+      <label for="user-id">Your User ID:</label>
+      <input type="text" id="user-id" required />
+      <button type="button" id="join-lobby">Join Lobby</button>
+    </form>
+    <div id="popup">
+      <div id="RW">
+        <canvas
+          id="myCanvas"
+          width="550"
+          height="550"
+          style="position: absolute; left: 0; top: 0"
+        ></canvas>
+        <canvas
+          id="lineCanvas"
+          width="550"
+          height="550"
+          style="position: absolute; left: 0; top: 0"
+        ></canvas>
+      </div>
+      <button id="select">select</button>
+    </div>
+
+    <div id="active-lobbies-list"></div>
+    <div id="lobby-members-list"></div>
+    <button id="start-game">Start Game</button>
+    <div id="map"></div>
+    <script type="module" src="server.js"></script>
+    <script src="rithmic-wheel-script.js"></script>
+  </body>
+</html>

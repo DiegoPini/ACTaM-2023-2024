@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Server</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+  </head>
+  <body>
+    <div id="popup">
+      <button id="select">select</button>
+      <div id="gameContainer"></div>
+      <div id="choose">
+        <button id="SinglePlayer">SinglePLayer</button>
+        <button id="MultiPlayer">MultyPlayer</button>
+      </div>
+
+      <div id="RW">
+        <canvas
+          id="myCanvas"
+          width="550"
+          height="550"
+          style="position: absolute; left: 0; top: 0"
+        ></canvas>
+        <canvas
+          id="lineCanvas"
+          width="550"
+          height="550"
+          style="position: absolute; left: 0; top: 0"
+        ></canvas>
+      </div>
+    </div>
+
+    <div id="map"></div>
+
+    <script src="rithmic-wheel-script.js"></script>
+    <script src="/singleplayer.js"></script>
+  </body>
+</html>
