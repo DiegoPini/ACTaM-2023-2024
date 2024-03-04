@@ -16,15 +16,26 @@
 
   <body>
     <div id="map"></div>
+    <button id="game">Game</button>
     <div id="customPopup">
-
       <div id="tit">
-        <p class="casella" style="font-size:120%; width: auto;">France - Disco Music</p>
-        <p class="casella" style="font-style:italic">The term "disco" is shorthand for the word discothèque, a French word for "library of phonograph records" derived from "bibliothèque". The word "discothèque" had the same meaning in English in the 1950s. "Discothèque" became used in French for a type of nightclub in Paris, after they had resorted to playing records during the Nazi occupation in the early 1940s. Some clubs used it as their proper name. In 1960, it was also used to describe a Parisian nightclub in an English magazine. </p>
+        <p class="casella" style="font-size: 120%; width: auto">
+          France - Disco Music
+        </p>
+        <p class="casella" style="font-style: italic">
+          The term "disco" is shorthand for the word discothèque, a French word
+          for "library of phonograph records" derived from "bibliothèque". The
+          word "discothèque" had the same meaning in English in the 1950s.
+          "Discothèque" became used in French for a type of nightclub in Paris,
+          after they had resorted to playing records during the Nazi occupation
+          in the early 1940s. Some clubs used it as their proper name. In 1960,
+          it was also used to describe a Parisian nightclub in an English
+          magazine.
+        </p>
       </div>
 
       <div style="float: right; width: 60%">
-          <div class="casella">
+        <div class="casella">
           <label for="change_scale">Choose the scale:</label>
           <select id="change_scale">
             <option value="major_scale">Major scale</option>
@@ -33,118 +44,201 @@
             <option value="ionic_scale">Ionic scale</option>
             <option value="phrygian_scale">Phrygian scale</option>
           </select>
-          </div>
+        </div>
 
         <svg id="app" class="cf" viewBox="0 0 300 300" style="width: 90%">
-          <path class="scale" id="A"
-                d="M250.00,150.00A100,100,0,0,1,235.72,201.50L210.00,186.05A70,70,0,0,0,220.00,150.00Z">
-          </path>
-          <path class="note" id="a"
-                d="M220.00,150.00A70,70,0,0,1,210.00,186.05L184.29,170.60A40,40,0,0,0,190.00,150.00Z">
-          </path>
+          <path
+            class="scale"
+            id="A"
+            d="M250.00,150.00A100,100,0,0,1,235.72,201.50L210.00,186.05A70,70,0,0,0,220.00,150.00Z"
+          ></path>
+          <path
+            class="note"
+            id="a"
+            d="M220.00,150.00A70,70,0,0,1,210.00,186.05L184.29,170.60A40,40,0,0,0,190.00,150.00Z"
+          ></path>
           <text x="235" y="153" class="cf-text-middle">A</text>
           <text x="205" y="152" class="cf-text-inner">A</text>
 
-          <path class="scale" id="E"
-                d="M236.60,200.00A100,100,0,0,1,198.48,237.46L183.94,211.22A70,70,0,0,0,210.62,185.00Z">
-          </path>
-          <path class="note" id="e"
-                d="M210.62,185.00A70,70,0,0,1,183.94,211.22L169.39,184.98A40,40,0,0,0,184.64,170.00Z">
-          </path>
+          <path
+            class="scale"
+            id="E"
+            d="M236.60,200.00A100,100,0,0,1,198.48,237.46L183.94,211.22A70,70,0,0,0,210.62,185.00Z"
+          ></path>
+          <path
+            class="note"
+            id="e"
+            d="M210.62,185.00A70,70,0,0,1,183.94,211.22L169.39,184.98A40,40,0,0,0,184.64,170.00Z"
+          ></path>
           <text x="223.6121593216773" y="195.5" class="cf-text-middle">E</text>
           <text x="197.63139720814414" y="179.5" class="cf-text-inner">E</text>
 
-          <path class="scale" id="B"
-                d="M200.00,236.60A100,100,0,0,1,148.25,249.98L148.78,219.99A70,70,0,0,0,185.00,210.62Z">
-          </path>
-          <path class="note" id="b"
-                d="M185.00,210.62A70,70,0,0,1,148.78,219.99L149.30,189.99A40,40,0,0,0,170.00,184.64Z">
-          </path>
+          <path
+            class="scale"
+            id="B"
+            d="M200.00,236.60A100,100,0,0,1,148.25,249.98L148.78,219.99A70,70,0,0,0,185.00,210.62Z"
+          ></path>
+          <path
+            class="note"
+            id="b"
+            d="M185.00,210.62A70,70,0,0,1,148.78,219.99L149.30,189.99A40,40,0,0,0,170.00,184.64Z"
+          ></path>
           <text x="192.5" y="226.61215932167727" class="cf-text-middle">B</text>
           <text x="177.5" y="199.6313972081441" class="cf-text-inner">B</text>
 
-          <path class="scale" id="Gb"
-                d="M150.00,250.00A100,100,0,0,1,98.496,235.72L113.95,210.00A70,70,0,0,0,150.00,220.00Z">
-          </path>
-          <path class="note" id="gb"
-                d="M150.00,220.00A70,70,0,0,1,113.95,210.00L129.40,184.29A40,40,0,0,0,150.00,190.00Z">
-          </path>
+          <path
+            class="scale"
+            id="Gb"
+            d="M150.00,250.00A100,100,0,0,1,98.496,235.72L113.95,210.00A70,70,0,0,0,150.00,220.00Z"
+          ></path>
+          <path
+            class="note"
+            id="gb"
+            d="M150.00,220.00A70,70,0,0,1,113.95,210.00L129.40,184.29A40,40,0,0,0,150.00,190.00Z"
+          ></path>
           <text x="150" y="238" class="cf-text-middle">Gb</text>
           <text x="150" y="207" class="cf-text-inner">Gb</text>
 
-          <path class="scale" id="Db"
-                d="M100.00,236.60A100,100,0,0,1,62.538,198.48L88.777,183.94A70,70,0,0,0,115.00,210.62Z">
-          </path>
-          <path class="note" id="db"
-                d="M115.00,210.62A70,70,0,0,1,88.777,183.94L115.02,169.39A40,40,0,0,0,130.00,184.64Z">
-          </path>
-          <text x="107.50000000000003" y="226.6121593216773" class="cf-text-middle">Db</text>
-          <text x="122.50000000000001" y="199.63139720814414" class="cf-text-inner">Db</text>
+          <path
+            class="scale"
+            id="Db"
+            d="M100.00,236.60A100,100,0,0,1,62.538,198.48L88.777,183.94A70,70,0,0,0,115.00,210.62Z"
+          ></path>
+          <path
+            class="note"
+            id="db"
+            d="M115.00,210.62A70,70,0,0,1,88.777,183.94L115.02,169.39A40,40,0,0,0,130.00,184.64Z"
+          ></path>
+          <text
+            x="107.50000000000003"
+            y="226.6121593216773"
+            class="cf-text-middle"
+          >
+            Db
+          </text>
+          <text
+            x="122.50000000000001"
+            y="199.63139720814414"
+            class="cf-text-inner"
+          >
+            Db
+          </text>
 
-          <path class="scale" id="Ab"
-                d="M63.397,200.00A100,100,0,0,1,50.015,148.25L80.011,148.78A70,70,0,0,0,89.378,185.00Z">
-          </path>
-          <path class="note" id="ab"
-                d="M89.378,185.00A70,70,0,0,1,80.011,148.78L110.01,149.30A40,40,0,0,0,115.36,170.00Z">
-          </path>
+          <path
+            class="scale"
+            id="Ab"
+            d="M63.397,200.00A100,100,0,0,1,50.015,148.25L80.011,148.78A70,70,0,0,0,89.378,185.00Z"
+          ></path>
+          <path
+            class="note"
+            id="ab"
+            d="M89.378,185.00A70,70,0,0,1,80.011,148.78L110.01,149.30A40,40,0,0,0,115.36,170.00Z"
+          ></path>
           <text x="76.3878406783227" y="195.5" class="cf-text-middle">Ab</text>
           <text x="102.36860279185586" y="179.5" class="cf-text-inner">Ab</text>
 
-          <path class="scale" id="Eb"
-                d="M50.000,150.00A100,100,0,0,1,64.283,98.496L89.998,113.95A70,70,0,0,0,80.000,150.00Z">
-          </path>
-          <path class="note" id="eb"
-                d="M80.000,150.00A70,70,0,0,1,89.998,113.95L115.71,129.40A40,40,0,0,0,110.00,150.00Z">
-          </path>
+          <path
+            class="scale"
+            id="Eb"
+            d="M50.000,150.00A100,100,0,0,1,64.283,98.496L89.998,113.95A70,70,0,0,0,80.000,150.00Z"
+          ></path>
+          <path
+            class="note"
+            id="eb"
+            d="M80.000,150.00A70,70,0,0,1,89.998,113.95L115.71,129.40A40,40,0,0,0,110.00,150.00Z"
+          ></path>
           <text x="65" y="153" class="cf-text-middle">Eb</text>
           <text x="95" y="152" class="cf-text-inner">Eb</text>
 
-          <path class="scale" id="Bb"
-                d="M63.397,100.00A100,100,0,0,1,101.52,62.538L116.06,88.777A70,70,0,0,0,89.378,115.00Z">
-          </path>
-          <path class="note" id="bb"
-                d="M89.378,115.00A70,70,0,0,1,116.06,88.777L130.61,115.02A40,40,0,0,0,115.36,130.00Z">
-          </path>
+          <path
+            class="scale"
+            id="Bb"
+            d="M63.397,100.00A100,100,0,0,1,101.52,62.538L116.06,88.777A70,70,0,0,0,89.378,115.00Z"
+          ></path>
+          <path
+            class="note"
+            id="bb"
+            d="M89.378,115.00A70,70,0,0,1,116.06,88.777L130.61,115.02A40,40,0,0,0,115.36,130.00Z"
+          ></path>
           <text x="76.38784067832272" y="110.5" class="cf-text-middle">Bb</text>
           <text x="102.36860279185588" y="124.5" class="cf-text-inner">Bb</text>
 
-          <path class="scale" id="F"
-                d="M100.00,63.397A100,100,0,0,1,151.75,50.015L151.22,80.011A70,70,0,0,0,115.00,89.378Z">
-          </path>
-          <path class="note" id="f"
-                d="M115.00,89.378A70,70,0,0,1,151.22,80.011L150.70,110.01A40,40,0,0,0,130.00,115.36Z">
-          </path>
-          <text x="107.49999999999997" y="79.38784067832273" class="cf-text-middle">F</text>
-          <text x="122.49999999999997" y="104.36860279185589" class="cf-text-inner">F</text>
+          <path
+            class="scale"
+            id="F"
+            d="M100.00,63.397A100,100,0,0,1,151.75,50.015L151.22,80.011A70,70,0,0,0,115.00,89.378Z"
+          ></path>
+          <path
+            class="note"
+            id="f"
+            d="M115.00,89.378A70,70,0,0,1,151.22,80.011L150.70,110.01A40,40,0,0,0,130.00,115.36Z"
+          ></path>
+          <text
+            x="107.49999999999997"
+            y="79.38784067832273"
+            class="cf-text-middle"
+          >
+            F
+          </text>
+          <text
+            x="122.49999999999997"
+            y="104.36860279185589"
+            class="cf-text-inner"
+          >
+            F
+          </text>
 
-          <path class="scale" id="C"
-                d="M150.00,50.000A100,100,0,0,1,201.50,64.283L186.05,89.998A70,70,0,0,0,150.00,80.000Z">
-          </path>
-          <path class="note" id="c"
-                d="M150.00,80.000A70,70,0,0,1,186.05,89.998L170.60,115.71A40,40,0,0,0,150.00,110.00Z">
-          </path>
+          <path
+            class="scale"
+            id="C"
+            d="M150.00,50.000A100,100,0,0,1,201.50,64.283L186.05,89.998A70,70,0,0,0,150.00,80.000Z"
+          ></path>
+          <path
+            class="note"
+            id="c"
+            d="M150.00,80.000A70,70,0,0,1,186.05,89.998L170.60,115.71A40,40,0,0,0,150.00,110.00Z"
+          ></path>
           <text x="149.99999999999997" y="68" class="cf-text-middle">C</text>
           <text x="150" y="97" class="cf-text-inner">C</text>
 
-          <path class="scale" id="G"
-                d="M200.00,63.397A100,100,0,0,1,237.46,101.52L211.22,116.06A70,70,0,0,0,185.00,89.378Z">
-          </path>
-          <path class="note" id="g"
-                d="M185.00,89.378A70,70,0,0,1,211.22,116.06L184.98,130.61A40,40,0,0,0,170.00,115.36Z">
-          </path>
+          <path
+            class="scale"
+            id="G"
+            d="M200.00,63.397A100,100,0,0,1,237.46,101.52L211.22,116.06A70,70,0,0,0,185.00,89.378Z"
+          ></path>
+          <path
+            class="note"
+            id="g"
+            d="M185.00,89.378A70,70,0,0,1,211.22,116.06L184.98,130.61A40,40,0,0,0,170.00,115.36Z"
+          ></path>
           <text x="192.5" y="79.38784067832272" class="cf-text-middle">G</text>
           <text x="177.5" y="104.36860279185588" class="cf-text-inner">G</text>
 
-          <path class="scale" id="D"
-                d="M236.60,100.00A100,100,0,0,1,249.98,151.75L219.99,151.22A70,70,0,0,0,210.62,115.00Z">
-          </path>
-          <path class="note" id="d"
-                d="M210.62,115.00A70,70,0,0,1,219.99,151.22L189.99,150.70A40,40,0,0,0,184.64,130.00Z">
-          </path>
-          <text x="223.61215932167727" y="110.49999999999997" class="cf-text-middle">D</text>
-          <text x="197.6313972081441" y="124.49999999999997" class="cf-text-inner">D</text>
+          <path
+            class="scale"
+            id="D"
+            d="M236.60,100.00A100,100,0,0,1,249.98,151.75L219.99,151.22A70,70,0,0,0,210.62,115.00Z"
+          ></path>
+          <path
+            class="note"
+            id="d"
+            d="M210.62,115.00A70,70,0,0,1,219.99,151.22L189.99,150.70A40,40,0,0,0,184.64,130.00Z"
+          ></path>
+          <text
+            x="223.61215932167727"
+            y="110.49999999999997"
+            class="cf-text-middle"
+          >
+            D
+          </text>
+          <text
+            x="197.6313972081441"
+            y="124.49999999999997"
+            class="cf-text-inner"
+          >
+            D
+          </text>
         </svg>
-
       </div>
 
       <div style="float: left; width: 15%">
