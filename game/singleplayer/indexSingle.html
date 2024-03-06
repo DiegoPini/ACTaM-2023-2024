@@ -13,13 +13,11 @@
   </head>
   <body>
     <div id="popup">
-      <button id="select">select</button>
-      <div id="gameContainer"></div>
       <div id="choose">
-        <button id="SinglePlayer">SinglePLayer</button>
-        <button id="MultiPlayer">MultyPlayer</button>
+        <button id="SinglePlayer">Play</button>
       </div>
 
+      <div id="gameContainer"></div>
       <div id="RW">
         <canvas
           id="myCanvas"
@@ -33,12 +31,13 @@
           height="550"
           style="position: absolute; left: 0; top: 0"
         ></canvas>
+        <button id="select">select</button>
       </div>
     </div>
 
     <div id="map"></div>
 
-    <script src="rithmic-wheel-script.js"></script>
-    <script src="/singleplayer.js"></script>
+    <script src="../../rithmic-wheel/rithmic-wheel-script.js"></script>
+    <script src="singleplayer.js"></script>
   </body>
 </html>
