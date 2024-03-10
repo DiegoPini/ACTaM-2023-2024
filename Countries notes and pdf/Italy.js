@@ -1,13 +1,5 @@
 // Italy
 
-//C4 60  DO  (nota più bassa per flauto)
-//D 62  RE
-//E 64  MI
-//F 65  FA
-//G 67  SOL
-//A 69  LA
-//B 71  SI
-//C5 72 DO 
 // unità di misura: sedicesimi
 
 //legenda:
