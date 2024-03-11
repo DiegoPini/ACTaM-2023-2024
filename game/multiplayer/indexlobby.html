@@ -12,26 +12,24 @@
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
   </head>
   <body>
-    <div di="title">
-      <h1>Lobby System</h1>
+    <h1>Lobby System</h1>
 
-      <!-- Create Lobby Form -->
-      <h2>Create Lobby</h2>
-      <form id="create-lobby-form">
-        <label for="lobby-name">User ID:</label>
-        <input type="text" id="creator" required />
-        <button type="button" id="create-lobby">Create Lobby</button>
-      </form>
-      <!-- Join Lobby Form -->
-      <h2>Join Lobby</h2>
-      <form id="join-lobby-form">
-        <label for="lobby-id">Lobby ID:</label>
-        <input type="text" id="lobby-id" required />
-        <label for="user-id">Your User ID:</label>
-        <input type="text" id="user-id" required />
-        <button type="button" id="join-lobby">Join Lobby</button>
-      </form>
-    </div>
+    <!-- Create Lobby Form -->
+    <h2>Create Lobby</h2>
+    <form id="create-lobby-form">
+      <label for="lobby-name">User ID:</label>
+      <input type="text" id="creator" required />
+      <button type="button" id="create-lobby">Create Lobby</button>
+    </form>
+    <!-- Join Lobby Form -->
+    <h2>Join Lobby</h2>
+    <form id="join-lobby-form">
+      <label for="lobby-id">Lobby ID:</label>
+      <input type="text" id="lobby-id" required />
+      <label for="user-id">Your User ID:</label>
+      <input type="text" id="user-id" required />
+      <button type="button" id="join-lobby">Join Lobby</button>
+    </form>
     <div id="popup">
       <div id="RW">
         <canvas
@@ -55,6 +53,6 @@
     <button id="start-game">Start Game</button>
     <div id="map"></div>
     <script type="module" src="server.js"></script>
-    <script src="../../rithmic-wheel/rithmic-wheel-script.js"></script>
+    <script src="rithmic-wheel-script.js"></script>
   </body>
 </html>

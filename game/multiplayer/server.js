@@ -57,7 +57,7 @@ const map = new mapboxgl.Map({
 var myJSON = [];
 async function loadJSON() {
   try {
-    const response = await fetch("../../MusicBeat.json");
+    const response = await fetch("MusicBeat.json");
     myJSON = await response.json();
   } catch (error) {
     console.error("Error loading JSON:", error);
@@ -75,8 +75,12 @@ const start = document.getElementById("start-game");
 const RW = document.getElementById("RW");
 const select = document.getElementById("select");
 const mapind = document.getElementById("map");
-const title = document.getElementById("title");
 mapind.style.display = "none";
+start.style.display = "none";
+RW.style.display = "none";
+select.style.display = "none";
+let lobbyId;
+popup.style.display = "none";
 
 let point = 0;
 create.addEventListener("click", () => {
@@ -90,7 +94,6 @@ function createLobby() {
   myJSON.forEach((element) => {
     stateList.push(element.State);
   });
-
   stateList = shuffleArray(stateList);
   console.log(stateList);
   const userId = document.getElementById("creator").value;
@@ -106,7 +109,6 @@ function createLobby() {
     state: "waiting",
     guess: "default",
   });
-
   onDisconnect(newLobbyRef).remove();
   const playerIDRef = ref(
     db,
@@ -141,7 +143,6 @@ join.addEventListener("click", () => {
 });
 
 function joinLobby() {
-  title.style.display = "none";
   const lobbyName = document.getElementById("lobby-id").value;
   const userId = document.getElementById("user-id").value;
   lobbyId = lobbyName;
@@ -188,7 +189,6 @@ function joinLobby() {
 }
 
 function startGame(lobbyId) {
-  title.style.display = "none";
   const lobbyRef = ref(db, "lobbies/" + lobbyId);
   update(lobbyRef, { state: "started" });
   startGameForPlayer(lobbyId);
