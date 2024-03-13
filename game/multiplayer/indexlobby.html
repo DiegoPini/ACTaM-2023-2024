@@ -12,7 +12,8 @@
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
   </head>
   <body>
-    <h1>Lobby System</h1>
+    <div id="title">
+      <h1>Lobby System</h1>
 
     <!-- Create Lobby Form -->
     <h2>Create Lobby</h2>
@@ -44,8 +45,8 @@
           height="550"
           style="position: absolute; left: 0; top: 0"
         ></canvas>
+        <button id="select">select</button>
       </div>
-      <button id="select">select</button>
     </div>
 
     <div id="active-lobbies-list"></div>
@@ -53,6 +54,6 @@
     <button id="start-game">Start Game</button>
     <div id="map"></div>
     <script type="module" src="server.js"></script>
-    <script src="rithmic-wheel-script.js"></script>
+    <script src="../../rithmic-wheel/rithmic-wheel-script.js"></script>
   </body>
 </html>
