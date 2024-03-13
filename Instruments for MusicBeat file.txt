@@ -1,0 +1,55 @@
+Instruments for MusicBeat file
+Instruments in order in each country
+
+France:
+low tom
+hi-hat chiuso
+nulla
+nulla
+
+Jamaica:
+high floor tom
+hi-hat chiuso 
+nulla
+nulla
+
+United Kingdom:
+grancassa
+hi-hat chiuso
+rullante elettrico
+side stick
+
+USA:
+low tom
+hi-hat chiuso
+nulla
+nulla
+
+Italy:
+triangolo
+legnetti
+nulla
+nulla
+
+Austria:
+grancassa
+tamburello
+nulla
+nulla
+
+Spain:
+schiocco di dita
+battito di mani
+nulla
+
+Australia:
+grancassa
+grancassa
+nacchere
+maracas
+
+Brazil:
+grancassa
+hi-hat chiuso
+legnetti
+maracas
