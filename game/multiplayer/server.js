@@ -76,8 +76,8 @@ const RW = document.getElementById("RW");
 const select = document.getElementById("select");
 const mapind = document.getElementById("map");
 const title = document.getElementById("title");
-mapind.style.display = "none";
 
+let lobbyId;
 let point = 0;
 create.addEventListener("click", () => {
   createLobby();
@@ -87,6 +87,7 @@ let playerId;
 let stateList = [];
 
 function createLobby() {
+  title.style.display = "none";
   myJSON.forEach((element) => {
     stateList.push(element.State);
   });
@@ -188,7 +189,6 @@ function joinLobby() {
 }
 
 function startGame(lobbyId) {
-  title.style.display = "none";
   const lobbyRef = ref(db, "lobbies/" + lobbyId);
   update(lobbyRef, { state: "started" });
   startGameForPlayer(lobbyId);
@@ -317,12 +317,11 @@ function nextRound() {
 select.addEventListener("click", () => {
   popup.style.display = "none";
   select.style.display = "none";
-  mapind.style.display = "block";
 });
 
 map.on("click", (event) => {
   popup.style.display = "block";
-  mapind.style.display = "none";
+
   const features = map.queryRenderedFeatures(event.point, {
     layers: ["countries"],
   });
@@ -366,7 +365,6 @@ function CheckWin() {
 }
 
 function end() {
-  mapind.style.display = "none";
   popup.style.display = "none";
   const lobbyref = ref(db, "lobbies/" + lobbyId);
   lobbyref.remove();

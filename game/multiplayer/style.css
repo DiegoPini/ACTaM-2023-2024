@@ -13,6 +13,14 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+#select {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 1;
+}
+
 #RW {
   display: none;
   position: absolute;
@@ -28,7 +36,6 @@ body {
 }
 
 #map {
-  display: none;
   position: absolute;
   top: 0;
   bottom: 0;
