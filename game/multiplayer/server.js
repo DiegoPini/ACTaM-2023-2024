@@ -57,7 +57,7 @@ const map = new mapboxgl.Map({
 var myJSON = [];
 async function loadJSON() {
   try {
-    const response = await fetch("../../MusicBeat.json");
+    const response = await fetch("MusicBeat.json");
     myJSON = await response.json();
   } catch (error) {
     console.error("Error loading JSON:", error);
@@ -91,7 +91,6 @@ function createLobby() {
   myJSON.forEach((element) => {
     stateList.push(element.State);
   });
-
   stateList = shuffleArray(stateList);
   console.log(stateList);
   const userId = document.getElementById("creator").value;
@@ -107,7 +106,6 @@ function createLobby() {
     state: "waiting",
     guess: "default",
   });
-
   onDisconnect(newLobbyRef).remove();
   const playerIDRef = ref(
     db,
@@ -142,7 +140,6 @@ join.addEventListener("click", () => {
 });
 
 function joinLobby() {
-  title.style.display = "none";
   const lobbyName = document.getElementById("lobby-id").value;
   const userId = document.getElementById("user-id").value;
   lobbyId = lobbyName;

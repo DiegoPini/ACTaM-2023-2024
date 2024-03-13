@@ -1,0 +1,38 @@
+STRUMENTI (V=scaricato)
+
+Suono determinato:
+
+1 flauto (se possibile anche un flauto stile irlandese)
+2 piano
+V3 Didgeridoo
+4 Marimba
+5 chitarra acustica
+6 chitarra classica
+7 violino
+8 clavicembalo
+9 piano elettrico
+10 basso elettrico
+11 fisarmonica
+12 violoncello
+13 oboe
+14 organo
+15 chitarra elettrica
+16 sassofono soprano
+17 basso acustico
+
+Suono indeterminato:
+
+V18 legnetti
+V19 tamburello
+V20 maracas
+V21 triangolo
+V22 nacchere
+V23 battito di mani
+V24 schiocco di dita
+
+Batteria:
+V25 Hi-Hat chiuso
+V26 Low tom
+V27 grancassa
+V28 high floor tom
+V29 rullante elettrico

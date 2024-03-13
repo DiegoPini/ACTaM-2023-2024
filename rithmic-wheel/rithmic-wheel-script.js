@@ -7,9 +7,10 @@ let lineCtx = lineCanvas.getContext("2d");
 let X_init = 0;
 let Y_init = 0;
 let DIM = 350;
-let MAX_RADIUS = DIM / 2;
+let MAX_RADIUS = DIM/2;
 let X_center = MAX_RADIUS + X_init;
 let Y_center = MAX_RADIUS + Y_init;
+
 
 ctx.beginPath();
 ctx.arc(X_center, Y_center, MAX_RADIUS, 0, 2 * Math.PI);
@@ -17,17 +18,17 @@ ctx.fillStyle = "#FE938C";
 ctx.fill();
 
 ctx.beginPath();
-ctx.arc(X_center, Y_center, (MAX_RADIUS * 9) / 11, 0, 2 * Math.PI);
+ctx.arc(X_center, Y_center, MAX_RADIUS*9/11, 0, 2 * Math.PI);
 ctx.fillStyle = "#E6B89C";
 ctx.fill();
 
 ctx.beginPath();
-ctx.arc(X_center, Y_center, (MAX_RADIUS * 7) / 11, 0, 2 * Math.PI);
+ctx.arc(X_center, Y_center, MAX_RADIUS*7/11, 0, 2 * Math.PI);
 ctx.fillStyle = "#91B6B7";
 ctx.fill();
 
 ctx.beginPath();
-ctx.arc(X_center, Y_center, (MAX_RADIUS * 5) / 11, 0, 2 * Math.PI);
+ctx.arc(X_center, Y_center, MAX_RADIUS*5/11, 0, 2 * Math.PI);
 ctx.fillStyle = "#4281A4";
 ctx.fill();
 
@@ -46,14 +47,7 @@ let sound2;
 let sound3;
 let sound4;
 
-function drawButtons44(
-  ctx,
-  centerX,
-  centerY,
-  circleRadius,
-  buttonRadius,
-  color
-) {
+function drawButtons44(ctx, centerX, centerY, circleRadius, buttonRadius, color) {
   const numberOfButtons = 16;
   for (let i = 0; i < numberOfButtons; i++) {
     const angle = 22.5 * i * (Math.PI / 180);
@@ -205,8 +199,8 @@ function drawButtons34(
   const numberOfButtons = 12;
   for (let i = 0; i < numberOfButtons; i++) {
     const angle = 30 * i * (Math.PI / 180);
-    const buttonX = centerX + circleRadius * Math.cos(angle) * 0.5;
-    const buttonY = centerY + circleRadius * Math.sin(angle) * 0.5;
+    const buttonX = centerX + circleRadius * Math.cos(angle) *0.5;
+    const buttonY = centerY + circleRadius * Math.sin(angle) *0.5;
     const circle = drawButton(ctx, buttonX, buttonY, buttonRadius, color);
 
     circles.push(circle);
@@ -216,25 +210,11 @@ function drawButtons34(
 function selectTempo(tempo) {
   if (tempo == 1) {
     for (i = 0; i < 4; i++) {
-      drawButtons44(
-        ctx,
-        MAX_RADIUS,
-        MAX_RADIUS,
-        MAX_RADIUS * (4 / 11 + (i * 2) / 11),
-        5,
-        "white"
-      );
+      drawButtons44(ctx, MAX_RADIUS, MAX_RADIUS, MAX_RADIUS*(4/11 + i*2/11), 5, "white");
     }
   } else {
     for (i = 0; i < 4; i++) {
-      drawButtons34(
-        ctx,
-        MAX_RADIUS,
-        MAX_RADIUS,
-        MAX_RADIUS * (4 / 11 + (i * 2) / 11),
-        5,
-        "white"
-      );
+      drawButtons34(ctx, MAX_RADIUS, MAX_RADIUS, MAX_RADIUS*(4/11 + i*2/11), 5, "white");
     }
   }
 }
@@ -307,11 +287,8 @@ function play(bpm, sign) {
 }
 
 function loadSounds(sound1D, sound2D, sound3D, sound4D) {
-  if (!sound1D === undefined) sound1 = new Audio(sound1D);
-
-  if (!sound2D === undefined) sound2 = new Audio(sound2D);
-
-  if (!sound3D === undefined) sound3 = new Audio(sound3D);
-
-  if (!sound4D === undefined) sound4 = new Audio(sound4D);
+  sound1 = new Audio(sound1D);
+  sound2 = new Audio(sound2D);
+  sound3 = new Audio(sound3D);
+  sound4 = new Audio(sound4D);
 }
