@@ -57,7 +57,7 @@ const map = new mapboxgl.Map({
 var myJSON = [];
 async function loadJSON() {
   try {
-    const response = await fetch("MusicBeat.json");
+    const response = await fetch("../../MusicBeat.json");
     myJSON = await response.json();
   } catch (error) {
     console.error("Error loading JSON:", error);
@@ -77,6 +77,8 @@ const select = document.getElementById("select");
 const mapind = document.getElementById("map");
 const title = document.getElementById("title");
 
+mapind.style.display = "none";
+
 let lobbyId;
 let point = 0;
 create.addEventListener("click", () => {
@@ -87,7 +89,6 @@ let playerId;
 let stateList = [];
 
 function createLobby() {
-  title.style.display = "none";
   myJSON.forEach((element) => {
     stateList.push(element.State);
   });
@@ -314,6 +315,7 @@ function nextRound() {
 select.addEventListener("click", () => {
   popup.style.display = "none";
   select.style.display = "none";
+  mapind.style.display = "block";
 });
 
 map.on("click", (event) => {
@@ -370,3 +372,4 @@ function end() {
 // si devono disconettere tutti e due
 // aggiungi i punteggi
 //check dei nomi
+// qunado uno esce dalla lobby prima cjhe inizi il gioco
