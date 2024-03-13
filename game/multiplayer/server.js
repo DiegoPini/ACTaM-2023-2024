@@ -79,6 +79,16 @@ const title = document.getElementById("title");
 
 mapind.style.display = "none";
 
+signInAnonymously(auth)
+  .then(() => {
+    console.log("Signed in anonymously");
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log("Error:", errorCode, errorMessage);
+  });
+
 let lobbyId;
 let point = 0;
 create.addEventListener("click", () => {
