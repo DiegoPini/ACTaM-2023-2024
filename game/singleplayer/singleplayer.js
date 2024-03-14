@@ -1,5 +1,4 @@
 let coin = 0;
-const SPB = document.getElementById("SinglePlayer");
 let selectedCountry;
 
 mapboxgl.accessToken =
@@ -15,30 +14,31 @@ const map = new mapboxgl.Map({
 var myJSON = [];
 async function loadJSON() {
   try {
-    const response = await fetch("MusicBeat.json");
+    const response = await fetch("../../MusicBeat.json");
     myJSON = await response.json();
   } catch (error) {
     console.error("Error loading JSON:", error);
   }
 }
 loadJSON();
+let rotationAngle = 0;
+let rotation = setInterval(() => {
+  rotationAngle += 0.1;
+  map.rotateTo(rotationAngle);
+}, 100);
 
-const MPB = document.getElementById("MultiPlayer");
+const Play = document.getElementById("play");
 const RW = document.getElementById("RW");
 const popup = document.getElementById("popup");
 const game = document.getElementById("gameContainer");
 
-const playerNameDiv = document.createElement("div");
-const playerCoinDiv = document.createElement("div");
+const scoreDiv = document.createElement("div");
 
 function singleplayer() {
   game.style.display = "block";
-  playerNameDiv.id = "you";
-  playerCoinDiv.id = "youcoin";
-  playerNameDiv.textContent = "you";
-  playerCoinDiv.textContent = coin;
-  game.appendChild(playerNameDiv);
-  game.appendChild(playerCoinDiv);
+  scoreDiv.id = "score";
+  scoreDiv.textContent = "score:" + coin;
+  game.appendChild(scoreDiv);
 
   select.style.display = "block";
   RW.style.display = "block";
@@ -56,11 +56,11 @@ map.on("click", (event) => {
   if (!features.length) {
     return;
   }
-
-  const feature = features[0];
+  console.log(features[0].properties.name);
+  const feature = features[0].properties.name;
   if (feature == selectedCountry) coin++;
   else coin--;
-  playerCoinDiv.textContent = coin;
+  scoreDiv.textContent = "score:" + coin;
   CheckWin();
 });
 
@@ -73,22 +73,25 @@ select.addEventListener("click", () => {
 function changestate() {
   let index = Math.floor(Math.random() * myJSON.length);
   selectedCountry = myJSON[index].State;
+  console.log(selectedCountry);
   setup(myJSON[index].bpm, myJSON[index].DrumBeat, myJSON[index].TimeSignature);
 
-  loadSounds(
-    myJSON[index].Samples[0],
-    myJSON[index].Samples[1],
-    myJSON[index].Samples[2],
-    myJSON[index].Samples[3]
-  );
+  if (myJSON[index].Samples.indexOf(undefined) != -1) {
+    loadSounds(
+      myJSON[index].Samples[0],
+      myJSON[index].Samples[1],
+      myJSON[index].Samples[2],
+      myJSON[index].Samples[3]
+    );
+  }
 }
 
 function CheckWin() {
-  if (coin == 10) {
-    alert("You win!");
+  if (coin == 5) {
+    alert("You won!");
     end();
-  } else if (coin == -10) {
-    alert("You lose!");
+  } else if (coin == -3) {
+    alert("You lost!");
     end();
   } else {
     changestate();
@@ -96,16 +99,14 @@ function CheckWin() {
   }
 }
 
-SPB.addEventListener("click", () => {
-  SPB.style.display = "none";
-  MPB.style.display = "none";
+Play.addEventListener("click", () => {
+  Play.style.display = "none";
+  clearInterval(rotation);
   singleplayer();
 });
 
 function end() {
   game.style.display = "none";
-  SPB.style.display = "block";
-  MPB.style.display = "block";
   RW.style.display = "none";
   coin = 0;
   playerCoinDiv.textContent = coin;

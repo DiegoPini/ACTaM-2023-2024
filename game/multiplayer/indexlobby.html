@@ -13,24 +13,32 @@
   </head>
   <body>
     <div id="title">
+      <div id = "temp">
       <h1>Lobby System</h1>
 
-    <!-- Create Lobby Form -->
-    <h2>Create Lobby</h2>
-    <form id="create-lobby-form">
-      <label for="lobby-name">User ID:</label>
-      <input type="text" id="creator" required />
-      <button type="button" id="create-lobby">Create Lobby</button>
-    </form>
-    <!-- Join Lobby Form -->
-    <h2>Join Lobby</h2>
-    <form id="join-lobby-form">
-      <label for="lobby-id">Lobby ID:</label>
-      <input type="text" id="lobby-id" required />
-      <label for="user-id">Your User ID:</label>
-      <input type="text" id="user-id" required />
-      <button type="button" id="join-lobby">Join Lobby</button>
-    </form>
+      <!-- Create Lobby Form -->
+      <h2>Create Lobby</h2>
+      <form id="create-lobby-form">
+        <label for="lobby-name">User ID:</label>
+        <input type="text" id="creator" required />
+        <button type="button" id="create-lobby">Create Lobby</button>
+      </form>
+      <!-- Join Lobby Form -->
+      <h2>Join Lobby</h2>
+      <form id="join-lobby-form">
+        <label for="lobby-id">Lobby ID:</label>
+        <input type="text" id="lobby-id" required />
+        <label for="user-id">Your User ID:</label>
+        <input type="text" id="user-id" required />
+        <button type="button" id="join-lobby">Join Lobby</button>
+      </div>
+        <div id="wait">
+          <div id="active-lobbies-list"></div>
+          <div id="lobby-members-list"></div>
+          <button id="start-game">Start Game</button>
+        </div>
+      </form>
+    </div>
     <div id="popup">
       <div id="RW">
         <canvas
@@ -48,10 +56,7 @@
         <button id="select">select</button>
       </div>
     </div>
-
-    <div id="active-lobbies-list"></div>
-    <div id="lobby-members-list"></div>
-    <button id="start-game">Start Game</button>
+    
     <div id="map"></div>
     <script type="module" src="server.js"></script>
     <script src="../../rithmic-wheel/rithmic-wheel-script.js"></script>

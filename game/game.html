@@ -1,16 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head> </head>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+  </head>
   <body>
-    <button id="SinglePlayer">SinglePLayer</button>
-    <button id="MultiPlayer">MultyPlayer</button>
+    <div id="popup">
+      <div id="choose">
+        <button id="SinglePlayer">SinglePLayer</button>
+        <button id="MultiPlayer">MultiPlayer</button>
+      </div>
+    </div>
+    <div id="map"></div>
     <script>
       document.getElementById("SinglePlayer").addEventListener("click", () => {
-        window.location.href = "../game/multiplayer/indexSingle.html";
+        window.location.href = "../game/singleplayer/indexSingle.html";
       });
       document.getElementById("MultiPlayer").addEventListener("click", () => {
         window.location.href = "../game/multiplayer/indexlobby.html";
       });
+
+      mapboxgl.accessToken =
+        "pk.eyJ1IjoiY2hpYWx1bmdoaSIsImEiOiJjbG5vbHhqb3gwZWQyMnZwZjZkZDlxa2FhIn0.hT_7Fs3WyTZHUA3fNOsCsQ";
+      const map = new mapboxgl.Map({
+        container: "map",
+        style: "mapbox://styles/chialunghi/clpecviq600d901padnab3zej",
+        // center: punto da cui di default appare la mappa, in questo caso Roma
+        center: [12.4964, 41.9028],
+        zoom: 3,
+      });
+
+      let rotationAngle = 0;
+      let rotation = setInterval(() => {
+        rotationAngle += 0.1;
+        map.rotateTo(rotationAngle);
+      }, 100);
     </script>
   </body>
 </html>

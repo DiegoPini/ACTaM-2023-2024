@@ -74,10 +74,15 @@ const create = document.getElementById("create-lobby");
 const start = document.getElementById("start-game");
 const RW = document.getElementById("RW");
 const select = document.getElementById("select");
-const mapind = document.getElementById("map");
 const title = document.getElementById("title");
+const wait = document.getElementById("wait");
+const temp = document.getElementById("temp");
 
-mapind.style.display = "none";
+let rotationAngle = 0;
+let rotation = setInterval(() => {
+  rotationAngle += 0.1;
+  map.rotateTo(rotationAngle);
+}, 100);
 
 signInAnonymously(auth)
   .then(() => {
@@ -99,6 +104,8 @@ let playerId;
 let stateList = [];
 
 function createLobby() {
+  temp.style.display = "none";
+  clearInterval(rotation);
   myJSON.forEach((element) => {
     stateList.push(element.State);
   });
@@ -143,6 +150,7 @@ function createLobby() {
       });
     }
   });
+  wait.style.display = "block";
 }
 
 const join = document.getElementById("join-lobby");
@@ -151,6 +159,8 @@ join.addEventListener("click", () => {
 });
 
 function joinLobby() {
+  temp.style.display = "none";
+  clearInterval(rotation);
   const lobbyName = document.getElementById("lobby-id").value;
   const userId = document.getElementById("user-id").value;
   lobbyId = lobbyName;
@@ -285,6 +295,7 @@ function changestate(index) {
 
 let counter = 0;
 function startGameForPlayer(lobbyId) {
+  title.style.display = "none";
   popup.style.display = "block";
   RW.style.display = "block";
   select.style.display = "block";
@@ -325,7 +336,6 @@ function nextRound() {
 select.addEventListener("click", () => {
   popup.style.display = "none";
   select.style.display = "none";
-  mapind.style.display = "block";
 });
 
 map.on("click", (event) => {
