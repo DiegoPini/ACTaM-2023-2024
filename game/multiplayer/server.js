@@ -67,7 +67,7 @@ loadJSON();
 
 const createform = document.getElementById("create-lobby-form");
 const joinform = document.getElementById("join-lobby-form");
-const activeLobbiesList = document.getElementById("active-lobbies-list");
+
 const db = getDatabase(app);
 const auth = getAuth(app);
 const create = document.getElementById("create-lobby");
@@ -77,6 +77,9 @@ const select = document.getElementById("select");
 const title = document.getElementById("title");
 const wait = document.getElementById("wait");
 const temp = document.getElementById("temp");
+const removeactivelobbies = document.getElementById("remove-active-lobbies");
+
+const lobbiesRef = ref(db, "lobbies");
 
 let rotationAngle = 0;
 let rotation = setInterval(() => {
@@ -112,10 +115,11 @@ function createLobby() {
   stateList = shuffleArray(stateList);
   console.log(stateList);
   const userId = document.getElementById("creator").value;
-  const lobbiesRef = ref(db, "lobbies");
   playerId = userId;
   const newLobbyRef = push(lobbiesRef);
+
   off(lobbiesRef);
+  removeactivelobbies.style.display = "none";
   activeLobbiesList.display = "none";
   set(newLobbyRef, {
     creator: userId,
@@ -159,7 +163,6 @@ join.addEventListener("click", () => {
 });
 
 function joinLobby() {
-  temp.style.display = "none";
   clearInterval(rotation);
   const lobbyName = document.getElementById("lobby-id").value;
   const userId = document.getElementById("user-id").value;
@@ -167,38 +170,40 @@ function joinLobby() {
   playerId = userId;
   const lobbyPlayersRef = ref(db, "lobbies/" + lobbyName + "/players");
   const lobbyIdRef = ref(db, "lobbies/" + lobbyName);
-  const lobbiesRef = ref(db, "lobbies");
-  off(lobbiesRef);
   activeLobbiesList.display = "none";
   updateLobbyMembersUI(lobbyName);
+
+  off(lobbiesRef);
+  removeactivelobbies.style.display = "none";
 
   get(lobbyPlayersRef).then((snapshot) => {
     if (!snapshot.exists()) {
       console.error("Lobby does not exist.");
       return;
-    }
-    let players = snapshot.val();
-    if (players === null) {
-      players = [];
-    }
-    players.push(userId);
-    set(lobbyPlayersRef, players);
-    const playerIDRef = ref(db, "lobbies/" + lobbyName + "/players" + userId);
-    set(playerIDRef, {
-      points: point,
-    });
+    } else {
+      temp.style.display = "none";
+      let players = snapshot.val();
+      if (players === null) {
+        players = [];
+      }
+      players.push(userId);
+      set(lobbyPlayersRef, players);
+      const playerIDRef = ref(db, "lobbies/" + lobbyName + "/players" + userId);
+      set(playerIDRef, {
+        points: point,
+      });
 
-    get(lobbyIdRef).then((snapshot) => {
-      const lobby = snapshot.val();
-      stateList = lobby.list;
-    });
-    createform.style.display = "none";
-    joinform.style.display = "none";
-    activeLobbiesList.style.display = "block";
+      get(lobbyIdRef).then((snapshot) => {
+        const lobby = snapshot.val();
+        stateList = lobby.list;
+      });
+      createform.style.display = "none";
+      joinform.style.display = "none";
+      activeLobbiesList.style.display = "block";
+    }
   });
 
-  const lobbysRef = ref(db, "lobbies/" + lobbyName);
-  onValue(lobbysRef, (snapshot) => {
+  onValue(lobbyIdRef, (snapshot) => {
     const lobby = snapshot.val();
     if (lobby && lobby.state === "started") {
       startGameForPlayer(lobbyName);
@@ -212,32 +217,39 @@ function startGame(lobbyId) {
   startGameForPlayer(lobbyId);
 }
 
+const activeLobbiesList = document.getElementById("active-lobbies-list");
 function displayActiveLobbies() {
-  const lobbiesRef = ref(db, "lobbies");
   onValue(lobbiesRef, (snapshot) => {
-    var activeLobbiesList = document.getElementById("active-lobbies-list");
     activeLobbiesList.innerHTML = "";
 
     snapshot.forEach(function (childSnapshot) {
       var lobby = childSnapshot.val();
       var lobbyId = childSnapshot.key;
-      var listItem = document.createElement("li");
-      var copybutton = document.createElement("button");
-      copybutton.textContent = "Copy";
-      copybutton.addEventListener("click", function () {
-        navigator.clipboard.writeText(lobbyId);
-        alert("Copied");
-      });
-      listItem.textContent =
-        "Lobby: " + lobbyId + " (ID: " + lobby.creator + ")";
-      listItem.setAttribute("data-lobby-id", lobbyId);
+      if (lobby.state != "started") {
+        var listItem = document.createElement("li");
+        var copybutton = document.createElement("button");
+        copybutton.textContent = "Copy";
+        copybutton.addEventListener("click", function () {
+          navigator.clipboard.writeText(lobbyId);
+          alert("Copied");
+        });
+        listItem.textContent =
+          "Lobby: " + lobbyId + " (ID: " + lobby.creator + ")";
+        listItem.setAttribute("data-lobby-id", lobbyId);
 
-      activeLobbiesList.appendChild(listItem);
-      activeLobbiesList.appendChild(copybutton);
+        var container = document.createElement("div");
+        container.style.display = "flex";
+        container.style.alignItems = "center";
+        container.appendChild(listItem);
+        container.appendChild(copybutton);
+
+        activeLobbiesList.appendChild(container);
+      }
     });
   });
 }
 
+let playersList = [];
 function updateLobbyMembersUI(lobbyId) {
   var lobbyMembersList = document.getElementById("lobby-members-list");
 
@@ -245,6 +257,7 @@ function updateLobbyMembersUI(lobbyId) {
 
   onValue(lobbyMembersRef, (snapshot) => {
     var members = snapshot.val();
+    playersList = members;
     lobbyMembersList.innerHTML = "";
     members.forEach(function (member) {
       var memberDiv = document.createElement("div");
@@ -294,6 +307,7 @@ function changestate(index) {
 }
 
 let counter = 0;
+
 function startGameForPlayer(lobbyId) {
   title.style.display = "none";
   popup.style.display = "block";
@@ -304,6 +318,23 @@ function startGameForPlayer(lobbyId) {
 
   const lobbyRef = ref(db, "lobbies/" + lobbyId);
   off(lobbyRef);
+
+  playersList.forEach((player) => {
+    let playerRef = ref(db, "lobbies/" + lobbyId + "/players" + player);
+    get(playerRef).then((snapshot) => {
+      var playerData = snapshot.val();
+
+      var playerDiv = document.createElement("div");
+      if (player == playerId) {
+        playerDiv.textContent = "You:" + playerData.points;
+        playerDiv.id = player;
+      } else {
+        playerDiv.textContent = player + ":" + playerData.points;
+        playerDiv.id = player;
+      }
+      document.getElementById("players").appendChild(playerDiv);
+    });
+  });
 
   selectedCountry = stateList[counter];
   let index = loadIndex(selectedCountry);
@@ -354,6 +385,19 @@ map.on("click", (event) => {
     update(lobbyRef, {
       guess: "correct",
       [`players${playerId}/points`]: point,
+    });
+    player.forEach((player) => {
+      let playerRef = ref(db, "lobbies/" + lobbyId + "/players" + player);
+      get(playerRef).then((snapshot) => {
+        var playerData = snapshot.val();
+        if (player == playerId) {
+          document.getElementById(player).textContent =
+            "You:" + playerData.points;
+        } else {
+          document.getElementById(player).textContent =
+            player + ":" + playerData.points;
+        }
+      });
     });
     console.log(point);
   } else {

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Musical countries</title>
+    <link rel="icon" type="image/png" href="../../worldphoto.png"/>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Test Server</title>
     <link rel="stylesheet" href="style.css" />
     <link
       href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
@@ -33,7 +34,10 @@
         <button type="button" id="join-lobby">Join Lobby</button>
       </div>
         <div id="wait">
-          <div id="active-lobbies-list"></div>
+          <div id="remove-active-lobbies">
+          <div id="active-lobbies-list">
+          </div>
+        </div>
           <div id="lobby-members-list"></div>
           <button id="start-game">Start Game</button>
         </div>
@@ -54,6 +58,8 @@
           style="position: absolute; left: 0; top: 0"
         ></canvas>
         <button id="select">select</button>
+        <div id="players"></div>
+
       </div>
     </div>
     
