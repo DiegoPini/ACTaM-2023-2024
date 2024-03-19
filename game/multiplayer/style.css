@@ -150,10 +150,10 @@ button:hover {
   background-color: #91b6b7;
 }
 
-#player {
+#players {
   position: absolute;
   top: 50%;
   left: 20%;
-  z-index: 2;
+  z-index: 1;
   color: white;
 }

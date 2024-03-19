@@ -105,19 +105,22 @@ create.addEventListener("click", () => {
 
 let playerId;
 let stateList = [];
+let creator;
 
 function createLobby() {
   temp.style.display = "none";
   clearInterval(rotation);
+  map.rotateTo(0);
   myJSON.forEach((element) => {
     stateList.push(element.State);
   });
+
   stateList = shuffleArray(stateList);
   console.log(stateList);
   const userId = document.getElementById("creator").value;
   playerId = userId;
   const newLobbyRef = push(lobbiesRef);
-
+  creator = userId;
   off(lobbiesRef);
   removeactivelobbies.style.display = "none";
   activeLobbiesList.display = "none";
@@ -162,51 +165,72 @@ join.addEventListener("click", () => {
   joinLobby();
 });
 
+let namecheck = [];
 function joinLobby() {
   clearInterval(rotation);
+  map.rotateTo(0);
   const lobbyName = document.getElementById("lobby-id").value;
   const userId = document.getElementById("user-id").value;
   lobbyId = lobbyName;
   playerId = userId;
   const lobbyPlayersRef = ref(db, "lobbies/" + lobbyName + "/players");
   const lobbyIdRef = ref(db, "lobbies/" + lobbyName);
-  activeLobbiesList.display = "none";
-  updateLobbyMembersUI(lobbyName);
 
-  off(lobbiesRef);
-  removeactivelobbies.style.display = "none";
-
-  get(lobbyPlayersRef).then((snapshot) => {
-    if (!snapshot.exists()) {
-      console.error("Lobby does not exist.");
-      return;
-    } else {
-      temp.style.display = "none";
-      let players = snapshot.val();
-      if (players === null) {
-        players = [];
-      }
-      players.push(userId);
-      set(lobbyPlayersRef, players);
-      const playerIDRef = ref(db, "lobbies/" + lobbyName + "/players" + userId);
-      set(playerIDRef, {
-        points: point,
-      });
-
-      get(lobbyIdRef).then((snapshot) => {
-        const lobby = snapshot.val();
-        stateList = lobby.list;
-      });
-      createform.style.display = "none";
-      joinform.style.display = "none";
-      activeLobbiesList.style.display = "block";
-    }
+  get(lobbyIdRef).then((snapshot) => {
+    creator = snapshot.val().creator;
   });
 
-  onValue(lobbyIdRef, (snapshot) => {
-    const lobby = snapshot.val();
-    if (lobby && lobby.state === "started") {
-      startGameForPlayer(lobbyName);
+  onDisconnect(ref(db, "lobbies/" + lobbyName + "/players" + userId)).remove();
+  onDisconnect(ref(db, "lobbies/" + lobbyName + "/players/" + userId)).remove();
+  get(lobbyIdRef).then((snapshot) => {
+    namecheck = snapshot.val().players;
+    console.log(namecheck);
+    if (!namecheck.includes(playerId)) {
+      clearInterval(rotation);
+      activeLobbiesList.display = "none";
+      updateLobbyMembersUI(lobbyName);
+
+      off(lobbiesRef);
+      removeactivelobbies.style.display = "none";
+
+      get(lobbyPlayersRef).then((snapshot) => {
+        if (!snapshot.exists()) {
+          console.error("Lobby does not exist.");
+          return;
+        } else {
+          temp.style.display = "none";
+          let players = snapshot.val();
+          if (players === null) {
+            players = [];
+          }
+          players.push(userId);
+          set(lobbyPlayersRef, players);
+          const playerIDRef = ref(
+            db,
+            "lobbies/" + lobbyName + "/players" + userId
+          );
+          set(playerIDRef, {
+            points: point,
+          });
+
+          get(lobbyIdRef).then((snapshot) => {
+            const lobby = snapshot.val();
+            stateList = lobby.list;
+          });
+          createform.style.display = "none";
+          joinform.style.display = "none";
+          activeLobbiesList.style.display = "block";
+        }
+      });
+
+      onValue(lobbyIdRef, (snapshot) => {
+        const lobby = snapshot.val();
+        if (lobby && lobby.state === "started") {
+          startGameForPlayer(lobbyName);
+        }
+      });
+    } else {
+      alert("Name already in use");
     }
   });
 }
@@ -215,6 +239,13 @@ function startGame(lobbyId) {
   const lobbyRef = ref(db, "lobbies/" + lobbyId);
   update(lobbyRef, { state: "started" });
   startGameForPlayer(lobbyId);
+  onValue(lobbyRef, (snapshot) => {
+    const lobby = snapshot.val();
+    if (!lobby.players.includes(creator) || lobby.players.length < 2) {
+      end();
+      lobbyRef.remove();
+    }
+  });
 }
 
 const activeLobbiesList = document.getElementById("active-lobbies-list");
@@ -356,6 +387,19 @@ function startGameForPlayer(lobbyId) {
 function nextRound() {
   counter++;
   console.log(counter);
+  playersList.forEach((player) => {
+    let playerRef = ref(db, "lobbies/" + lobbyId + "/players" + player);
+    get(playerRef).then((snapshot) => {
+      var playerData = snapshot.val();
+      if (player == playerId) {
+        document.getElementById(player).textContent =
+          "You:" + playerData.points;
+      } else {
+        document.getElementById(player).textContent =
+          player + ":" + playerData.points;
+      }
+    });
+  });
   popup.style.display = "block";
   select.style.display = "block";
   CheckWin();
@@ -385,19 +429,6 @@ map.on("click", (event) => {
     update(lobbyRef, {
       guess: "correct",
       [`players${playerId}/points`]: point,
-    });
-    player.forEach((player) => {
-      let playerRef = ref(db, "lobbies/" + lobbyId + "/players" + player);
-      get(playerRef).then((snapshot) => {
-        var playerData = snapshot.val();
-        if (player == playerId) {
-          document.getElementById(player).textContent =
-            "You:" + playerData.points;
-        } else {
-          document.getElementById(player).textContent =
-            player + ":" + playerData.points;
-        }
-      });
     });
     console.log(point);
   } else {
@@ -431,9 +462,8 @@ function end() {
   popup.style.display = "none";
   const lobbyref = ref(db, "lobbies/" + lobbyId);
   lobbyref.remove();
+  title.style.display = "block";
 }
 
-// si devono disconettere tutti e due
-// aggiungi i punteggi
-//check dei nomi
-// qunado uno esce dalla lobby prima cjhe inizi il gioco
+// si devono disconettere tutti i giocaotori
+// qunado uno esce dalla lobby prima che inizi il gioco
