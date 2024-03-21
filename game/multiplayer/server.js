@@ -116,7 +116,6 @@ function createLobby() {
   });
 
   stateList = shuffleArray(stateList);
-  console.log(stateList);
   const userId = document.getElementById("creator").value;
   playerId = userId;
   const newLobbyRef = push(lobbiesRef);
@@ -148,13 +147,14 @@ function createLobby() {
   const lobbyPlayersRef = ref(db, "lobbies/" + newLobbyRef.key + "/players");
   onValue(lobbyPlayersRef, (snapshot) => {
     const players = snapshot.val();
-    console.log(players);
     const numPlayers = Object.keys(players).length;
     if (numPlayers >= 2) {
       start.style.display = "block";
       start.addEventListener("click", function () {
         startGame(newLobbyRef.key);
       });
+    } else {
+      start.style.display = "none";
     }
   });
   wait.style.display = "block";
@@ -180,11 +180,8 @@ function joinLobby() {
     creator = snapshot.val().creator;
   });
 
-  onDisconnect(ref(db, "lobbies/" + lobbyName + "/players" + userId)).remove();
-  onDisconnect(ref(db, "lobbies/" + lobbyName + "/players/" + userId)).remove();
   get(lobbyIdRef).then((snapshot) => {
     namecheck = snapshot.val().players;
-    console.log(namecheck);
     if (!namecheck.includes(playerId)) {
       clearInterval(rotation);
       activeLobbiesList.display = "none";
@@ -221,6 +218,13 @@ function joinLobby() {
           joinform.style.display = "none";
           activeLobbiesList.style.display = "block";
         }
+        console.log(namecheck.length + 1);
+        onDisconnect(
+          ref(db, "lobbies/" + lobbyName + "/players" + userId)
+        ).remove();
+        onDisconnect(
+          ref(db, "lobbies/" + lobbyName + "/players/" + namecheck.length)
+        ).remove();
       });
 
       onValue(lobbyIdRef, (snapshot) => {
@@ -241,9 +245,20 @@ function startGame(lobbyId) {
   startGameForPlayer(lobbyId);
   onValue(lobbyRef, (snapshot) => {
     const lobby = snapshot.val();
+    console.log(lobby.players);
     if (!lobby.players.includes(creator) || lobby.players.length < 2) {
       end();
       lobbyRef.remove();
+    }
+    if (lobby.players.length != namecheck.lenght) {
+      const playersExited = namecheck.filter(
+        (playerId) => !lobby.players.includes(playerId)
+      );
+
+      playersExited.forEach((playerId) => {
+        const playerDiv = document.getElementById(playerId);
+        playerDiv.remove();
+      });
     }
   });
 }
@@ -288,13 +303,23 @@ function updateLobbyMembersUI(lobbyId) {
 
   onValue(lobbyMembersRef, (snapshot) => {
     var members = snapshot.val();
-    playersList = members;
+
     lobbyMembersList.innerHTML = "";
     members.forEach(function (member) {
       var memberDiv = document.createElement("div");
       memberDiv.textContent = "Player ID: " + member;
       lobbyMembersList.appendChild(memberDiv);
     });
+    if (playersList.length != 0) {
+      var playersNotInMembers = playersList.filter(
+        (player) => !members.includes(player)
+      );
+      playersNotInMembers.forEach((player) => {
+        const playerDiv = document.getElementById(player);
+        playerDiv.remove();
+      });
+    }
+    playersList = members;
   });
 }
 
