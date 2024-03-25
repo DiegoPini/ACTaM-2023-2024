@@ -78,6 +78,7 @@ const title = document.getElementById("title");
 const wait = document.getElementById("wait");
 const temp = document.getElementById("temp");
 const removeactivelobbies = document.getElementById("remove-active-lobbies");
+const startButtonContainer = document.getElementById("start-game-container");
 
 const lobbiesRef = ref(db, "lobbies");
 
@@ -149,15 +150,18 @@ function createLobby() {
     const players = snapshot.val();
     const numPlayers = Object.keys(players).length;
     if (numPlayers >= 2) {
-      start.style.display = "block";
+      startButtonContainer.style.display = "flex";
       start.addEventListener("click", function () {
         startGame(newLobbyRef.key);
       });
     } else {
-      start.style.display = "none";
+      startButtonContainer.style.display = "none";
     }
   });
-  wait.style.display = "block";
+  wait.setAttribute(
+    "style",
+    "display: flex; height: 100%; align-content: center; justify-content: center; flex-direction: column;"
+  );
 }
 
 const join = document.getElementById("join-lobby");
@@ -217,6 +221,10 @@ function joinLobby() {
           createform.style.display = "none";
           joinform.style.display = "none";
           activeLobbiesList.style.display = "block";
+          wait.setAttribute(
+            "style",
+            "display: flex; height: 100%; align-content: center; justify-content: center; flex-direction: column;"
+          );
         }
         console.log(namecheck.length + 1);
         onDisconnect(
@@ -269,11 +277,11 @@ function displayActiveLobbies() {
     activeLobbiesList.innerHTML = "";
 
     snapshot.forEach(function (childSnapshot) {
-      var lobby = childSnapshot.val();
-      var lobbyId = childSnapshot.key;
+      const lobby = childSnapshot.val();
+      const lobbyId = childSnapshot.key;
       if (lobby.state != "started") {
-        var listItem = document.createElement("li");
-        var copybutton = document.createElement("button");
+        const listItem = document.createElement("li");
+        const copybutton = document.createElement("button");
         copybutton.textContent = "Copy";
         copybutton.addEventListener("click", function () {
           navigator.clipboard.writeText(lobbyId);
@@ -283,9 +291,10 @@ function displayActiveLobbies() {
           "Lobby: " + lobbyId + " (ID: " + lobby.creator + ")";
         listItem.setAttribute("data-lobby-id", lobbyId);
 
-        var container = document.createElement("div");
+        const container = document.createElement("div");
         container.style.display = "flex";
-        container.style.alignItems = "center";
+        container.style.aligntems = "center";
+        container.style.justifyContent = "center";
         container.appendChild(listItem);
         container.appendChild(copybutton);
 
@@ -297,21 +306,24 @@ function displayActiveLobbies() {
 
 let playersList = [];
 function updateLobbyMembersUI(lobbyId) {
-  var lobbyMembersList = document.getElementById("lobby-members-list");
-
+  const lobbyMembersList = document.getElementById("lobby-members-list");
+  lobbyMembersList.setAttribute(
+    "style",
+    "font-size: 1.5rem; font-weight: bold;"
+  );
   const lobbyMembersRef = ref(db, "lobbies/" + lobbyId + "/players");
 
   onValue(lobbyMembersRef, (snapshot) => {
-    var members = snapshot.val();
+    const members = snapshot.val();
 
     lobbyMembersList.innerHTML = "";
     members.forEach(function (member) {
-      var memberDiv = document.createElement("div");
+      const memberDiv = document.createElement("div");
       memberDiv.textContent = "Player ID: " + member;
       lobbyMembersList.appendChild(memberDiv);
     });
     if (playersList.length != 0) {
-      var playersNotInMembers = playersList.filter(
+      const playersNotInMembers = playersList.filter(
         (player) => !members.includes(player)
       );
       playersNotInMembers.forEach((player) => {
@@ -368,6 +380,10 @@ function startGameForPlayer(lobbyId) {
   title.style.display = "none";
   popup.style.display = "block";
   RW.style.display = "block";
+  RW.setAttribute(
+    "style",
+    "display: flex; height: 100%; align-items: center; justify-content: center; flex-direction: column;"
+  );
   select.style.display = "block";
   const lobbyMembersRef = ref(db, "lobbies/" + lobbyId + "/players");
   off(lobbyMembersRef);

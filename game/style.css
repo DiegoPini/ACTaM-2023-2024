@@ -10,6 +10,8 @@ button {
   padding: 10px;
   margin: 1%;
   opacity: 0.9;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 button:hover {

@@ -31,14 +31,11 @@ const Play = document.getElementById("play");
 const RW = document.getElementById("RW");
 const popup = document.getElementById("popup");
 const game = document.getElementById("gameContainer");
-
-const scoreDiv = document.createElement("div");
+const scoreDiv = document.getElementById("score");
 
 function singleplayer() {
-  game.style.display = "block";
-  scoreDiv.id = "score";
+  game.style.display = "flex";
   scoreDiv.textContent = "score:" + coin;
-  game.appendChild(scoreDiv);
 
   select.style.display = "block";
   RW.style.display = "block";
@@ -48,7 +45,8 @@ function singleplayer() {
 let playerSelection;
 
 map.on("click", (event) => {
-  popup.style.display = "block";
+  popup.style.display = "flex";
+  game.style.display = "flex";
 
   const features = map.queryRenderedFeatures(event.point, {
     layers: ["countries"],
@@ -106,8 +104,10 @@ Play.addEventListener("click", () => {
 });
 
 function end() {
+  popup.style.display = "flex";
+  Play.style.display = "block";
   game.style.display = "none";
   RW.style.display = "none";
+  scoreDiv.textContent = "";
   coin = 0;
-  playerCoinDiv.textContent = coin;
 }

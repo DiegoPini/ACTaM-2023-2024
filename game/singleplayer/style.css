@@ -11,25 +11,19 @@ body {
   z-index: 1;
   width: 100%;
   height: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 #score {
   position: absolute;
   top: 80%;
-  left: 42%;
   z-index: 1;
   font-size: 2em;
+
   color: white;
 }
-#popup {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
+
 #play {
   position: absolute;
   top: 42%;
@@ -37,24 +31,6 @@ body {
   z-index: 1;
   width: 200px;
   height: 100px;
-}
-#select {
-  display: none;
-  position: absolute;
-  top: 65%;
-  left: 42%;
-  width: 140px;
-  height: 70px;
-  z-index: 1;
-}
-
-#RW {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 42%;
-  z-index: 1;
-  top: 15%;
 }
 
 #map {
@@ -152,9 +128,46 @@ button {
   cursor: pointer;
   padding: 10px;
   margin: 1%;
+  font-size: 1.5rem;
+  font-weight: bold;
   opacity: 0.9;
 }
 
 button:hover {
   background-color: #91b6b7;
+}
+
+#select {
+  display: none;
+  position: absolute;
+  /* top: 0;
+  left: 50%; */
+  top: 60%;
+  z-index: 1;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#canvas-container {
+  display: flex;
+  height: 60%;
+  align-items: center;
+  justify-content: center;
+}
+
+#popup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#RW {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 }

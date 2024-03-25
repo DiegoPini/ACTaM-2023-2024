@@ -18,25 +18,30 @@
 
       <div id="gameContainer"></div>
       <div id="RW">
-        <canvas
-          id="myCanvas"
-          width="550"
-          height="550"
-          style="position: absolute; left: 0; top: 0"
-        ></canvas>
+        <div id="canvas-container">
+          <canvas
+            id="myCanvas"
+            width="350"
+            height="350"
+            style="position: absolute"
+          ></canvas>
+        </div>
         <canvas
           id="lineCanvas"
           width="550"
           height="550"
-          style="position: absolute; left: 0; top: 0"
+          style="display: none"
         ></canvas>
       </div>
+
       <button id="select">SELECT</button>
+
+      <div id="score"></div>
     </div>
 
     <div id="map"></div>
 
     <script src="../../rithmic-wheel/rithmic-wheel-script.js"></script>
-    <script src="/game/singleplayer/singleplayer.js"></script>
+    <script src="singleplayer.js"></script>
   </body>
 </html>
