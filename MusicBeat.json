@@ -1,6 +1,6 @@
 [
     {
-        "State" : "France", "bpm" : 120, "TimeSignature" : "3/4", "genre" : "Folk",
+        "State" : "France", "bpm" : 120, "TimeSignature" : 0, "genre" : "Folk",
         "Samples" : ["../Samples/Kick1.wav", "../Samples/Snare1.wav", "../Samples/HHCLosed1.wav", "../Samples/HHOpen1.wav"],
         "DrumBeat" : [[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],   
                       [0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],   
@@ -27,7 +27,7 @@
     },
 
     {
-            "State" : "USA", "bpm" : 120, "TimeSignature" : "3/4", "genre" : "Blues",
+            "State" : "USA", "bpm" : 120, "TimeSignature" : 0, "genre" : "Blues",
             "Samples" : ["Samples/Kick1.wav", "Samples/Snare1.wav", "Samples/HHCLosed1.wav", "Samples/HHOpen1.wav"],
             "DrumBeat" : [[1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],  
                         [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],  
@@ -45,7 +45,7 @@
         },
 
     {
-        "State" : "Austria", "bpm" : 150, "TimeSignature" : "3/4", "genre" : "Valzer",  
+        "State" : "Austria", "bpm" : 150, "TimeSignature" : 0, "genre" : "Valzer",  
         "Samples" : ["../Samples/Kick1.wav", "../Samples/Snare1.wav", "../Samples/HHCLosed1.wav", "../Samples/Ride1.wav"],
         "DrumBeat" : [[0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],   
                         [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0], 

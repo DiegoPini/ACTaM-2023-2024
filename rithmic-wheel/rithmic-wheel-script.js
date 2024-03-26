@@ -7,10 +7,9 @@ let lineCtx = lineCanvas.getContext("2d");
 let X_init = 0;
 let Y_init = 0;
 let DIM = 350;
-let MAX_RADIUS = DIM/2;
+let MAX_RADIUS = DIM / 2;
 let X_center = MAX_RADIUS + X_init;
 let Y_center = MAX_RADIUS + Y_init;
-
 
 ctx.beginPath();
 ctx.arc(X_center, Y_center, MAX_RADIUS, 0, 2 * Math.PI);
@@ -18,17 +17,17 @@ ctx.fillStyle = "#FE938C";
 ctx.fill();
 
 ctx.beginPath();
-ctx.arc(X_center, Y_center, MAX_RADIUS*9/11, 0, 2 * Math.PI);
+ctx.arc(X_center, Y_center, (MAX_RADIUS * 9) / 11, 0, 2 * Math.PI);
 ctx.fillStyle = "#E6B89C";
 ctx.fill();
 
 ctx.beginPath();
-ctx.arc(X_center, Y_center, MAX_RADIUS*7/11, 0, 2 * Math.PI);
+ctx.arc(X_center, Y_center, (MAX_RADIUS * 7) / 11, 0, 2 * Math.PI);
 ctx.fillStyle = "#91B6B7";
 ctx.fill();
 
 ctx.beginPath();
-ctx.arc(X_center, Y_center, MAX_RADIUS*5/11, 0, 2 * Math.PI);
+ctx.arc(X_center, Y_center, (MAX_RADIUS * 5) / 11, 0, 2 * Math.PI);
 ctx.fillStyle = "#4281A4";
 ctx.fill();
 
@@ -46,8 +45,16 @@ let sound1;
 let sound2;
 let sound3;
 let sound4;
+let oldTempo;
 
-function drawButtons44(ctx, centerX, centerY, circleRadius, buttonRadius, color) {
+function drawButtons44(
+  ctx,
+  centerX,
+  centerY,
+  circleRadius,
+  buttonRadius,
+  color
+) {
   const numberOfButtons = 16;
   for (let i = 0; i < numberOfButtons; i++) {
     const angle = 22.5 * i * (Math.PI / 180);
@@ -80,36 +87,45 @@ function selectBeatColor(beat, check) {
 }
 
 function beatColor34(beat) {
-  ClapsButtons = circles.slice(0, 12);
-  SoundButtons = circles.slice(12, 24);
-  KickButtons = circles.slice(24, 36);
-  HihatButtons = circles.slice(36, 48);
+  sound1But = [];
+  sound2But = [];
+  sound3But = [];
+  sound4But = [];
+
+  sound1But = circles.slice(0, 12);
+  sound2But = circles.slice(12, 24);
+  sound3But = circles.slice(24, 36);
+  sound4But = circles.slice(36, 48);
 
   for (let i = 0; i < 12; i++) {
     if (beat[0][i] === 1) {
-      changeButtonColor(ctx, ClapsButtons[i], "#EAE26D");
+      changeButtonColor(ctx, sound1But[i], "#EAE26D");
     } else {
-      changeButtonColor(ctx, ClapsButtons[i], "#4281A4");
+      changeButtonColor(ctx, sound1But[i], "#4281A4");
     }
     if (beat[1][i] === 1) {
-      changeButtonColor(ctx, SoundButtons[i], "#EAE26D");
+      changeButtonColor(ctx, sound2But[i], "#EAE26D");
     } else {
-      changeButtonColor(ctx, SoundButtons[i], "#91B6B7");
+      changeButtonColor(ctx, sound2But[i], "#91B6B7");
     }
     if (beat[2][i] === 1) {
-      changeButtonColor(ctx, KickButtons[i], "#EAE26D");
+      changeButtonColor(ctx, sound3But[i], "#EAE26D");
     } else {
-      changeButtonColor(ctx, KickButtons[i], "#E6B89C");
+      changeButtonColor(ctx, sound3But[i], "#E6B89C");
     }
     if (beat[3][i] === 1) {
-      changeButtonColor(ctx, HihatButtons[i], "#EAE26D");
+      changeButtonColor(ctx, sound4But[i], "#EAE26D");
     } else {
-      changeButtonColor(ctx, HihatButtons[i], "#FE938C");
+      changeButtonColor(ctx, sound4But[i], "#FE938C");
     }
   }
 }
 
 function beatColor44(beat) {
+  sound1But = [];
+  sound2But = [];
+  sound3But = [];
+  sound4But = [];
   sound1But = circles.slice(0, 16);
   sound2But = circles.slice(16, 32);
   sound3But = circles.slice(32, 48);
@@ -199,27 +215,47 @@ function drawButtons34(
   const numberOfButtons = 12;
   for (let i = 0; i < numberOfButtons; i++) {
     const angle = 30 * i * (Math.PI / 180);
-    const buttonX = centerX + circleRadius * Math.cos(angle) *0.5;
-    const buttonY = centerY + circleRadius * Math.sin(angle) *0.5;
+    const buttonX = centerX + circleRadius * Math.cos(angle);
+    const buttonY = centerY + circleRadius * Math.sin(angle);
     const circle = drawButton(ctx, buttonX, buttonY, buttonRadius, color);
 
     circles.push(circle);
   }
 }
 
-function selectTempo(tempo) {
-  if (tempo == 1) {
+function selectTempo(sign) {
+  resetButtonColors();
+  circles = [];
+  if (sign == 1) {
     for (i = 0; i < 4; i++) {
-      drawButtons44(ctx, MAX_RADIUS, MAX_RADIUS, MAX_RADIUS*(4/11 + i*2/11), 5, "white");
+      drawButtons44(
+        ctx,
+        MAX_RADIUS,
+        MAX_RADIUS,
+        MAX_RADIUS * (4 / 11 + (i * 2) / 11),
+        5,
+        "white"
+      );
     }
   } else {
     for (i = 0; i < 4; i++) {
-      drawButtons34(ctx, MAX_RADIUS, MAX_RADIUS, MAX_RADIUS*(4/11 + i*2/11), 5, "white");
+      drawButtons34(
+        ctx,
+        MAX_RADIUS,
+        MAX_RADIUS,
+        MAX_RADIUS * (4 / 11 + (i * 2) / 11),
+        5,
+        "white"
+      );
     }
   }
 }
 
 function saveTime(bpm, beat) {
+  sound1Times = [];
+  sound2Times = [];
+  sound3Times = [];
+  sound4Times = [];
   for (let i = 0; i < beat[0].length; i++) {
     if (beat[0][i] === 1) {
       sound1Times.push((i * 60000) / bpm);
@@ -291,4 +327,22 @@ function loadSounds(sound1D, sound2D, sound3D, sound4D) {
   sound2 = new Audio(sound2D);
   sound3 = new Audio(sound3D);
   sound4 = new Audio(sound4D);
+}
+
+function resetButtonColors() {
+  if (circles.length == 48) {
+    for (let i = 0; i < 12; i++) {
+      changeButtonColor(ctx, circles[i], "#4281A4");
+      changeButtonColor(ctx, circles[i + 12], "#91B6B7");
+      changeButtonColor(ctx, circles[i + 24], "#E6B89C");
+      changeButtonColor(ctx, circles[i + 36], "#FE938C");
+    }
+  } else if (circles.length == 64) {
+    for (let i = 0; i < 16; i++) {
+      changeButtonColor(ctx, circles[i], "#4281A4");
+      changeButtonColor(ctx, circles[i + 16], "#91B6B7");
+      changeButtonColor(ctx, circles[i + 32], "#E6B89C");
+      changeButtonColor(ctx, circles[i + 48], "#FE938C");
+    }
+  }
 }

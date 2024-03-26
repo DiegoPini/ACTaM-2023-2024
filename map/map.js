@@ -44,7 +44,6 @@ map.on("click", (event) => {
     return;
   }
   const feature = features[0];
-  var id = features[0].properties.name;
 
   index = loadIndex(feature.properties.name);
 
