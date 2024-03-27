@@ -22,17 +22,17 @@ V3 Didgeridoo
 
 Suono indeterminato:
 
-V18 legnetti
-V19 tamburello
-V20 maracas
-V21 triangolo
-V22 nacchere
-V23 battito di mani
-V24 schiocco di dita
+V18 legnetti 
+V19 tamburello 
+V20 maracas 
+V21 triangolo 
+V22 nacchere 
+V23 battito di mani 
+V24 schiocco di dita 
 
 Batteria:
-V25 Hi-Hat chiuso
-V26 Low tom
-V27 grancassa
-V28 high floor tom
-V29 rullante elettrico
+V25 Hi-Hat chiuso  
+V26 Low tom 
+V27 grancassa 
+V28 high floor tom 
+V29 rullante elettrico 
