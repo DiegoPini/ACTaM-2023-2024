@@ -5,7 +5,10 @@
         "DrumBeat" : [[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],   
                       [0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],   
                       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],  
-                      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]  
+                      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
+        "title" : "France - Disco Music",
+        "description": "The term \"disco\" is shorthand for the word discothèque, a French word for \"library of phonograph records\" derived from \"bibliothèque\". The word \"discothèque\" had the same meaning in English in the 1950s. \"Discothèque\" became used in French for a type of nightclub in Paris, after they had resorted to playing records during the Nazi occupation in the early 1940s. Some clubs used it as their proper name. In 1960, it was also used to describe a Parisian nightclub in an English magazine."
+        
     },
 
     {

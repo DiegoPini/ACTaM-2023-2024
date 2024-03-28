@@ -36,6 +36,7 @@ var index;
 
 map.on("click", (event) => {
   document.getElementById("customPopup").style.display = "block";
+  document.getElementById("game").style.display = "none";
 
   const features = map.queryRenderedFeatures(event.point, {
     layers: ["countries"], // layer name in the Style that is referred to the data (markers)
@@ -55,6 +56,11 @@ map.on("click", (event) => {
     myJSON[index].Samples[2],
     myJSON[index].Samples[3]
   );
+
+  const countryName = document.getElementById("countryName");
+  const description = document.getElementById("description");
+  countryName.textContent = myJSON[index].title;
+  description.textContent = myJSON[index].description;
 });
 
 window.addEventListener("load", function () {
@@ -64,6 +70,7 @@ window.addEventListener("load", function () {
 
   document.getElementById("close").addEventListener("click", () => {
     document.getElementById("customPopup").style.display = "none";
+    document.getElementById("game").style.display = "block";
   });
 });
 

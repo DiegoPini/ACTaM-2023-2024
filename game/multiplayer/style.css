@@ -6,6 +6,11 @@ body {
 #myCanvas {
   position: absolute;
 }
+
+#back {
+  display: none;
+}
+
 #customPopup {
   display: none;
   position: absolute;

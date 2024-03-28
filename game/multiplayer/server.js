@@ -79,6 +79,7 @@ const wait = document.getElementById("wait");
 const temp = document.getElementById("temp");
 const removeactivelobbies = document.getElementById("remove-active-lobbies");
 const startButtonContainer = document.getElementById("start-game-container");
+const back = document.getElementById("back");
 
 const lobbiesRef = ref(db, "lobbies");
 
@@ -131,7 +132,11 @@ function createLobby() {
     state: "waiting",
     guess: "default",
   });
-  onDisconnect(newLobbyRef).remove();
+
+  onDisconnect(
+    ref(db, "lobbies/" + newLobbyRef.key + "/players" + userId)
+  ).remove();
+  onDisconnect(ref(db, "lobbies/" + newLobbyRef.key + "/players/0")).remove();
   const playerIDRef = ref(
     db,
     "lobbies/" + newLobbyRef.key + "/players" + userId
@@ -251,24 +256,6 @@ function startGame(lobbyId) {
   const lobbyRef = ref(db, "lobbies/" + lobbyId);
   update(lobbyRef, { state: "started" });
   startGameForPlayer(lobbyId);
-  onValue(lobbyRef, (snapshot) => {
-    const lobby = snapshot.val();
-    console.log(lobby.players);
-    if (!lobby.players.includes(creator) || lobby.players.length < 2) {
-      end();
-      lobbyRef.remove();
-    }
-    if (lobby.players.length != namecheck.lenght) {
-      const playersExited = namecheck.filter(
-        (playerId) => !lobby.players.includes(playerId)
-      );
-
-      playersExited.forEach((playerId) => {
-        const playerDiv = document.getElementById(playerId);
-        playerDiv.remove();
-      });
-    }
-  });
 }
 
 const activeLobbiesList = document.getElementById("active-lobbies-list");
@@ -365,13 +352,6 @@ function loadIndex(country) {
 
 function changestate(index) {
   setup(myJSON[index].bpm, myJSON[index].DrumBeat, myJSON[index].TimeSignature);
-
-  loadSounds(
-    myJSON[index].Samples[0],
-    myJSON[index].Samples[1],
-    myJSON[index].Samples[2],
-    myJSON[index].Samples[3]
-  );
 }
 
 let counter = 0;
@@ -423,6 +403,25 @@ function startGameForPlayer(lobbyId) {
       nextRound();
     }
   });
+
+  onValue(lobbyRef, (snapshot) => {
+    const lobby = snapshot.val();
+    console.log(lobby.players);
+    if (!lobby.players.includes(creator) || lobby.players.length < 2) {
+      end();
+      lobbyRef.remove();
+    }
+    if (lobby.players.length != namecheck.lenght) {
+      const playersExited = namecheck.filter(
+        (playerId) => !lobby.players.includes(playerId)
+      );
+
+      playersExited.forEach((playerId) => {
+        const playerDiv = document.getElementById(playerId);
+        playerDiv.remove();
+      });
+    }
+  });
 }
 
 function nextRound() {
@@ -443,19 +442,28 @@ function nextRound() {
   });
   popup.style.display = "block";
   select.style.display = "block";
-  CheckWin();
-  selectedCountry = stateList[counter];
-  let index = loadIndex(selectedCountry);
-  changestate(index);
+  if (!CheckWin()) {
+    selectedCountry = stateList[counter];
+    let index = loadIndex(selectedCountry);
+    changestate(index);
+  }
 }
 
 select.addEventListener("click", () => {
   popup.style.display = "none";
   select.style.display = "none";
+  back.style.display = "block";
+});
+
+back.addEventListener("click", () => {
+  popup.style.display = "block";
+  select.style.display = "block";
+  back.style.display = "none";
 });
 
 map.on("click", (event) => {
   popup.style.display = "block";
+  back.style.display = "none";
 
   const features = map.queryRenderedFeatures(event.point, {
     layers: ["countries"],
@@ -480,15 +488,10 @@ map.on("click", (event) => {
 
 function CheckWin() {
   const lobbyref = ref(db, "lobbies/" + lobbyId);
-  if (point == 5) {
-    update(lobbyref, {
-      state: "ended",
-    });
-  }
   onValue(lobbyref, (snapshot) => {
     const lobby = snapshot.val();
     if (lobby.state == "ended") {
-      if (point == 5) {
+      if (point == 1) {
         alert("You Win");
         end();
       } else {
@@ -497,13 +500,20 @@ function CheckWin() {
       }
     }
   });
+  if (point == 1) {
+    update(lobbyref, {
+      state: "ended",
+    });
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function end() {
-  popup.style.display = "none";
   const lobbyref = ref(db, "lobbies/" + lobbyId);
-  lobbyref.remove();
-  title.style.display = "block";
+  remove(lobbyref);
+  window.location.href = "../game.html";
 }
 
 // si devono disconettere tutti i giocaotori
