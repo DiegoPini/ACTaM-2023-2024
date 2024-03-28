@@ -1,14 +1,14 @@
 [
     {
-        "State" : "France", "bpm" : 120, "TimeSignature" : 0, "genre" : "Folk",
+        "State" : "France", "bpm" : 120, "TimeSignature" : 0, "genre" : "Folk - Musette",
         "Samples" : ["../Samples/Kick1.wav", "../Samples/Snare1.wav", "../Samples/HHCLosed1.wav", "../Samples/HHOpen1.wav"],
         "DrumBeat" : [[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],   
                       [0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],   
                       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],  
                       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
-        "title" : "France - Disco Music",
-        "description": "The term \"disco\" is shorthand for the word discothèque, a French word for \"library of phonograph records\" derived from \"bibliothèque\". The word \"discothèque\" had the same meaning in English in the 1950s. \"Discothèque\" became used in French for a type of nightclub in Paris, after they had resorted to playing records during the Nazi occupation in the early 1940s. Some clubs used it as their proper name. In 1960, it was also used to describe a Parisian nightclub in an English magazine."
-        
+        "title" : "France - Folk Music - Musette",
+        "description": "Musette is a dance form that popular from 1600 to 1700 in art music. The rhythm is ternary, of moderate progression; the character is pastoral, as is also indicated by the name musette, which also designates a kind of bagpipe. Great artists such as Yvette Horner, Gus Viseur and Tony Murena contributed significantly to the development and spread of French musette music during the 20th century. Their ability to play the accordion made this art even more admired and respected both in France and internationally."
+
     },
 
     {
@@ -17,7 +17,9 @@
         "DrumBeat" : [[0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0], 
                       [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],  
                       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],  
-                      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]  
+                      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],  
+        "title" : "Raggae",
+        "description" : "Reggae music originated in Jamaica in the early 1970s as an evolution of Ska and Rocksteady, musical genres typical of the Jamaican territory, characterised by upbeat and very frenetic rhythms. A characteristic of the genre is that the rhythm falls in the strong tempo, unlike ska where it falls in the weak tempo. Bob Marley was the main icon of this genre and was instrumental in spreading it beyond the borders of the American island."
     },
 
     {
@@ -26,7 +28,9 @@
         "DrumBeat" : [[1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],  
                       [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0],  
                       [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],  
-                      [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]  
+                      [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
+        "title" : "British Rock",
+        "description" : "British rock music describes a wide variety of musical forms produced in the United Kingdom. The first attempts to emulate American rock and roll took place in Britain in the mid-1950s, but the terms 'rock music' and 'rock' usually refer to music derived from blues rock and other genres that emerged during the 1960s. Among the most prominent exponents were the Beatles, who contributed significantly to influencing American and world rock."  
     },
 
     {
@@ -35,7 +39,9 @@
             "DrumBeat" : [[1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],  
                         [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],  
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],  
-                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]  
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],  
+            "title" : "Blues",
+            "description" : "The blues has deep roots in the history of African Americans. It was born in the plantations of the South in the 19th century: its 'inventors' were slaves, former slaves and descendants of African-American sharecroppers, who sang while working in the cotton fields and tobacco plantations. From these humble beginnings, the blues grew to become the most recorded form of popular music in the world, eventually strongly influencing pop music, rock and roll and hip hop."
         },
     
     {
@@ -44,7 +50,9 @@
         "DrumBeat" : [[0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],  
                         [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
-                        [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]] 
+                        [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]],
+        "title" : "Opera",
+        "description" : "Italian opera music has its origins in the Renaissance and Baroque periods, with the golden age stretching from the late 16th to the 18th century. Early Italian operas were influenced by classical Greek and Roman theatre traditions, but also introduced innovative musical elements such as the recitative and aria. During the Baroque period, composers such as Alessandro Scarlatti and Antonio Vivaldi contributed to the development of the genre, leading to the creation of famous operas. The Classical period saw the emergence of operas with catchy melodies and virtuosic vocals. In the 19th century, Italian opera reached its peak with operas of great emotional impact, such as La Traviata, Rigoletto, Tosca and La Bohème." 
         },
 
     {
@@ -53,7 +61,10 @@
         "DrumBeat" : [[0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],   
                         [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0], 
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],  
-                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]] 
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
+        "title" : "Valzer",
+        "description" : "The Valzer, whose name is linked to the verbs 'to turn, to twirl, to twirl', is a dance in ternary rhythm that originated at the end of the 18th century as an evolution of the Ländler. The waltz established itself in Vienna at the beginning of the 19th century with Johann Strauss father and his friend, colleague and rival Joseph Lanner. Today, the waltz is a popular dance, performed with few variations in all repertoires and accompanied by traditional instruments such as the accordion, accordion, fife and bagpipe."
+
         },
 
     {
@@ -61,7 +72,9 @@
         "Samples" : ["../Samples/Kick1.wav", "../Samples/Snare1.wav", "../Samples/HHCLosed1.wav", "../Samples/Ride1.wav"],
         "DrumBeat" : [[1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0],  
                         [1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0], 
-                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]] 
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
+        "title" : "Flamenco",
+        "description" : "Flamenco is a musical genre that expresses itself through cante, music and baile, three elements that dialogue with each other to give us an artistic, non-popular expression of immense emotional depth and rhythmic and harmonic complexity. Flamenco derives from the decline of the baile bolero, in vogue in the first four decades of the 19th century, which, pervaded by the influence of French ballet, lost its identity and was replaced by a new genre more representative of Spanish culture. It was sung without guitar accompaniment, using only bodily rhythmic supports, such as the tapping of feet on the ground, hands or knuckles on the table. Today, however, it is a form of performance in its own right."
         },
 
     {
@@ -70,7 +83,9 @@
         "DrumBeat" : [[0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0],  
                     [1,0,0,0,0,0,1,0,1,0,0,0,0,0,1,0],   
                     [1,0,0,0,1,0,1,0,1,0,0,0,1,0,0,0],   
-                    [1,0,1,0,1,0,0,0,1,0,0,0,0,0,0,0]]   
+                    [1,0,1,0,1,0,0,0,1,0,0,0,0,0,0,0]],
+        "title" : "Folk Indigenous Music",
+        "description" : "Australian indigenous music comprises the music of Australian Aboriginal and Torres Strait Islander people. It includes a variety of distinctive traditional musical styles practised by indigenous Australians. It also features a range of contemporary musical styles of and fusion with European traditions. One of the main instruments is the Didgeridoo, which consists of a long eucalyptus tube, without finger holes, through which the player blows." 
         },
 
     {
@@ -79,6 +94,8 @@
         "DrumBeat" : [[1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0], 
                       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0], 
                       [0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],  
-                      [1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0]] 
+                      [1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0]],
+        "title" : "Bossa Nova",
+        "description" : "Bossa Nova is a musical genre that originated in Brazil and is characterised by a fluid and relaxed rhythm, a fusion of jazz and samba. This musical genre, whose meaning is 'new approach', was created in 1958 in Rio de Janeiro by a group of musicians including João Gilberto, Antonio Carlos Jobim and Vinicius de Moraes. Its characteristics are the often soft style, without vocal emphasis and without vibrato, on a medium or slow tempo, but with a fast-paced pace. It has had great success throughout the world, becoming one of the milestones of 20th century music."
         }
     ]
