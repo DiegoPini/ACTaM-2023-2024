@@ -108,7 +108,7 @@ create.addEventListener("click", () => {
 let playerId;
 let stateList = [];
 let creator;
-
+let onDisconnectCreator;
 function createLobby() {
   temp.style.display = "none";
   clearInterval(rotation);
@@ -141,6 +141,10 @@ function createLobby() {
     db,
     "lobbies/" + newLobbyRef.key + "/players" + userId
   );
+
+  onDisconnectCreator = onDisconnect(ref(db, "lobbies/" + newLobbyRef.key));
+  onDisconnectCreator.remove();
+
   set(playerIDRef, {
     points: point,
   });
@@ -253,6 +257,7 @@ function joinLobby() {
 }
 
 function startGame(lobbyId) {
+  onDisconnectCreator.cancel();
   const lobbyRef = ref(db, "lobbies/" + lobbyId);
   update(lobbyRef, { state: "started" });
   startGameForPlayer(lobbyId);
@@ -280,7 +285,7 @@ function displayActiveLobbies() {
 
         const container = document.createElement("div");
         container.style.display = "flex";
-        container.style.aligntems = "center";
+        container.style.alignItems = "center";
         container.style.justifyContent = "center";
         container.appendChild(listItem);
         container.appendChild(copybutton);
