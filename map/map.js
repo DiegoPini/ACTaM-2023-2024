@@ -35,15 +35,16 @@ let playRWjs;
 var index;
 
 map.on("click", (event) => {
-  document.getElementById("customPopup").style.display = "block";
-  document.getElementById("game").style.display = "none";
-
   const features = map.queryRenderedFeatures(event.point, {
     layers: ["countries"], // layer name in the Style that is referred to the data (markers)
   });
   if (!features.length) {
     return;
   }
+
+  document.getElementById("customPopup").style.display = "block";
+  document.getElementById("game").style.display = "none";
+
   const feature = features[0];
 
   index = loadIndex(feature.properties.name);
