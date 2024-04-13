@@ -34,7 +34,7 @@
     },
 
     {
-            "State" : "USA", "bpm" : 120, "TimeSignature" : 0, "genre" : "Blues",
+            "State" : "United States", "bpm" : 120, "TimeSignature" : 0, "genre" : "Blues",
             "Samples" : ["Samples/Kick1.wav", "Samples/Snare1.wav", "Samples/HHCLosed1.wav", "Samples/HHOpen1.wav"],
             "DrumBeat" : [[1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],  
                         [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],  

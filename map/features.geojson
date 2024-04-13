@@ -3,8 +3,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Spain",
-        "Description": "prova"
+        "name": "Spain",
+        "description": "prova"
       },
       "geometry": {
         "coordinates": [
