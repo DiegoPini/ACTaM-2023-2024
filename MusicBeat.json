@@ -50,7 +50,7 @@
         "DrumBeat" : [[0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],  
                         [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
-                        [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
         "title" : "Opera",
         "description" : "Italian opera music has its origins in the Renaissance and Baroque periods, with the golden age stretching from the late 16th to the 18th century. Early Italian operas were influenced by classical Greek and Roman theatre traditions, but also introduced innovative musical elements such as the recitative and aria. During the Baroque period, composers such as Alessandro Scarlatti and Antonio Vivaldi contributed to the development of the genre, leading to the creation of famous operas. The Classical period saw the emergence of operas with catchy melodies and virtuosic vocals. In the 19th century, Italian opera reached its peak with operas of great emotional impact, such as La Traviata, Rigoletto, Tosca and La Bohème." 
         },
@@ -72,6 +72,7 @@
         "Samples" : ["../Samples/Kick1.wav", "../Samples/Snare1.wav", "../Samples/HHCLosed1.wav", "../Samples/Ride1.wav"],
         "DrumBeat" : [[1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0],  
                         [1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0], 
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
         "title" : "Flamenco",
         "description" : "Flamenco is a musical genre that expresses itself through cante, music and baile, three elements that dialogue with each other to give us an artistic, non-popular expression of immense emotional depth and rhythmic and harmonic complexity. Flamenco derives from the decline of the baile bolero, in vogue in the first four decades of the 19th century, which, pervaded by the influence of French ballet, lost its identity and was replaced by a new genre more representative of Spanish culture. It was sung without guitar accompaniment, using only bodily rhythmic supports, such as the tapping of feet on the ground, hands or knuckles on the table. Today, however, it is a form of performance in its own right."

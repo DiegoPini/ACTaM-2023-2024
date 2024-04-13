@@ -19,7 +19,7 @@ hi-hat chiuso
 rullante elettrico
 side stick
 
-USA:
+United States:
 low tom
 hi-hat chiuso
 nulla
@@ -40,6 +40,7 @@ nulla
 Spain:
 schiocco di dita
 battito di mani
+nulla
 nulla
 
 Australia:
