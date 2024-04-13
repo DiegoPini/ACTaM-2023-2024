@@ -1,0 +1,37 @@
+canvas {
+border: 1px solid #000;
+}
+
+body {
+font-family: Arial, sans-serif;
+margin: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+text-align: center;
+}
+
+.rowProgBar {
+display: flex;
+align-items: center;
+margin-top: 20px;
+}
+
+.text,
+.muteButtonProgBar {
+margin-bottom: 10px;
+}
+
+.muteButtonProgBar {
+padding: 10px;
+background-color: #4CAF50;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.muteButtonProgBar.clicked {
+background-color: #FF0000;
+}
