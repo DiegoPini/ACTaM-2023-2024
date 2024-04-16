@@ -33,6 +33,23 @@ body {
   height: 100px;
 }
 
+#back {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  z-index: 1;
+  width: 70px;
+  height: 40px;
+  background-color: #4281a4; 
+  color: rgb(255, 255, 255); /* Text color */
+  text-align: center; /* Center text */
+  text-decoration: none; /* Remove underline */
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer; /* Change mouse cursor on hover */
+}
+
 #map {
   position: absolute;
   top: 0;
@@ -51,7 +68,7 @@ body {
   margin: 1%;
 }
 
-/*CIRLCE OF FIFTHS*/
+/*CIRCLE OF FIFTHS*/
 html {
   display: grid;
   min-block-size: 100%;

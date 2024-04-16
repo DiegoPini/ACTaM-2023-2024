@@ -32,6 +32,7 @@ const RW = document.getElementById("RW");
 const popup = document.getElementById("popup");
 const game = document.getElementById("gameContainer");
 const scoreDiv = document.getElementById("score");
+// const Back = document.getElementById("back");
 
 function singleplayer() {
   game.style.display = "flex";
@@ -62,10 +63,15 @@ map.on("click", (event) => {
   CheckWin();
 });
 
+document.getElementById('back').addEventListener('click', function() {
+  window.history.back();
+});
+
 select.addEventListener("click", () => {
   console.log("select");
   popup.style.display = "none";
   select.style.display = "none";
+  document.getElementById('back').style.display = "block"; // Show the back button
 });
 
 function changestate() {
@@ -101,6 +107,7 @@ Play.addEventListener("click", () => {
   Play.style.display = "none";
   clearInterval(rotation);
   singleplayer();
+  document.getElementById('backButton').style.display = "block"; // Show the back button
 });
 
 function end() {
