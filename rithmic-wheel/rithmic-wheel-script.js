@@ -6,7 +6,7 @@ let lineCtx = lineCanvas.getContext("2d");
 
 let X_init = 0;
 let Y_init = 0;
-let DIM = 350;
+let DIM = 300;
 let MAX_RADIUS = DIM / 2;
 let X_center = MAX_RADIUS + X_init;
 let Y_center = MAX_RADIUS + Y_init;

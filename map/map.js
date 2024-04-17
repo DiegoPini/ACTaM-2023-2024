@@ -25,7 +25,7 @@ loadJSON();
 
 function loadIndex(country) {
   for (i = 0; i < myJSON.length; i++) {
-    if (myJSON[i].State == country) {
+    if (myJSON[i].State === country) {
       return i;
     }
   }
@@ -79,3 +79,16 @@ document.getElementById("game").addEventListener("click", function () {
   console.log("game");
   window.location.href = "../game/game.html";
 });
+
+var canva = document.getElementById("myCanvas");
+var cont = canva.getContext("2d");
+
+// Function to resize the canvas
+function resizeCanvas() {
+  // Set canvas dimensions to the window dimensions
+  canva.width = window.innerWidth;
+  canva.height = window.innerHeight;
+
+  // Redraw content
+  draw();
+}
