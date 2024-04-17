@@ -40,7 +40,7 @@ body {
   z-index: 1;
   width: 70px;
   height: 40px;
-  background-color: #4281a4; 
+  background-color: #4281a4;
   color: rgb(255, 255, 255); /* Text color */
   text-align: center; /* Center text */
   text-decoration: none; /* Remove underline */
@@ -187,4 +187,8 @@ button:hover {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+#RWbutton {
+  display: none;
 }

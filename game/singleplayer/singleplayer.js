@@ -48,6 +48,8 @@ let playerSelection;
 map.on("click", (event) => {
   popup.style.display = "flex";
   game.style.display = "flex";
+  select.style.display = "block";
+  RWButton.style.display = "none";
 
   const features = map.queryRenderedFeatures(event.point, {
     layers: ["countries"],
@@ -63,15 +65,16 @@ map.on("click", (event) => {
   CheckWin();
 });
 
-document.getElementById('back').addEventListener('click', function() {
+document.getElementById("back").addEventListener("click", function () {
   window.history.back();
 });
 
 select.addEventListener("click", () => {
   console.log("select");
+  RWButton.style.display = "block";
   popup.style.display = "none";
   select.style.display = "none";
-  document.getElementById('back').style.display = "block"; // Show the back button
+  document.getElementById("back").style.display = "block"; // Show the back button
 });
 
 function changestate() {
@@ -107,7 +110,7 @@ Play.addEventListener("click", () => {
   Play.style.display = "none";
   clearInterval(rotation);
   singleplayer();
-  document.getElementById('backButton').style.display = "block"; // Show the back button
+  document.getElementById("back").style.display = "block"; // Show the back button
 });
 
 function end() {
@@ -118,3 +121,12 @@ function end() {
   scoreDiv.textContent = "";
   coin = 0;
 }
+
+const RWButton = document.getElementById("RWbutton");
+
+RWButton.addEventListener("click", () => {
+  popup.style.display = "flex";
+  game.style.display = "flex";
+  select.style.display = "block";
+  RWButton.style.display = "none";
+});

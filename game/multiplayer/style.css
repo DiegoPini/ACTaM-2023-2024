@@ -7,6 +7,19 @@ body {
   position: absolute;
 }
 
+#game {
+  position: absolute;
+  left: 0;
+}
+
+#Quit {
+  background-color: #ef0107;
+  display: none;
+  z-index: 2;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
 #back {
   display: none;
 }

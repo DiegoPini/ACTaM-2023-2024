@@ -307,7 +307,9 @@ function updateLobbyMembersUI(lobbyId) {
 
   onValue(lobbyMembersRef, (snapshot) => {
     const members = snapshot.val();
-
+    if (members === null) {
+      end();
+    }
     lobbyMembersList.innerHTML = "";
     members.forEach(function (member) {
       const memberDiv = document.createElement("div");
@@ -364,6 +366,7 @@ let counter = 0;
 function startGameForPlayer(lobbyId) {
   title.style.display = "none";
   popup.style.display = "block";
+  Quit.style.display = "block";
   RW.style.display = "block";
   RW.setAttribute(
     "style",
@@ -521,5 +524,21 @@ function end() {
   window.location.href = "../game.html";
 }
 
-// si devono disconettere tutti i giocaotori
-// qunado uno esce dalla lobby prima che inizi il gioco
+const Quit = document.getElementById("Quit");
+Quit.addEventListener("click", () => {
+  get(ref(db, "lobbies/" + lobbyId)).then((snapshot) => {
+    const lobby = snapshot.val();
+    remove(ref(db, "lobbies/" + lobbyId + "/players" + playerId));
+    remove(
+      ref(
+        db,
+        "lobbies/" + lobbyId + "/players/" + lobby.players.indexOf(playerId)
+      )
+    );
+  });
+});
+
+const GAME = document.getElementById("game");
+GAME.addEventListener("click", () => {
+  window.location.href = "../game.html";
+});
