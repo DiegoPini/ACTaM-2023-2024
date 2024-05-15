@@ -19,7 +19,14 @@ function loadSample(sample, audioContext) {
     .then(buffer => audioContext.decodeAudioData(buffer));
 }
 
+/* 
+    startLoop suona il loop finchè non viene chiamata stopLoop
+    playLoop suona il loop per intero 1 volta
+    playNoteFromSample suona un sample
 
+    Quindi startLoop chiama playLoop che chiama playNoteFromSample
+    perciò è sufficiente chiamare solo startLoop
+*/
 function playNoteFromSample(loopContext, source, envelopeGainNode, sampleNote = 48, noteToPlay = 48, duration = 2, bpm = 120, envelopeGain = 0.4) {
   // loopContext is the AudioContext for the loop
   // source is the buffer source node
@@ -210,7 +217,7 @@ muteButtons.forEach((button, index) => {
 });
 */
 
-
+/*                                                                   FUNZIONA MA DA IMPLEMENTARE NEL CODICE COMPLETO
 document.addEventListener("DOMContentLoaded", function() {
   var muteButtons = document.querySelectorAll(".muteButtonProgBar");
 
@@ -232,7 +239,8 @@ bottoneProvaLoop.addEventListener("click", function() {
   startLoop(sample, sampleNote, arrayNotes4, arrayDurations4, bpm);
 
   setInterval(updateProgressBar, updateInterval);
-});     
+});   
+*/  
 
 
 
