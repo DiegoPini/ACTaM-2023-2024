@@ -16,6 +16,7 @@
         <button id="SinglePlayer">SinglePlayer</button>
         <button id="MultiPlayer">MultiPlayer</button>
       </div>
+      <button id="back">BACK</button>
     </div>
     <div id="map"></div>
     <script>
@@ -24,6 +25,10 @@
       });
       document.getElementById("MultiPlayer").addEventListener("click", () => {
         window.location.href = "../game/multiplayer/indexlobby.html";
+      });
+
+      document.getElementById("back").addEventListener("click", function () {
+        window.location.href = "../map/index.html";
       });
 
       mapboxgl.accessToken =

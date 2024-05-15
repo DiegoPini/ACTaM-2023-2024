@@ -1,6 +1,6 @@
 let coin = 0;
 let selectedCountry;
-
+let playClicked = false;
 mapboxgl.accessToken =
   "pk.eyJ1IjoiY2hpYWx1bmdoaSIsImEiOiJjbG5vbHhqb3gwZWQyMnZwZjZkZDlxa2FhIn0.hT_7Fs3WyTZHUA3fNOsCsQ";
 const map = new mapboxgl.Map({
@@ -14,7 +14,7 @@ const map = new mapboxgl.Map({
 var myJSON = [];
 async function loadJSON() {
   try {
-    const response = await fetch("../../MusicBeat.json");
+    const response = await fetch("../MusicBeatMult.json");
     myJSON = await response.json();
   } catch (error) {
     console.error("Error loading JSON:", error);
@@ -46,17 +46,18 @@ function singleplayer() {
 let playerSelection;
 
 map.on("click", (event) => {
+  if (playClicked == false) return;
+  const features = map.queryRenderedFeatures(event.point, {
+    layers: ["countries"],
+  });
+
+  if (!features.length) {
+    return;
+  }
   popup.style.display = "flex";
   game.style.display = "flex";
   select.style.display = "block";
   RWButton.style.display = "none";
-
-  const features = map.queryRenderedFeatures(event.point, {
-    layers: ["countries"],
-  });
-  if (!features.length) {
-    return;
-  }
   console.log(features[0].properties.name);
   const feature = features[0].properties.name;
   if (feature == selectedCountry) coin++;
@@ -66,7 +67,7 @@ map.on("click", (event) => {
 });
 
 document.getElementById("back").addEventListener("click", function () {
-  window.history.back();
+  window.location.href = "../game.html";
 });
 
 select.addEventListener("click", () => {
@@ -108,6 +109,7 @@ function CheckWin() {
 
 Play.addEventListener("click", () => {
   Play.style.display = "none";
+  playClicked = true;
   clearInterval(rotation);
   singleplayer();
   document.getElementById("back").style.display = "block"; // Show the back button
@@ -119,6 +121,8 @@ function end() {
   game.style.display = "none";
   RW.style.display = "none";
   scoreDiv.textContent = "";
+  select.style.display = "none";
+  playClicked = false;
   coin = 0;
 }
 
