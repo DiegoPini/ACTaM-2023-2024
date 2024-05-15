@@ -21,20 +21,21 @@
         <div id="canvas-container">
           <canvas
             id="myCanvas"
-            width="350"
-            height="350"
+            width="300"
+            height="300"
+            style="position: absolute"
+          ></canvas>
+          <canvas
+            id="lineCanvas"
+            width="300"
+            height="300"
             style="position: absolute"
           ></canvas>
         </div>
-        <canvas
-          id="lineCanvas"
-          width="550"
-          height="550"
-          style="display: none"
-        ></canvas>
       </div>
       <button id="back">BACK</button>
       <button id="select">SELECT</button>
+      <button id="playSound">PLAY</button>
 
       <div id="score"></div>
     </div>
@@ -44,5 +45,6 @@
 
     <script src="../../rithmic-wheel/rithmic-wheel-script.js"></script>
     <script src="singleplayer.js"></script>
+    <script src="../../BarraLoop/suonaLoop.js"></script>
   </body>
 </html>

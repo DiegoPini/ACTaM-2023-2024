@@ -80,6 +80,7 @@ const temp = document.getElementById("temp");
 const removeactivelobbies = document.getElementById("remove-active-lobbies");
 const startButtonContainer = document.getElementById("start-game-container");
 const back = document.getElementById("back");
+const PLAY = document.getElementById("play");
 
 const lobbiesRef = ref(db, "lobbies");
 
@@ -362,7 +363,7 @@ function changestate(index) {
 }
 
 let counter = 0;
-
+let index;
 function startGameForPlayer(lobbyId) {
   title.style.display = "none";
   popup.style.display = "block";
@@ -373,6 +374,7 @@ function startGameForPlayer(lobbyId) {
     "display: flex; height: 100%; align-items: center; justify-content: center; flex-direction: column;"
   );
   select.style.display = "block";
+  PLAY.style.display = "block";
   const lobbyMembersRef = ref(db, "lobbies/" + lobbyId + "/players");
   off(lobbyMembersRef);
 
@@ -397,7 +399,7 @@ function startGameForPlayer(lobbyId) {
   });
 
   selectedCountry = stateList[counter];
-  let index = loadIndex(selectedCountry);
+  index = loadIndex(selectedCountry);
   changestate(index);
   onValue(lobbyRef, (snapshot) => {
     const lobby = snapshot.val();
@@ -450,6 +452,7 @@ function nextRound() {
   });
   popup.style.display = "block";
   select.style.display = "block";
+  PLAY.style.display = "block";
   if (!CheckWin()) {
     selectedCountry = stateList[counter];
     let index = loadIndex(selectedCountry);
@@ -460,11 +463,13 @@ function nextRound() {
 select.addEventListener("click", () => {
   popup.style.display = "none";
   select.style.display = "none";
+  PLAY.style.display = "none";
   back.style.display = "block";
 });
 
 back.addEventListener("click", () => {
   popup.style.display = "block";
+  PLAY.style.display = "block";
   select.style.display = "block";
   back.style.display = "none";
 });
@@ -491,6 +496,7 @@ map.on("click", (event) => {
   } else {
     popup.style.display = "block";
     select.style.display = "block";
+    PLAY.style.display = "block";
   }
 });
 
@@ -541,4 +547,28 @@ Quit.addEventListener("click", () => {
 const GAME = document.getElementById("game");
 GAME.addEventListener("click", () => {
   window.location.href = "../game.html";
+});
+
+let isPlaying = false;
+PLAY.addEventListener("click", function () {
+  if (isPlaying) {
+    // Se il loop sta suonando, chiama la funzione stopLoop
+    stopLoop();
+    stopDrumLoop();
+    this.textContent = "Play"; // Cambia il testo del pulsante
+  } else {
+    // Se il loop non sta suonando, inizia a suonare il loop
+    playALot(myJSON[index].bpm, myJSON[index].TimeSignature);
+    for (let i = 0; i < numInst; i++) {
+      startLoop(
+        samplesInst[i],
+        sampleNotes[i],
+        instNotes[i],
+        instDurations[i],
+        myJSON[index].bpm
+      );
+    }
+    this.textContent = "Stop"; // Cambia il testo del pulsante
+    isPlaying = !isPlaying;
+  } // Cambia lo stato
 });

@@ -11,7 +11,7 @@ const map = new mapboxgl.Map({
   zoom: 3,
 });
 
-var myJSON = [];
+let myJSON = [];
 async function loadJSON() {
   try {
     const response = await fetch("../MusicBeatMult.json");
@@ -21,12 +21,15 @@ async function loadJSON() {
   }
 }
 loadJSON();
+let index;
 let rotationAngle = 0;
 let rotation = setInterval(() => {
   rotationAngle += 0.1;
   map.rotateTo(rotationAngle);
 }, 100);
 
+const playSound1 = document.getElementById("playSound");
+playSound1.style.display = "none";
 const Play = document.getElementById("play");
 const RW = document.getElementById("RW");
 const popup = document.getElementById("popup");
@@ -37,7 +40,7 @@ const scoreDiv = document.getElementById("score");
 function singleplayer() {
   game.style.display = "flex";
   scoreDiv.textContent = "score:" + coin;
-
+  playSound1.style.display = "block";
   select.style.display = "block";
   RW.style.display = "block";
   changestate();
@@ -57,9 +60,11 @@ map.on("click", (event) => {
   popup.style.display = "flex";
   game.style.display = "flex";
   select.style.display = "block";
+  playSound1.style.display = "block";
   RWButton.style.display = "none";
   console.log(features[0].properties.name);
   const feature = features[0].properties.name;
+
   if (feature == selectedCountry) coin++;
   else coin--;
   scoreDiv.textContent = "score:" + coin;
@@ -74,12 +79,16 @@ select.addEventListener("click", () => {
   console.log("select");
   RWButton.style.display = "block";
   popup.style.display = "none";
+  playSound1.style.display = "none";
+  stopLoop();
+  stopDrumLoop();
+  playSound1.textContent = "Play";
   select.style.display = "none";
   document.getElementById("back").style.display = "block"; // Show the back button
 });
 
 function changestate() {
-  let index = Math.floor(Math.random() * myJSON.length);
+  index = Math.floor(Math.random() * myJSON.length);
   selectedCountry = myJSON[index].State;
   console.log(selectedCountry);
   setup(myJSON[index].bpm, myJSON[index].DrumBeat, myJSON[index].TimeSignature);
@@ -104,6 +113,7 @@ function CheckWin() {
   } else {
     changestate();
     select.style.display = "block";
+    playSound1.style.display = "block";
   }
 }
 
@@ -122,6 +132,7 @@ function end() {
   RW.style.display = "none";
   scoreDiv.textContent = "";
   select.style.display = "none";
+  playSound1.style.display = "none";
   playClicked = false;
   coin = 0;
 }
@@ -132,5 +143,30 @@ RWButton.addEventListener("click", () => {
   popup.style.display = "flex";
   game.style.display = "flex";
   select.style.display = "block";
+  playSound1.style.display = "block";
   RWButton.style.display = "none";
+});
+
+let isPlaying = false;
+playSound1.addEventListener("click", function () {
+  if (isPlaying) {
+    // Se il loop sta suonando, chiama la funzione stopLoop
+    stopLoop();
+    stopDrumLoop();
+    this.textContent = "Play"; // Cambia il testo del pulsante
+  } else {
+    // Se il loop non sta suonando, inizia a suonare il loop
+    playALot(myJSON[index].bpm, myJSON[index].TimeSignature);
+    for (let i = 0; i < numInst; i++) {
+      startLoop(
+        samplesInst[i],
+        sampleNotes[i],
+        instNotes[i],
+        instDurations[i],
+        myJSON[index].bpm
+      );
+    }
+    this.textContent = "Stop"; // Cambia il testo del pulsante
+    isPlaying = !isPlaying;
+  } // Cambia lo stato
 });
