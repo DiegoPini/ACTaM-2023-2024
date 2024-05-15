@@ -322,7 +322,7 @@ function play(bpm, sign) {
   playSound(bpm);
 }
 
-function loadSounds(sound1D, sound2D, sound3D, sound4D) {
+function loadDrumSounds(sound1D, sound2D, sound3D, sound4D) {
   sound1 = new Audio(sound1D);
   sound2 = new Audio(sound2D);
   sound3 = new Audio(sound3D);

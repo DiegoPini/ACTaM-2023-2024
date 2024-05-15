@@ -34,6 +34,11 @@ var id;
 let playRWjs;
 var index;
 
+let samplesInst;
+let instNotes;
+let instDurations;
+let numInst;
+let sampleNotes;
 map.on("click", (event) => {
   const features = map.queryRenderedFeatures(event.point, {
     layers: ["countries"], // layer name in the Style that is referred to the data (markers)
@@ -51,12 +56,21 @@ map.on("click", (event) => {
 
   setup(myJSON[index].bpm, myJSON[index].DrumBeat, myJSON[index].TimeSignature);
 
-  loadSounds(
-    myJSON[index].Samples[0],
-    myJSON[index].Samples[1],
-    myJSON[index].Samples[2],
-    myJSON[index].Samples[3]
+  loadDrumSounds(
+    myJSON[index].SamplesDrums[0],
+    myJSON[index].SamplesDrums[1],
+    myJSON[index].SamplesDrums[2],
+    myJSON[index].SamplesDrums[3]
   );
+
+  // array dei sample degli strumenti
+  samplesInst = myJSON[index].SamplesInst;
+
+  // array delle note degli strumenti
+  numInst = myJSON[index].numInst;              // CONTROLLA SE VA CON CONSOLE LOG NEL CASO DI PROBLEMI
+  sampleNotes = myJSON[index].SamplesNotes;   // nota originale del sample
+  instNotes = myJSON[index].Inst_notes;       // partitura note
+  instDurations = myJSON[index].Inst_durations;   // partitura durate
 
   const countryName = document.getElementById("countryName");
   const description = document.getElementById("description");
@@ -64,10 +78,37 @@ map.on("click", (event) => {
   description.textContent = myJSON[index].description;
 });
 
+/* VECCHIA
 window.addEventListener("load", function () {
   document.getElementById("play").addEventListener("click", function () {
     play(myJSON[index].bpm, myJSON[index].TimeSignature);
+    // startLoop(sample, sampleNote, arrayNotes, arrayDurations, bpm)
+    for (let i=0; i<numInst; i++){
+      startLoop(samplesInst[i], sampleNotes[i], instNotes[i], instDurations[i], myJSON[index].bpm);   
+    }
   });
+  */
+
+window.addEventListener("load", function () {
+  let isPlaying = false; // Variabile per tenere traccia dello stato di riproduzione
+
+  document.getElementById("play").addEventListener("click", function () {
+    if (isPlaying) {
+      // Se il loop sta suonando, chiama la funzione stopLoop
+      stopLoop();
+      this.textContent = "Play"; // Cambia il testo del pulsante
+    } else {
+      // Se il loop non sta suonando, inizia a suonare il loop
+      play(myJSON[index].bpm, myJSON[index].TimeSignature);
+      // startLoop(sample, sampleNote, arrayNotes, arrayDurations, bpm)
+      for (let i = 0; i < numInst; i++) {
+        startLoop(samplesInst[i], sampleNotes[i], instNotes[i], instDurations[i], myJSON[index].bpm);
+      }
+      this.textContent = "Stop"; // Cambia il testo del pulsante
+    }
+    isPlaying = !isPlaying; // Cambia lo stato
+  });
+
 
   document.getElementById("close").addEventListener("click", () => {
     document.getElementById("customPopup").style.display = "none";
