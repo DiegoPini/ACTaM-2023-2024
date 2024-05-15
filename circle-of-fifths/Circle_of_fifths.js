@@ -43,18 +43,23 @@ window.addEventListener('load', function() {
         document.getElementById('F'), document.getElementById('Gb'),
         document.getElementById('G'), document.getElementById('Ab')];
 
+    const externalButton = document.getElementById("play");
+
     scales.forEach(function(scale) {
         //listener per cambio chiave
             scale.addEventListener('click', function() {
                 //----------MODIFICHE-------------------------------------------------------------------------------------------
 
                 stopLoop();
-                changeKey(PartituraOriginale, PartituraCopia, "C", "scale"); 
-                // BISOGNA ITERARE PER OGNI PARTITURA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                // dovrebbero essere tutte in C quelle originali
-                // cambia da C a scale CONTROLLA SE SCALE E' GIUSTO
-                // mettere matrici originali e copiate se no non funziona
-                //-----------------------------------------------------------------------------------------------------
+                stopDrumLoop();         // AGGIORNARE
+                externalButton.textContent = "Play"; // Cambia il testo del pulsante
+                isPlaying = !isPlaying; // Cambia lo stato
+
+                // cambia la chiave di tutte le partiture
+                let selectedScale = scale.id;
+                for (let i = 0; i<numInst; i++){
+                    changeKey(instNotesOriginal[i], instNotesCopy[i], "C", selectedScale);  // le partiture originlai sono tutte in C maggiore
+                }
 
                 //cancello i tasti colorati precedentemente
                 /*notes.forEach(function(note){

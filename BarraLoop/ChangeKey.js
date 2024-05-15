@@ -9,7 +9,8 @@ function changeKey(originalMat, copyMat, oldKey, newKey) {
     // Original matrix in the key of C
     // Matrix example: originalMat = [60, 62, 64, 65, 67, 69, 71, 72];
     // copyMat è una copia di originalMat. copyMat viene modificata, originalMat no in modod da preservare la partitura originale
-    // var copyMat = originalMat.slice();
+    // instNotesOriginal = myJSON[index].Inst_notes;       // partitura note
+    // instNotesCopy = JSON.parse(JSON.stringify(instNotesOriginal));       // partitura note
     // fare copyMat = originalMat non funziona perchè copyMat punterà sempre a originalMat e quindi se si modifica copyMat si modifica anche originalMat
 
     var interval = key2midiPitch(newKey) - key2midiPitch(oldKey); // 60 is the MIDI pitch of C4
