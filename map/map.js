@@ -35,7 +35,8 @@ let playRWjs;
 var index;
 
 let samplesInst;
-let instNotes;
+let instNotesOriginal;
+let instNotesCopy;
 let instDurations;
 let numInst;
 let sampleNotes;
@@ -69,7 +70,8 @@ map.on("click", (event) => {
   // array delle note degli strumenti
   numInst = myJSON[index].numInst;              // CONTROLLA SE VA CON CONSOLE LOG NEL CASO DI PROBLEMI
   sampleNotes = myJSON[index].SamplesNotes;   // nota originale del sample
-  instNotes = myJSON[index].Inst_notes;       // partitura note
+  instNotesOriginal = myJSON[index].Inst_notes;       // partitura note
+  instNotesCopy = JSON.parse(JSON.stringify(instNotesOriginal));       // partitura note
   instDurations = myJSON[index].Inst_durations;   // partitura durate
 
   const countryName = document.getElementById("countryName");
@@ -78,19 +80,9 @@ map.on("click", (event) => {
   description.textContent = myJSON[index].description;
 });
 
-/* VECCHIA
-window.addEventListener("load", function () {
-  document.getElementById("play").addEventListener("click", function () {
-    play(myJSON[index].bpm, myJSON[index].TimeSignature);
-    // startLoop(sample, sampleNote, arrayNotes, arrayDurations, bpm)
-    for (let i=0; i<numInst; i++){
-      startLoop(samplesInst[i], sampleNotes[i], instNotes[i], instDurations[i], myJSON[index].bpm);   
-    }
-  });
-  */
 
+let isPlaying = false; // Variabile per tenere traccia dello stato di riproduzione
 window.addEventListener("load", function () {
-  let isPlaying = false; // Variabile per tenere traccia dello stato di riproduzione
 
   document.getElementById("play").addEventListener("click", function () {
     if (isPlaying) {
@@ -102,7 +94,7 @@ window.addEventListener("load", function () {
       // Se il loop non sta suonando, inizia a suonare il loop
       playALot(myJSON[index].bpm, myJSON[index].TimeSignature)
       for (let i = 0; i < numInst; i++) {
-        startLoop(samplesInst[i], sampleNotes[i], instNotes[i], instDurations[i], myJSON[index].bpm);
+        startLoop(samplesInst[i], sampleNotes[i], instNotesCopy[i], instDurations[i], myJSON[index].bpm);
       }
       this.textContent = "Stop"; // Cambia il testo del pulsante
     }
