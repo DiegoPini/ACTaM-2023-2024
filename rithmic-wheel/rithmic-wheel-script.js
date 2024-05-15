@@ -171,12 +171,12 @@ function drawRotatingLine(angle) {
 
 drawRotatingLine(0);
 
-let counter = 1;
-let intervalId;
+let counter;
+let intervalId1;
 var angle = 0;
 let stopRotation = 0;
 
-
+let stoprotation = false;
 
 function startRotation(bpm, sign) {
   let counter = 1;
@@ -188,10 +188,15 @@ function startRotation(bpm, sign) {
     angle = 30;
   }
 
-  intervalId = setInterval(() => {
-    drawRotatingLine(angle * (Math.PI / 180) * counter);
-    counter++;
-    if (counter == stopRotation) clearInterval(intervalId);
+  intervalId1 = setInterval(() => {
+    if (stoprotation === false) {
+      drawRotatingLine(angle * (Math.PI / 180) * counter);
+      counter++;
+      if (counter == stopRotation) counter = 1;
+    } else {
+      counter = 1;
+      clearInterval(intervalId1);
+    }
   }, 60000 / bpm);
 }
 
@@ -263,6 +268,7 @@ function saveTime(bpm, beat) {
     }
   }
 }
+
 let timeouts = [];
 function playSound(bpm) {
   timeouts = [];
@@ -271,14 +277,14 @@ function playSound(bpm) {
       changeButtonColor(ctx, sound1But[(time * bpm) / 60000], "purple");
       sound1.play();
     }, time);
-  
+
     let id2 = setTimeout(() => {
       changeButtonColor(ctx, sound1But[(time * bpm) / 60000], "#EAE26D");
     }, time + 400);
-  
+
     timeouts.push(id1);
     timeouts.push(id2);
-  });  
+  });
   sound2Times.forEach((time) => {
     let id3 = setTimeout(() => {
       changeButtonColor(ctx, sound2But[(time * bpm) / 60000], "purple");
@@ -321,15 +327,13 @@ function setup(bpm, beat, sign) {
 }
 
 let drumsLoopState = false;
-function playALot(bpm, sign){
-
+function playALot(bpm, sign) {
   drumsLoopState = true;
-  
+  stoprotation = false;
   // Compute time between each loop iteration in milliseconds
-  let drumsInterval = beat0.length * 60000 / bpm;
+  let drumsInterval = (beat0.length * 60000) / bpm;
 
-
-  if (drumsLoopState){
+  if (drumsLoopState) {
     playSound(bpm);
     startRotation(bpm, sign);
   }
@@ -344,19 +348,15 @@ function playALot(bpm, sign){
   }, drumsInterval);
 }
 
-
 function stopDrumLoop() {
   drumsLoopState = false;
-  clearInterval(intervalId);
+  stoprotation = true;
   clearTimeout;
   timeouts.forEach((timeout) => {
     clearTimeout(timeout);
   });
-  timeouts = [];
   drawRotatingLine(0);
 }
-
-
 
 function loadDrumSounds(sound1D, sound2D, sound3D, sound4D) {
   sound1 = new Audio(sound1D);

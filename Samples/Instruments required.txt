@@ -1,24 +1,28 @@
 STRUMENTI (V=scaricato)
 
+C1 = 24
+C2 = 36
+C3 = 48
+
 Suono determinato:
 
 V1 flauto (se possibile anche un flauto stile irlandese)->in ableton c'è un solo flute
 V2 piano
-V3 Didgeridoo     C2
+V3 Didgeridoo     C2  bass clef
 V4 Marimba
 V5 chitarra acustica
 V6 chitarra classica
-7 violino
+V7 violino
 V8 clavicembalo
 V9 piano elettrico
-V10 basso elettrico  C1
-11 fisarmonica
-12 violoncello      C2
-13 oboe
+V10 basso elettrico  C1  bass clef
+V11 fisarmonica
+V12 violoncello      C2  bass clef
+V13 oboe
 V14 organo
 V15 chitarra elettrica
-16 sassofono soprano
-V17 basso acustico    C1
+V16 sassofono soprano
+V17 basso acustico    C1   bass clef
 
 Suono indeterminato:
 

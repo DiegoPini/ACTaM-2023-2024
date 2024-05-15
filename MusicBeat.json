@@ -10,8 +10,8 @@
         "description": "Musette is a dance form that popular from 1600 to 1700 in art music. The rhythm is ternary, of moderate progression; the character is pastoral, as is also indicated by the name musette, which also designates a kind of bagpipe. Great artists such as Yvette Horner, Gus Viseur and Tony Murena contributed significantly to the development and spread of French musette music during the 20th century. Their ability to play the accordion made this art even more admired and respected both in France and internationally.",
         
         "numInst" : 3,
-        "SamplesInst" : ["../Samples/C3 flute_mono.wav", "../Samples/C4_Piano.wav", "../Samples/flute C1_stereo.wav"],
-        "SamplesNotes": [60, 60, 60],
+        "SamplesInst" : ["../Samples/instruments_notes/C3 flute_mono.wav", "../Samples/instruments_notes/C4_Piano.wav", "../Samples/instruments_notes/flute C1_stereo.wav"],
+        "SamplesNotes": [48, 48, 48],
         "Inst_notes": [[67,71,72,72,72,71,67,69,72,67,67,69,67,65,64,67,71,72,72,71,72,69,71,67,67,64,67,62,64,60,71,72],
         [0,72,67,72,67,72,67,71,67,71,67,71,67,69,65,69,65,69,65,0,72,60,62,64,65,72,0,67,72,71,0,71,72,71,67,71,67,71,67,71,62,71,62,71,62,72,67,72,67,72,67,71,67,71,67,71,67,69,65,69,65,69,65,0,72,60,62,64,65,67,0,67,64,71,0,71,65,0,64,67,72,0],
         [43, 47, 0, 48, 0, 43, 48, 0, 48, 0, 43, 47, 0, 47, 0, 43, 0, 45, 45, 43, 0, 43, 43, 0, 43, 0, 43, 40, 0, 40, 0, 43, 0, 40, 47, 43, 0, 43, 48, 0, 48, 0, 43, 47, 0, 47, 0, 41, 0, 45, 43, 48, 0, 43, 43, 0, 43, 0, 41, 41, 0, 41, 0, 41, 0, 43, 47, 48, 48, 0, 48, 0]],
@@ -29,8 +29,21 @@
                       [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],  
                       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],  
                       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],  
-        "title" : "Raggae",
-        "description" : "Reggae music originated in Jamaica in the early 1970s as an evolution of Ska and Rocksteady, musical genres typical of the Jamaican territory, characterised by upbeat and very frenetic rhythms. A characteristic of the genre is that the rhythm falls in the strong tempo, unlike ska where it falls in the weak tempo. Bob Marley was the main icon of this genre and was instrumental in spreading it beyond the borders of the American island."
+        "title" : "Jamaica - Raggae",
+        "description" : "Reggae music originated in Jamaica in the early 1970s as an evolution of Ska and Rocksteady, musical genres typical of the Jamaican territory, characterised by upbeat and very frenetic rhythms. A characteristic of the genre is that the rhythm falls in the strong tempo, unlike ska where it falls in the weak tempo. Bob Marley was the main icon of this genre and was instrumental in spreading it beyond the borders of the American island.",
+        "numInst" : 5,
+        "SamplesInst" : ["../Samples/instruments_notes/Organ_C3.wav","../Samples/instruments_notes/Organ_C3.wav","../Samples/instruments_notes/AcousticGuitar_C3.wav","../Samples/instruments_notes/AcousticGuitar_C3.wav","../Samples/instruments_notes/ElectricBass_C1.wav"],
+        "SamplesNotes" : [48,48,48,48,24],
+        "Inst_notes" : [[0,60,62,64,60,64,62,60,60,60,60,69,67,64,65,64,62,0,60,72,71,69,67,64,67,62,71,69,69,69,64,69,67,60,62,64,65,64,62,0,60],
+        [0, 48, 47, 45, 45, 45, 45, 41, 45, 0, 43, 43, 43, 48, 0, 48, 40, 47, 43, 0, 48, 48, 48, 0, 48],
+        [60,60,60,60,60,60, 67,60,62,64, 62,0,67,64, 60, 65,0,65,69,65, 60,62,64,60, 65,0,64,67,64, 72,0,72,72,0,72, 0,67,60,62,64, 67,72,72,67,67,64, 0,67,60,62,64,67,72,67,65,0,69, 67,72,67,64,67,64, 69,71,67,67,64,67,72,71,69],
+        [0,72,71,72,71,69,0,64,0,65,64,62,60,0,72,71,72,71,69,0,64,0,65,64,62,60,0],
+        [43, 45, 47, 48, 43, 45, 47, 48, 48, 48, 40, 48, 41, 41, 38, 38, 38, 47, 48, 38, 40, 48, 48, 48, 40, 48, 41, 40, 38, 0, 48, 48, 40, 38, 48, 43, 45, 47, 48, 48, 48, 40, 48, 43, 43, 38, 41, 41, 43, 48, 48, 41, 45, 48, 48, 40, 48, 41, 40, 38, 0, 48, 48, 40, 38, 48, 48, 0]],
+        "Inst_durations" : [[16,4,4,4,4,16,12,10,6,4,12,4,4,12,4,4,2,2,20,4,4,4,4,8,8,8,8,6,6,4,12,4,4,4,4,4,4,4,2,2,36],
+        [32,16,12,4,6,6,4,12,4,16,6,6,4,16,16,8,8,8,8,16,6,6,4,32,32],
+        [4,8,4,4,8,4,2,2,2,10,2,2,2,6,4,16,2,2,2,6,4,4,4,4,4,2,2,2,6,4,4,2,2,2,2,2,18,2,2,2,10,2,2,2,4,2,4,2,2,2,2,2,2,2,2,8,4,4,2,4,2,2,2,4,2,4,4,2,4,24,2,4,2],
+        [44,4,4,4,4,20,24,4,4,4,4,4,8,40,4,4,4,4,20,10,4,4,4,4,4,8,28],
+        [4,4,4,4,4,4,4,4,4,4,4,4,4,8,4,6,6,4,4,4,4,4,4,4,4,4,4,4,2,2,4,4,4,4,4,4,4,4,4,4,4,4,4,4,8,4,6,6,4,4,4,4,4,4,4,4,4,4,4,2,2,4,4,4,4,4,4,12]]
     },
 
     {
