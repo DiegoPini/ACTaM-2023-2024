@@ -175,16 +175,11 @@ let counter = 1;
 let intervalId;
 var angle = 0;
 let stopRotation = 0;
-function setupRotation(bpm, sign) {
-  if (sign === 1) {
-    stopRotation = 17;
-    angle = 22.5;
-  } else {
-    stopRotation = 13;
-    angle = 30;
-  }
-}
+
+
+
 function startRotation(bpm, sign) {
+  let counter = 1;
   if (sign === 1) {
     stopRotation = 17;
     angle = 22.5;
@@ -198,10 +193,6 @@ function startRotation(bpm, sign) {
     counter++;
     if (counter == stopRotation) clearInterval(intervalId);
   }, 60000 / bpm);
-
-  setTimeout(() => {
-    counter = 1;
-  }, (60000 / bpm) * 17);
 }
 
 function drawButtons34(
@@ -250,8 +241,9 @@ function selectTempo(sign) {
     }
   }
 }
-
+let beat0;
 function saveTime(bpm, beat) {
+  beat0 = beat[0];
   sound1Times = [];
   sound2Times = [];
   sound3Times = [];
@@ -271,43 +263,54 @@ function saveTime(bpm, beat) {
     }
   }
 }
-
+let timeouts = [];
 function playSound(bpm) {
+  timeouts = [];
   sound1Times.forEach((time) => {
-    setTimeout(() => {
+    let id1 = setTimeout(() => {
       changeButtonColor(ctx, sound1But[(time * bpm) / 60000], "purple");
       sound1.play();
     }, time);
-    setTimeout(() => {
+  
+    let id2 = setTimeout(() => {
       changeButtonColor(ctx, sound1But[(time * bpm) / 60000], "#EAE26D");
     }, time + 400);
-  });
+  
+    timeouts.push(id1);
+    timeouts.push(id2);
+  });  
   sound2Times.forEach((time) => {
-    setTimeout(() => {
+    let id3 = setTimeout(() => {
       changeButtonColor(ctx, sound2But[(time * bpm) / 60000], "purple");
       sound2.play();
     }, time);
-    setTimeout(() => {
+    let id4 = setTimeout(() => {
       changeButtonColor(ctx, sound2But[(time * bpm) / 60000], "#EAE26D");
     }, time + 400);
+    timeouts.push(id3);
+    timeouts.push(id4);
   });
   sound3Times.forEach((time) => {
-    setTimeout(() => {
+    let id5 = setTimeout(() => {
       sound3.play();
       changeButtonColor(ctx, sound3But[(time * bpm) / 60000], "purple");
     }, time);
-    setTimeout(() => {
+    let id6 = setTimeout(() => {
       changeButtonColor(ctx, sound3But[(time * bpm) / 60000], "#EAE26D");
     }, time + 400);
+    timeouts.push(id5);
+    timeouts.push(id6);
   });
   sound4Times.forEach((time) => {
-    setTimeout(() => {
+    let id7 = setTimeout(() => {
       changeButtonColor(ctx, sound4But[(time * bpm) / 60000], "purple");
       sound4.play();
     }, time);
-    setTimeout(() => {
+    let id8 = setTimeout(() => {
       changeButtonColor(ctx, sound4But[(time * bpm) / 60000], "#EAE26D");
     }, time + 400);
+    timeouts.push(id7);
+    timeouts.push(id8);
   });
 }
 
@@ -317,10 +320,43 @@ function setup(bpm, beat, sign) {
   selectBeatColor(beat, sign);
 }
 
-function play(bpm, sign) {
-  startRotation(bpm, sign);
-  playSound(bpm);
+let drumsLoopState = false;
+function playALot(bpm, sign){
+
+  drumsLoopState = true;
+  
+  // Compute time between each loop iteration in milliseconds
+  let drumsInterval = beat0.length * 60000 / bpm;
+
+
+  if (drumsLoopState){
+    playSound(bpm);
+    startRotation(bpm, sign);
+  }
+
+  const DrumLoopInterval = setInterval(() => {
+    if (drumsLoopState) {
+      playSound(bpm);
+      startRotation(bpm, sign);
+    } else {
+      clearInterval(DrumLoopInterval);
+    }
+  }, drumsInterval);
 }
+
+
+function stopDrumLoop() {
+  drumsLoopState = false;
+  clearInterval(intervalId);
+  clearTimeout;
+  timeouts.forEach((timeout) => {
+    clearTimeout(timeout);
+  });
+  timeouts = [];
+  drawRotatingLine(0);
+}
+
+
 
 function loadDrumSounds(sound1D, sound2D, sound3D, sound4D) {
   sound1 = new Audio(sound1D);

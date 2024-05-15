@@ -96,11 +96,11 @@ window.addEventListener("load", function () {
     if (isPlaying) {
       // Se il loop sta suonando, chiama la funzione stopLoop
       stopLoop();
+      stopDrumLoop();
       this.textContent = "Play"; // Cambia il testo del pulsante
     } else {
       // Se il loop non sta suonando, inizia a suonare il loop
-      play(myJSON[index].bpm, myJSON[index].TimeSignature);
-      // startLoop(sample, sampleNote, arrayNotes, arrayDurations, bpm)
+      playALot(myJSON[index].bpm, myJSON[index].TimeSignature)
       for (let i = 0; i < numInst; i++) {
         startLoop(samplesInst[i], sampleNotes[i], instNotes[i], instDurations[i], myJSON[index].bpm);
       }
