@@ -109,11 +109,17 @@
         "description" : "Italian opera music has its origins in the Renaissance and Baroque periods, with the golden age stretching from the late 16th to the 18th century. Early Italian operas were influenced by classical Greek and Roman theatre traditions, but also introduced innovative musical elements such as the recitative and aria. During the Baroque period, composers such as Alessandro Scarlatti and Antonio Vivaldi contributed to the development of the genre, leading to the creation of famous operas. The Classical period saw the emergence of operas with catchy melodies and virtuosic vocals. In the 19th century, Italian opera reached its peak with operas of great emotional impact, such as La Traviata, Rigoletto, Tosca and La Bohème.",
 
         "numInst" : 4,
-        "SamplesInst" : [],
+        "SamplesInst" : ["../Samples/instruments_notes/flute_C3.wav","../Samples/instruments_notes/Oboe_C3.wav","../Samples/instruments_notes/Violin_C3.wav","../Samples/instruments_notes/Violin_C3.wav"],
         "SamplesNotes" : [48,48,48,48],
-        "Inst_notes" : [],
+        "Inst_notes" : [[67,72,71,72,62,64,64,62,65,64,60,60,72,71,67,72,71,67,64,67,67,62,65,64,62,60,62,64,62,64,60,60,60,62,64,62,60,0],
+        [0,72,71,72,67,65,67,72,71,72,64,62,0,72,71,72,67,65,67,72,71,72,64,60,67,65,67,64,0],
+        [0,64,0,67,0,64,64,71,71,69,64,64,0,67,72,69,67,67,67,0],
+        [0,60,0,64,0,60,60,60,0,60,60,0,64,64,64,0]],
 
-        "Inst_durations" : []
+        "Inst_durations" : [[8,24,8,24,8,16,4,4,4,4,8,4,4,4,8,4,4,8,4,16,4,4,4,4,4,16,4,4,4,4,4,8,4,4,4,4,16,8],
+        [40,4,4,4,4,8,8,4,4,4,4,8,56,4,4,4,4,8,8,4,4,4,4,8,4,4,4,4,48],
+        [8,24,8,24,8,8,8,8,8,8,16,16,80,4,4,4,4,16,8,8],
+        [0,60,0,64,0,60,60,60,0,60,60,0,64,64,64,0]]
         },
 
     {
@@ -127,11 +133,17 @@
         "description" : "The Valzer, whose name is linked to the verbs 'to turn, to twirl, to twirl', is a dance in ternary rhythm that originated at the end of the 18th century as an evolution of the Ländler. The waltz established itself in Vienna at the beginning of the 19th century with Johann Strauss father and his friend, colleague and rival Joseph Lanner. Today, the waltz is a popular dance, performed with few variations in all repertoires and accompanied by traditional instruments such as the accordion, accordion, fife and bagpipe.",
 
         "numInst" : 4,
-        "SamplesInst" : [],
+        "SamplesInst" : ["../Samples/instruments_notes/flute_C3.wav","../Samples/instruments_notes/Harpsichord_C3.wav","../Samples/instruments_notes/Violin_C3.wav","../Samples/instruments_notes/Violin_C3.wav"],
         "SamplesNotes" : [48,48,48,48],
-        "Inst_notes" : [],
+        "Inst_notes" : [[69,65,64,62,62,64,65,65,67,69,67,69,62,0,60,0,69,65,62,60,0,69,65,64,0,69,72,72,71,69,67,65,62,71,69,67,67,67,0],
+        [62,0,60,0,69,65,62,60,0,69,65,64,0,69,72,65,0,67,0,72,67,65,65,0,67,71,69,62,64,0],
+        [69,62,65,69,62,60,69,65,62,69,65,62,69,62,65,69,62,65,60,64,67,62,65,69,65,69,72,67,64,62,60,64,65,62,65,69,67,65,62,65,62,64,60,64,60,60,64,67],
+        [62,0,62,60,0,60,62,0,62,62,0,62,65,0,65,64,0,64,64,0,64,60,0,60,69,0,69,67,0,65,64,0,62,62,0,62,67,0,67,65,0,64,67,0,64,60,0,60]],
 
-        "Inst_durations" : []
+        "Inst_durations" : [[12,8,4,12,8,4,12,4,4,4,12,12,12,8,4,8,4,12,12,8,4,12,8,4],
+        [8,4,8,16,4,4,4,8,4,8,4,8,4,8,4,8,4,8,4,4,4,4,8,8,4,4,8,4,8,16],
+        [4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4],
+        [4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4]]
         },
 
     {
@@ -145,11 +157,15 @@
         "description" : "Flamenco is a musical genre that expresses itself through cante, music and baile, three elements that dialogue with each other to give us an artistic, non-popular expression of immense emotional depth and rhythmic and harmonic complexity. Flamenco derives from the decline of the baile bolero, in vogue in the first four decades of the 19th century, which, pervaded by the influence of French ballet, lost its identity and was replaced by a new genre more representative of Spanish culture. It was sung without guitar accompaniment, using only bodily rhythmic supports, such as the tapping of feet on the ground, hands or knuckles on the table. Today, however, it is a form of performance in its own right.",
         
         "numInst" : 3,
-        "SamplesInst" : [],
+        "SamplesInst" : ["../Samples/instruments_notes/AcousticGuitar_C3.wav","../Samples/instruments_notes/AcousticGuitar_C3.wav","../Samples/instruments_notes/AcousticGuitar_C3.wav"],
         "SamplesNotes" : [48,48,48],
-        "Inst_notes" : [],
+        "Inst_notes" : [[69,72,64,69,64,62,72,67,71,62,67,62,60,71,65,69,60,65,72,71,69,64,69,71,67,62,72,71],
+        [69,64,72,60,69,60,62,64,65,64,62,60,67,64,71,64,62,67,71,60,62,64,62,60,71,65,64,69,64,60,65,67,69,72,62,72,71,69,64,64,72,64,62,71,0],
+        [69,64,0,64,69,64,0,64,71,62,0,67,71,67,0,62,69,69,69,69,0,69,69,69,69,69,69,69,0,69,69,69,62,62,62,62,0,62,62,62,62,62,62,0,62,62,62]],
 
-        "Inst_durations" : []
+        "Inst_durations" : [[6,6,4,4,4,4,4,6,6,4,4,4,4,4,6,6,4,4,4,4,4,6,6,4,4,4,4,4],
+        [4,2,4,2,4,2,2,2,2,2,2,2,2,4,2,4,2,4,2,2,2,2,2,2,2,2,4,2,4,2,4,2,2,2,2,2,2,2,2,4,2,4,2,4,4,12],
+        [6,2,4,4,6,2,4,4,6,2,4,4,6,2,4,4, 2,2,2,2, 2,2,2,2, 2,2,2,2, 2,2,2,2, 2,2,2,2,  2,2,2,2, 2,4,2,2,2,2,2]]
     },
 
     {
@@ -163,11 +179,17 @@
         "description" : "Australian indigenous music comprises the music of Australian Aboriginal and Torres Strait Islander people. It includes a variety of distinctive traditional musical styles practised by indigenous Australians. It also features a range of contemporary musical styles of and fusion with European traditions. One of the main instruments is the Didgeridoo, which consists of a long eucalyptus tube, without finger holes, through which the player blows.",
 
         "numInst" : 4,
-        "SamplesInst" : [],
+        "SamplesInst" : ["../Samples/instruments_notes/flute_C3.wav","../Samples/instruments_notes/Didgeridoo_C2.wav","../Samples/instruments_notes/marimba_C3.wav","../Samples/instruments_notes/AcousticGuitar_C3.wav"],
         "SamplesNotes" : [48,36,48,48],
-        "Inst_notes" : [],
+        "Inst_notes" : [[0,60,64,60,64,67,0,60,64,60,64,65,62,60,64,60,64,67,0,60,64,60,64,67,62,0],
+        [41, 0, 41, 41, 0, 41, 43, 0, 43, 40, 40, 41, 0, 40, 41, 0, 40, 43, 0, 43, 40, 40, 41, 0, 40, 41, 0, 40, 41, 0, 43, 0, 43, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 0, 48, 48, 48, 48, 48, 48, 48, 47, 47, 47, 48, 48, 40, 41, 0, 41, 41, 0, 41, 43, 0, 43, 40, 40, 41, 0, 41, 41, 0, 41, 43, 0, 43, 48, 0, 48, 41, 0, 41, 41, 0, 41, 43, 0, 43, 40, 40, 41, 0, 41, 41, 0, 41, 43, 0, 43, 48, 0],
+        [65,65,65,0,65,67,67,67,64,64,0,60,64,60,64,67,0,60,64,60,64,65,62,60,64,60,64,67,0,60,64,60,64,67,62,0],
+        [0,64,60,0,64,60,60,60,60,60,0,64,60,0,64,60,62,62,64,62,0,60,60,60,60,60,62,0,62,60,0,64,60,0,64,60,62,0,64,62,62,60,62,64,62,60,60,64,62,62,60,62,64,62,62,60,67,65,65,64,65,67,65,65,64,64,67,65,65,64,65,64,62,62,60]],
 
-        "Inst_durations" : []
+        "Inst_durations" : [[32,4,4,4,4,8,8,4,4,4,4,8,8,4,4,4,4,8,8,4,4,4,4,8,8,128],
+        [4,2,2,4,2,2,4,2,2,4,4,4,2,2,4,2,2,4,2,2,4,4,4,2,2,4,2,2,4,2,4,2,4,4,2,2,4,2,2,4,2,2,2,2,4,4,2,2,4,2,2,4,2,2,42,2,4,4,2,2,4,2,2,4,2,2,4,4,4,2,2,4,2,2,4,2,2,4,2,2,4,2,2,4,2,2,4,2,2,4,4,4,2,2,4,2,2,4,2,2,4,4,],
+        [4,2,2,6,2,4,2,2,4,2,2,4,4,4,4,8,8,4,4,4,4,8,8,4,4,4,4,8,8,4,4,4,4,8,8,128],
+        [36,2,2,4,2,2,4,2,2,2,2,4,4,2,2,4,2,2,4,2,2,2,2,4,2,2,4,4,2,2,2,4,2,4,4,4,2,2,4,2,2,4,12,2,2,8,2,2,2,2,4,4,4,2,2,8,2,2,2,2,4,8,2,2,8,2,2,2,2,4,4,4,2,2,8,2,2,2,2,4,8]]
         },
 
     {
@@ -181,10 +203,16 @@
         "description" : "Bossa Nova is a musical genre that originated in Brazil and is characterised by a fluid and relaxed rhythm, a fusion of jazz and samba. This musical genre, whose meaning is 'new approach', was created in 1958 in Rio de Janeiro by a group of musicians including João Gilberto, Antonio Carlos Jobim and Vinicius de Moraes. Its characteristics are the often soft style, without vocal emphasis and without vibrato, on a medium or slow tempo, but with a fast-paced pace. It has had great success throughout the world, becoming one of the milestones of 20th century music.",
 
         "numInst" : 4,
-        "SamplesInst" : [],
+        "SamplesInst" : ["../Samples/instruments_notes/piano_C3.wav","../Samples/instruments_notes/piano_C3.wav","../Samples/instruments_notes/AcousticGuitar_C3.wav","../Samples/instruments_notes/AcousticBass_C1.wav"],
         "SamplesNotes" : [48,48,48,24],
-        "Inst_notes" : [],
+        "Inst_notes" : [[64,64,64,0,62,67,65,64,62,64,64,64,0,62,71,65,64,62,64,0,64,69,62,65,0,67,62,62,67,0,67,72,7165,0,67,62,62,0],
+        [48, 0, 48, 41, 43, 38, 0, 40, 47, 47, 40, 0, 40, 45, 43, 38, 0, 40, 47, 47, 48, 0, 48, 41, 43, 38, 0, 40, 47, 47, 40, 0, 40, 45, 43, 38, 0, 40, 47, 47, 0],
+        [65,64,64,0,62,67,65,64,62,64,64,64,0,62,71,65,64,62,71,71,0,71,71,69,0,67,64,0,64,64,0,69,67,64,0,67,60,0],
+        [48, 48, 48, 38, 0, 47, 0, 40, 40, 40, 41, 0, 47, 0, 48, 48, 48, 38, 0, 43, 0, 43, 43, 48, 38, 0, 43, 0, 48, 48, 48, 38, 0, 43, 0, 40, 40, 40, 41, 0, 47, 0, 48, 48, 48, 38, 0, 43, 0, 43, 43, 48, 38, 0, 48, 0, 48, 48, 48, 38, 0, 43, 0, 48, 48, 48, 48, 0, 48]],
 
-        "Inst_durations" : []
+        "Inst_durations" : [[4,2,2,4,2,6,2,6,4,4,2,2,4,2,6,2,6,4,4,2,2,4,4,4,2,2,4,4,4,2,2,4,4,4,2,2,4,4,32],
+        [4,2,2,4,4, 4,2,2,4,4, 4,2,2,4,4, 4,2,2,4,4, 4,2,2,4,4, 4,2,2,4,4,4,2,2,4,4,4,2,2,4,4,32],
+        [4,2,2,4,2,6,2,6,4,4,2,2,4,2,6,2,6,4,2,2,2,2,4,4,6,2,2,6,2,2,2,2,4,4,6,2,2,38],
+        [4,2,2,2,2,2,2, 4,2,2,2,2,2,2, 4,2,2,2,2,2,2, 4,2,2,2,2,2,2, 4,2,2,2,2,2,2, 4,2,2,2,2,2,2, 4,2,2,2,2,2,2,4,2,2,2,2,2,2,4,2,2,2,2,2,2,4,2,2,2,2,2,2]]
         }
     ]
