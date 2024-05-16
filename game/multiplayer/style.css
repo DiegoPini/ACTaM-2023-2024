@@ -207,3 +207,8 @@ button:hover {
   z-index: 1;
   color: white;
 }
+
+#lineCanvas {
+  position: absolute;
+  z-index: 1;
+}

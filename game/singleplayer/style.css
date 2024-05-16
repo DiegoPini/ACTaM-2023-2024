@@ -50,6 +50,23 @@ body {
   cursor: pointer; /* Change mouse cursor on hover */
 }
 
+#playSound {
+  position: absolute;
+  top: 25%;
+  left: 70%;
+  z-index: 1;
+  width: 70px;
+  height: 40px;
+  background-color: #4281a4;
+  color: rgb(255, 255, 255); /* Text color */
+  text-align: center; /* Center text */
+  text-decoration: none; /* Remove underline */
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer; /* Change mouse cursor on hover */
+}
+
 #map {
   position: absolute;
   top: 0;
@@ -191,4 +208,14 @@ button:hover {
 
 #RWbutton {
   display: none;
+}
+
+#PLAY {
+  display: none;
+  position: absolute;
+
+  top: 75%;
+  z-index: 1;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
