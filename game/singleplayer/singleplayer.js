@@ -87,20 +87,38 @@ select.addEventListener("click", () => {
   document.getElementById("back").style.display = "block"; // Show the back button
 });
 
+let samplesInst;
+let instNotesOriginal;
+let instNotesCopy;
+let instDurations;
+let numInst;
+let instNotes;
+let sampleNotes;
+let alreadyUsed = [];
 function changestate() {
-  index = Math.floor(Math.random() * myJSON.length);
-  selectedCountry = myJSON[index].State;
+  do {
+    index = Math.floor(Math.random() * myJSON.length);
+    selectedCountry = myJSON[index].State;
+  } while (alreadyUsed.includes(selectedCountry));
+  alreadyUsed.push(selectedCountry);
   console.log(selectedCountry);
+
   setup(myJSON[index].bpm, myJSON[index].DrumBeat, myJSON[index].TimeSignature);
 
-  if (myJSON[index].Samples.indexOf(undefined) != -1) {
-    loadSounds(
-      myJSON[index].Samples[0],
-      myJSON[index].Samples[1],
-      myJSON[index].Samples[2],
-      myJSON[index].Samples[3]
-    );
-  }
+  loadDrumSounds(
+    myJSON[index].SamplesDrums[0],
+    myJSON[index].SamplesDrums[1],
+    myJSON[index].SamplesDrums[2],
+    myJSON[index].SamplesDrums[3]
+  );
+
+  samplesInst = myJSON[index].SamplesInst;
+  numInst = myJSON[index].numInst; // CONTROLLA SE VA CON CONSOLE LOG NEL CASO DI PROBLEMI
+  sampleNotes = myJSON[index].SamplesNotes; // nota originale del sample
+  instNotesOriginal = myJSON[index].Inst_notes; // partitura note
+  instNotesCopy = JSON.parse(JSON.stringify(instNotesOriginal)); // partitura note
+  instDurations = myJSON[index].Inst_durations; // partitura durate
+  instNotes = myJSON[index].Inst_notes;
 }
 
 function CheckWin() {
@@ -135,6 +153,7 @@ function end() {
   playSound1.style.display = "none";
   playClicked = false;
   coin = 0;
+  alreadyUsed = [];
 }
 
 const RWButton = document.getElementById("RWbutton");

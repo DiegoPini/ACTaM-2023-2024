@@ -465,6 +465,9 @@ select.addEventListener("click", () => {
   select.style.display = "none";
   PLAY.style.display = "none";
   back.style.display = "block";
+  stopLoop();
+  stopDrumLoop();
+  PLAY.textContent = "Play";
 });
 
 back.addEventListener("click", () => {
@@ -505,7 +508,7 @@ function CheckWin() {
   onValue(lobbyref, (snapshot) => {
     const lobby = snapshot.val();
     if (lobby.state == "ended") {
-      if (point == 1) {
+      if (point == 3) {
         alert("You Win");
         end();
       } else {
