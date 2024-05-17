@@ -277,8 +277,16 @@ function displayActiveLobbies() {
         const copybutton = document.createElement("button");
         copybutton.textContent = "Copy";
         copybutton.addEventListener("click", function () {
-          navigator.clipboard.writeText(lobbyId);
-          alert("Copied");
+          setTimeout(function () {
+            navigator.clipboard
+              .writeText(lobbyId)
+              .then(() => {
+                alert("Copied");
+              })
+              .catch((err) => {
+                console.error("Could not copy text: ", err);
+              });
+          }, 100);
         });
         listItem.textContent =
           "Lobby: " + lobbyId + " (ID: " + lobby.creator + ")";
