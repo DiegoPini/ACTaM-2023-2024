@@ -68,11 +68,11 @@ map.on("click", (event) => {
   samplesInst = myJSON[index].SamplesInst;
 
   // array delle note degli strumenti
-  numInst = myJSON[index].numInst;              // CONTROLLA SE VA CON CONSOLE LOG NEL CASO DI PROBLEMI
-  sampleNotes = myJSON[index].SamplesNotes;   // nota originale del sample
-  instNotesOriginal = myJSON[index].Inst_notes;       // partitura note
-  instNotesCopy = JSON.parse(JSON.stringify(instNotesOriginal));       // partitura note
-  instDurations = myJSON[index].Inst_durations;   // partitura durate
+  numInst = myJSON[index].numInst; // CONTROLLA SE VA CON CONSOLE LOG NEL CASO DI PROBLEMI
+  sampleNotes = myJSON[index].SamplesNotes; // nota originale del sample
+  instNotesOriginal = myJSON[index].Inst_notes; // partitura note
+  instNotesCopy = JSON.parse(JSON.stringify(instNotesOriginal)); // partitura note
+  instDurations = myJSON[index].Inst_durations; // partitura durate
 
   const countryName = document.getElementById("countryName");
   const description = document.getElementById("description");
@@ -80,10 +80,8 @@ map.on("click", (event) => {
   description.textContent = myJSON[index].description;
 });
 
-
 let isPlaying = false; // Variabile per tenere traccia dello stato di riproduzione
 window.addEventListener("load", function () {
-
   document.getElementById("play").addEventListener("click", function () {
     if (isPlaying) {
       // Se il loop sta suonando, chiama la funzione stopLoop
@@ -92,17 +90,24 @@ window.addEventListener("load", function () {
       this.textContent = "Play"; // Cambia il testo del pulsante
     } else {
       // Se il loop non sta suonando, inizia a suonare il loop
-      playALot(myJSON[index].bpm, myJSON[index].TimeSignature)
+      playALot(myJSON[index].bpm, myJSON[index].TimeSignature);
       for (let i = 0; i < numInst; i++) {
-        startLoop(samplesInst[i], sampleNotes[i], instNotesCopy[i], instDurations[i], myJSON[index].bpm);
+        startLoop(
+          samplesInst[i],
+          sampleNotes[i],
+          instNotesCopy[i],
+          instDurations[i],
+          myJSON[index].bpm
+        );
       }
       this.textContent = "Stop"; // Cambia il testo del pulsante
     }
     isPlaying = !isPlaying; // Cambia lo stato
   });
 
-
   document.getElementById("close").addEventListener("click", () => {
+    stopLoop();
+    stopDrumLoop();
     document.getElementById("customPopup").style.display = "none";
     document.getElementById("game").style.display = "block";
   });

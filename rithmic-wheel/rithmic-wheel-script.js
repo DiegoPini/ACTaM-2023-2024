@@ -179,7 +179,6 @@ let stopRotation = 0;
 let stoprotation = false;
 
 function startRotation(bpm, sign) {
-  let counter = 1;
   if (sign === 1) {
     stopRotation = 17;
     angle = 22.5;
@@ -188,6 +187,7 @@ function startRotation(bpm, sign) {
     angle = 30;
   }
 
+  counter = 1;
   intervalId1 = setInterval(() => {
     if (stoprotation === false) {
       drawRotatingLine(angle * (Math.PI / 180) * counter);
