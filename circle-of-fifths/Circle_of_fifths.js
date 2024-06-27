@@ -63,6 +63,10 @@ window.addEventListener('load', function() {
         document.getElementById('F'), document.getElementById('Gb'),
         document.getElementById('G'), document.getElementById('Ab')];
 
+
+
+    console.log("ok");
+
     scales.forEach(function(scale) {
         //listener per cambio chiave
             scale.addEventListener('click', function() {
@@ -82,13 +86,6 @@ window.addEventListener('load', function() {
                     changeTonality(instNotesOriginal[i], instNotesCopy[i], instNotesCopyStatica[i], "C", selectedTonality);  // le partiture originlai sono tutte in C maggiore
                 }
 
-                //cancello i tasti colorati precedentemente
-                /*notes.forEach(function(note){
-                note.style.fill="#FE938C"; });
-                scales.forEach(function(sc){
-                sc.style.fill="#FE938C";
-                });*/
-
                 notes.forEach(function(note){
                 note.classList.remove("note_selected"); });
                 scales.forEach(function(sc){
@@ -107,5 +104,12 @@ window.addEventListener('load', function() {
             });
     });
 
+    // auto click per scala di Do come predefinito
+    document.getElementById('C').dispatchEvent(
+        new MouseEvent('click', {
+            bubbles: true,
+            cancelable: true,
+            view: window
+        }))
 
 });
