@@ -186,16 +186,15 @@ function startRotation(bpm, sign) {
     stopRotation = 13;
     angle = 30;
   }
-
-  counter = 1;
-  intervalId1 = setInterval(() => {
-    if (stoprotation === false) {
-      drawRotatingLine(angle * (Math.PI / 180) * counter);
-      counter++;
-      if (counter == stopRotation) counter = 1;
-    } else {
+  let counter = 1; // Inizializza il contatore
+  const intervalstupido = setInterval(() => {
+    drawRotatingLine(angle * (Math.PI / 180) * counter);
+    counter++;
+    if (stoprotation) {
+      clearInterval(intervalstupido);
       counter = 1;
-      clearInterval(intervalId1);
+      drawRotatingLine(0);
+      return;
     }
   }, 60000 / bpm);
 }
@@ -356,6 +355,7 @@ function stopDrumLoop() {
     clearTimeout(timeout);
   });
   drawRotatingLine(0);
+  counter = 0;
 }
 
 function loadDrumSounds(sound1D, sound2D, sound3D, sound4D) {

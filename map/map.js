@@ -87,7 +87,20 @@ window.addEventListener("load", function () {
       // Se il loop sta suonando, chiama la funzione stopLoop
       stopLoop();
       stopDrumLoop();
-      this.textContent = "Play"; // Cambia il testo del pulsante
+      setup(
+        myJSON[index].bpm,
+        myJSON[index].DrumBeat,
+        myJSON[index].TimeSignature
+      );
+      this.disabled = true;
+      button = this;
+      this.style.backgroundColor = "#CD5C5C";
+      this.textContent = "Wait";
+      setTimeout(function () {
+        button.disabled = false;
+        button.textContent = "Play";
+        button.style.backgroundColor = "#4281a4";
+      }, (6000 / myJSON[index].bpm) * 16 + 3500);
     } else {
       // Se il loop non sta suonando, inizia a suonare il loop
       playALot(myJSON[index].bpm, myJSON[index].TimeSignature);
@@ -108,6 +121,9 @@ window.addEventListener("load", function () {
   document.getElementById("close").addEventListener("click", () => {
     stopLoop();
     stopDrumLoop();
+    if (isPlaying) {
+      document.getElementById("play").textContent = "Play";
+    }
     document.getElementById("customPopup").style.display = "none";
     document.getElementById("game").style.display = "block";
   });
