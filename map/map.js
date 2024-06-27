@@ -71,7 +71,8 @@ map.on("click", (event) => {
   numInst = myJSON[index].numInst; // CONTROLLA SE VA CON CONSOLE LOG NEL CASO DI PROBLEMI
   sampleNotes = myJSON[index].SamplesNotes; // nota originale del sample
   instNotesOriginal = myJSON[index].Inst_notes; // partitura note
-  instNotesCopy = JSON.parse(JSON.stringify(instNotesOriginal)); // partitura note
+  instNotesCopy = JSON.parse(JSON.stringify(instNotesOriginal)); // copia partitura note per modifiche
+  instNotesCopyStatica = JSON.parse(JSON.stringify(instNotesOriginal)); // partitura note necessaria per cambio tonalità
   instDurations = myJSON[index].Inst_durations; // partitura durate
 
   const countryName = document.getElementById("countryName");
@@ -87,7 +88,20 @@ window.addEventListener("load", function () {
       // Se il loop sta suonando, chiama la funzione stopLoop
       stopLoop();
       stopDrumLoop();
-      this.textContent = "Play"; // Cambia il testo del pulsante
+      setup(
+        myJSON[index].bpm,
+        myJSON[index].DrumBeat,
+        myJSON[index].TimeSignature
+      );
+      this.disabled = true;
+      button = this;
+      this.style.backgroundColor = "#CD5C5C";
+      this.textContent = "Wait";
+      setTimeout(function () {
+        button.disabled = false;
+        button.textContent = "Play";
+        button.style.backgroundColor = "#4281a4";
+      }, (6000 / myJSON[index].bpm) * 16 + 3500);
     } else {
       // Se il loop non sta suonando, inizia a suonare il loop
       playALot(myJSON[index].bpm, myJSON[index].TimeSignature);
@@ -108,6 +122,18 @@ window.addEventListener("load", function () {
   document.getElementById("close").addEventListener("click", () => {
     stopLoop();
     stopDrumLoop();
+    if (isPlaying) {
+      let button = document.getElementById("play");
+      button.disabled = true;
+      isPlaying = !isPlaying;
+      button.style.backgroundColor = "#CD5C5C";
+      button.textContent = "Wait";
+      setTimeout(function () {
+        button.disabled = false;
+        button.textContent = "Play";
+        button.style.backgroundColor = "#4281a4";
+      }, (6000 / myJSON[index].bpm) * 16 + 3500);
+    }
     document.getElementById("customPopup").style.display = "none";
     document.getElementById("game").style.display = "block";
   });

@@ -5,9 +5,18 @@ played in the corresponding 16th.
 
 
 // Take the matrix in the original key and returns a matrix in the new key
-function changeKey(originalMat, copyMat, oldKey, newKey) {
+function changeTonality(originalMat, copyMat, copyMat4Key, oldKey, newKey) {
     // Original matrix in the key of C
+
+    // copyMat4Key serve per avere la matrice originale ma nella chiave modificata
+    // copyMat (che è quella che viene suonata) viene modificata a partire da copyMat4Key 
+    // a cui vengo aggiunti/sottratti i semitoni per arrivare all anuova tonalità
+
+    // Per testing senza JSON
     // Matrix example: originalMat = [60, 62, 64, 65, 67, 69, 71, 72];
+    // copyMat = originalMat.slice();
+
+    // Col JSON
     // copyMat è una copia di originalMat. copyMat viene modificata, originalMat no in modod da preservare la partitura originale
     // instNotesOriginal = myJSON[index].Inst_notes;       // partitura note
     // instNotesCopy = JSON.parse(JSON.stringify(instNotesOriginal));       // partitura note
@@ -19,9 +28,9 @@ function changeKey(originalMat, copyMat, oldKey, newKey) {
         interval = interval - 12;
     }
     
-    for (i=0; i<originalMat.length; i++) {
+    for (let i=0; i<originalMat.length; i++) {
         if (originalMat[i] != 0) {
-            copyMat[i] = originalMat[i] + interval;
+            copyMat[i] = copyMat4Key[i] + interval;
         }
     }
 }
@@ -106,4 +115,92 @@ function key2midiPitch(key){
             break;
     }
     return midiPitch;
+}
+
+
+function changeKey(originalMat, copyMat, newKey){
+    // Scale tra cui scegliere: maggiore naturale, minore naturale, minore armonica, frigia e misolidia
+    // Le partiture originali sono tutte in C maggiore
+
+    if (newKey == "major_scale"){
+        for (i=0; i<originalMat.length; i++) {
+            copyMat[i] = originalMat[i];
+            }
+    }
+    else if (newKey == "minor_nat_scale"){
+        majNat2minNat(originalMat, copyMat);
+    }
+    else if (newKey == "minor_arm_scale"){
+        majNat2minArm(originalMat, copyMat);
+    }
+    else if (newKey == "phrygian_scale"){
+        majNat2frigia(originalMat, copyMat);
+    }
+    else if (newKey == "misolidian_scale"){
+        majNat2misolidian(originalMat, copyMat);
+    }
+    else{
+        console.log("error");
+    }
+}
+
+
+function majNat2minNat(originalMat, copyMat){
+    // Cambio da maggiore naturale a minore naturale
+
+    // I, II, IV, V grado rimangono invariati
+    // III, VI, VII grado vanno abbassati di un semitono
+
+    for (i=0; i<originalMat.length; i++) {
+        copyMat[i] = originalMat[i];
+
+        if (originalMat[i]%12 == 4 || originalMat[i]%12 == 9 || originalMat[i]%12 == 11) {
+            copyMat[i] = originalMat[i] - 1;
+        }
+    }
+}
+
+function majNat2minArm(originalMat, copyMat){
+    // Cambio da maggiore naturale a minore armonica
+
+    // I, II, IV, V, VII grado rimangono invariati
+    // III, VI grado va abbassato di un semitono
+
+    for (i=0; i<originalMat.length; i++) {
+        copyMat[i] = originalMat[i];
+
+        if (originalMat[i]%12 == 4 || originalMat[i]%12 == 9) {
+            copyMat[i] = originalMat[i] - 1;
+        }
+    }
+}
+
+function majNat2frigia(originalMat, copyMat){
+    // Cambio da maggiore naturale a frigia
+
+    // I, IV, V grado rimangono invariati
+    // II, III, VI, VII grado vanno abbassati di un semitono
+
+    for (i=0; i<originalMat.length; i++) {
+        copyMat[i] = originalMat[i];
+
+        if (originalMat[i]%12 == 2 || originalMat[i]%12 == 4 || originalMat[i]%12 == 9 || originalMat[i]%12 == 11) {
+            copyMat[i] = originalMat[i] - 1;
+        }
+    }
+}
+
+function matNat2misolidian(originalMat, copyMat){
+    // Cambio da maggiore naturale a misolidia
+
+    // I, II, III, IV, V, IV grado rimangono invariati
+    // VII grado vanno abbassati di un semitono
+
+    for (i=0; i<originalMat.length; i++) {
+        copyMat[i] = originalMat[i];
+
+        if (originalMat[i]%12 == 11) {
+            copyMat[i] = originalMat[i] - 1;
+        }
+    }
 }

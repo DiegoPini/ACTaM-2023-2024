@@ -444,7 +444,7 @@ function startGameForPlayer(lobbyId) {
 
 function nextRound() {
   counter++;
-  console.log(counter);
+  PLAY.disabled = false;
   playersList.forEach((player) => {
     let playerRef = ref(db, "lobbies/" + lobbyId + "/players" + player);
     get(playerRef).then((snapshot) => {
@@ -484,7 +484,7 @@ back.addEventListener("click", () => {
   select.style.display = "block";
   back.style.display = "none";
 });
-
+let feature;
 map.on("click", (event) => {
   popup.style.display = "block";
   back.style.display = "none";
@@ -494,9 +494,16 @@ map.on("click", (event) => {
   });
 
   const lobbyRef = ref(db, "lobbies/" + lobbyId);
-  const feature = features[0].properties.name;
+  if (features[0] == undefined) {
+    popup.style.display = "block";
+    select.style.display = "block";
+    PLAY.style.display = "block";
+    return;
+  } else feature = features[0].properties.name;
+
   console.log(feature);
   console.log(selectedCountry);
+
   if (feature == selectedCountry) {
     point++;
     update(lobbyRef, {
@@ -525,7 +532,7 @@ function CheckWin() {
       }
     }
   });
-  if (point == 1) {
+  if (point == 3) {
     update(lobbyref, {
       state: "ended",
     });
@@ -566,6 +573,7 @@ PLAY.addEventListener("click", function () {
     // Se il loop sta suonando, chiama la funzione stopLoop
     stopLoop();
     stopDrumLoop();
+    this.disabled = true;
     this.textContent = "Play"; // Cambia il testo del pulsante
   } else {
     // Se il loop non sta suonando, inizia a suonare il loop
@@ -580,6 +588,7 @@ PLAY.addEventListener("click", function () {
       );
     }
     this.textContent = "Stop"; // Cambia il testo del pulsante
+    this.disable = true;
     isPlaying = !isPlaying;
   } // Cambia lo stato
 });
