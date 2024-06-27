@@ -71,7 +71,8 @@ map.on("click", (event) => {
   numInst = myJSON[index].numInst; // CONTROLLA SE VA CON CONSOLE LOG NEL CASO DI PROBLEMI
   sampleNotes = myJSON[index].SamplesNotes; // nota originale del sample
   instNotesOriginal = myJSON[index].Inst_notes; // partitura note
-  instNotesCopy = JSON.parse(JSON.stringify(instNotesOriginal)); // partitura note
+  instNotesCopy = JSON.parse(JSON.stringify(instNotesOriginal)); // copia partitura note per modifiche
+  instNotesCopyStatica = JSON.parse(JSON.stringify(instNotesOriginal)); // partitura note necessaria per cambio tonalità
   instDurations = myJSON[index].Inst_durations; // partitura durate
 
   const countryName = document.getElementById("countryName");
