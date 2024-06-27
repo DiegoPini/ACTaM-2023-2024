@@ -125,7 +125,7 @@ window.addEventListener("load", function () {
     if (isPlaying) {
       let button = document.getElementById("play");
       button.disabled = true;
-
+      isPlaying = !isPlaying;
       button.style.backgroundColor = "#CD5C5C";
       button.textContent = "Wait";
       setTimeout(function () {
