@@ -32,17 +32,15 @@
         "title" : "Jamaica - Raggae",
         "description" : "Reggae music originated in Jamaica in the early 1970s as an evolution of Ska and Rocksteady, musical genres typical of the Jamaican territory, characterised by upbeat and very frenetic rhythms. A characteristic of the genre is that the rhythm falls in the strong tempo, unlike ska where it falls in the weak tempo. Bob Marley was the main icon of this genre and was instrumental in spreading it beyond the borders of the American island.",
         
-        "numInst" : 5,
+        "numInst" : 4,
         "SamplesInst" : ["../Samples/instruments_notes/Organ_C3.wav","../Samples/instruments_notes/Organ_C3.wav","../Samples/instruments_notes/AcousticGuitar_C3.wav","../Samples/instruments_notes/AcousticGuitar_C3.wav","../Samples/instruments_notes/ElectricBass_C1.wav"],
         "SamplesNotes" : [48,48,48,48,24],
         "Inst_notes" : [[0,60,62,64,60,64,62,60,60,60,60,69,67,64,65,64,62,0,60,72,71,69,67,64,67,62,71,69,69,69,64,69,67,60,62,64,65,64,62,0,60],
-        [0, 48, 47, 45, 45, 45, 45, 41, 45, 0, 43, 43, 43, 48, 0, 48, 40, 47, 43, 0, 48, 48, 48, 0, 48],
         [60,60,60, 60,60,60, 67,60,62,64, 62,0,62,67,64, 60, 65,0,65,69,65, 60,62,64,60, 65,0,64,67,64, 72,0,72,72,0,72, 0,67,60,62,64, 67,72,72,67,67,64, 0,67,60,62,64,67,72,67,65,0,69, 67,72,67,64,67,64, 69,71,67,67,64,67,72,71,69],
         [0,72,71,72,71,69,0,64,0,65,64,62,60,0,72,71,72,71,69,0,64,0,65,64,62,60,0],
         [43, 45, 47, 48, 43, 45, 47, 48, 48, 48, 40, 48, 41, 41, 38, 38, 38, 47, 48, 38, 40, 48, 48, 48, 40, 48, 41, 40, 38, 0, 48, 48, 40, 38, 48, 43, 45, 47, 48, 48, 48, 40, 48, 43, 43, 38, 41, 41, 43, 48, 48, 41, 45, 48, 48, 40, 48, 41, 40, 38, 0, 48, 48, 40, 38, 48, 48, 0]],
         
         "Inst_durations" : [[16,4,4,4,4,16,12,10,6,4,12,4,4,12,4,4,2,2,20,4,4,4,4,8,8,8,8,6,6,4,12,4,4,4,4,4,4,4,2,2,36],
-        [32,16,12,4,6,6,4,12,4,16,6,6,4,16,16,8,8,8,8,16,6,6,4,32,32],
         [4,8,4,4,8,4,2,2,2,10,2,2,2,6,4,16,2,2,2,6,4,4,4,4,4,2,2,2,6,4,4,2,2,2,2,2,18,2,2,2,10,2,2,2,4,2,4,2,2,2,2,2,2,2,2,8,4,4,2,4,2,2,2,4,2,4,4,2,4,24,2,4,2],
         [44,4,4,4,4,20,24,4,4,4,4,4,8,40,4,4,4,4,20,10,4,4,4,4,4,8,28],
         [4,4,4,4,4,4,4,4,4,4,4,4,4,8,4,6,6,4,4,4,4,4,4,4,4,4,4,4,2,2,4,4,4,4,4,4,4,4,4,4,4,4,4,4,8,4,6,6,4,4,4,4,4,4,4,4,4,4,4,2,2,4,4,4,4,4,4,12]]
@@ -58,20 +56,18 @@
         "title" : "United Kingdom - British Rock",
         "description" : "British rock music describes a wide variety of musical forms produced in the United Kingdom. The first attempts to emulate American rock and roll took place in Britain in the mid-1950s, but the terms 'rock music' and 'rock' usually refer to music derived from blues rock and other genres that emerged during the 1960s. Among the most prominent exponents were the Beatles, who contributed significantly to influencing American and world rock.",
         
-        "numInst" : 5,
+        "numInst" : 4,
         "SamplesInst" : ["../Samples/instruments_notes/piano_C3.wav","../Samples/instruments_notes/piano_C3.wav","../Samples/instruments_notes/ElectricGuitar_C3.wav","../Samples/instruments_notes/AcousticGuitar_C3.wav","../Samples/instruments_notes/ElectricBass_C1.wav"],
         "SamplesNotes" : [48,48,48,48,24],
         "Inst_notes" : [[0,69,71,64,62,64,64,64,62,62,62,62,62,0,71,69,69,69,69,64,64,64,0,62,62,62,71,69,71,71,71,62,62,62,62,62,62],
-        [48, 0, 48, 48, 48, 43, 0, 43, 43, 43, 38, 0, 38, 38, 38, 45, 48, 43, 38, 45, 0, 47, 45, 45, 45, 45, 45, 43, 40, 0, 47, 47, 47, 43, 47, 45, 43, 38, 45],
         [0,62,64,67,71,62,64,67,71,67,0,67,67,71,67,67,67,67,71,67,0,64,71,67,64,62,64,67,62,62,62,67,67,71,0,69,69],
         [67,67,67,67, 62,62,62,62,62, 69,69,69,69,69,69,69,69,69,0,67,67,71,67,67,67,67,71,67,0,69,67,69,67,64,69,67,69,71,69,67,64,0,71,69,69,69,69,69,67,64,0,62,62,62,71,69,0],
-        [43, 38, 45, 45, 43, 38, 45, 45, 38, 43, 38, 38, 38, 45, 45, 45, 45, 47, 45, 43, 40, 38, 43, 38, 38, 38, 45, 45, 45, 45, 47, 45, 43, 40, 38]],
+        [48,0,48,48,48, 43,0,43,43,43, 38,0,38,38,38, 45, 43, 38, 45, 45, 38, 43, 38, 38, 38, 45, 45, 45, 45, 47, 45, 43, 40, 38, 43, 38, 38, 38, 45, 45, 45, 45, 47, 45, 43, 40, 38]],
         
         "Inst_durations" : [[32,18,2,8,4,6,4,6,6,4,6,16,16,8,4,4,4,8,4,6,8,2,8,2,4,6,2,10,6,8,2,6,8,2,6,8,2],
-        [4,2,2,4,4,4,2,2,4,4,4,2,2,4,4,16,16,16,16,16,8,4,4,4,8,4,4,2,10,8,2,4,2,4,2,10,16,16,16],
         [14,2, 2,2,2,2,2,2,2,2, 36, 2,2,6,2,2,2,4,6,2, 64,4,2,2,2,2,2,2,6,2,4,4,16,12,2,18,16],
         [4,4,6,2,2,2,4,6,2,4,4,6,2,2,2,4,6,2,4,2,2,6,2,2,2,4,6,2,4,2,2,2,2,2,4,2,2,2,2,2,4,8,4,4,4,8,4,4,2,10,8,2,4,6,2,10,48],
-        [16,16,16,16,16, 14,18, 14,2,14,2,14,2,14,2, 4,2,2,2,2,2,2, 14,2,14,2,14,2, 4,2,2,2,2,2,2]]
+        [4,2,2,4,4, 4,2,2,4,4, 4,2,2,4,4, 16,16, 14,18, 14,2,14,2,14,2,14,2, 4,2,2,2,2,2,2, 14,2,14,2,14,2, 4,2,2,2,2,2,2]]
     },
 
     {
