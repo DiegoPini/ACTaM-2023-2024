@@ -573,6 +573,7 @@ PLAY.addEventListener("click", function () {
     // Se il loop sta suonando, chiama la funzione stopLoop
     stopLoop();
     stopDrumLoop();
+    this.disabled = true;
     this.textContent = "Play"; // Cambia il testo del pulsante
   } else {
     // Se il loop non sta suonando, inizia a suonare il loop
