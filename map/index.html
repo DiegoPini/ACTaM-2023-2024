@@ -226,33 +226,55 @@
         </text>
       </svg>
 
-      <div style="display: flex; justify-content: center;  width: 50%; height:70%; position: absolute; float: left">
+      <div style="display: flex; justify-content: center;  width: 33%; position: absolute; float: left">
         <button id="close">Esc</button>
         <button id="play">Play</button>
+      </div>
+
+
+        <canvas class = "casella" style="position: absolute; left: 30%; top: 30%; margin: 10px" id="progressCanvasProgBar" width="400" height="15" ></canvas>
+
+        <div class = "casella" id = "instruments" style="position: absolute; left: 48%; top: 38%; margin: 10px">
+
+          <div class="textProgBar">Instrument 1 </div>
+          <button class="muteButtonProgBar">M</button>
+
+          <div class="textProgBar">Instrument 2 </div>
+          <button class="muteButtonProgBar">M</button>
+
+          <div class="textProgBar">Instrument 3 </div>
+          <button class="muteButtonProgBar">M</button>
+
+          <div class="textProgBar">Instrument 4 </div>
+          <button class="muteButtonProgBar">M</button>
+
+        </div>
 
         <canvas
           id="myCanvas"
           width="300"
           height="300"
-          style="position: absolute; left: 30%; top: 20%; margin: 10px"
+          style="position: absolute; left: 5%; top: 38%; margin: 10px"
         ></canvas>
         <canvas
           id="lineCanvas"
           width="300"
           height="300"
-          style="position: absolute; left: 30%; top: 20%; margin: 10px"
+          style="position: absolute; left: 5%; top: 38%; margin: 10px"
         ></canvas>
-      </div>
 
-      <div class="casella" style="position:absolute; width:20%; right:50px">
-        <label for="change_scale">Change the scale:</label>
-        <select id="change_scale">
-          <option value="major_scale">Major scale</option>
-          <option value="minor_nat_scale">Minor natural scale</option>
-          <option value="minor_arm_scale">Minor armonic scale</option>
-          <option value="ionic_scale">Ionic scale</option>
-          <option value="phrygian_scale">Phrygian scale</option>
-        </select>
+
+      <div style="position: absolute; width:33%; right:0">
+        <div class="casella" style="position:absolute; width:40%">
+          <label for="change_scale">Change the scale:</label>
+          <select id="change_scale">
+            <option value="major_scale">Major scale</option>
+            <option value="minor_nat_scale">Minor natural scale</option>
+            <option value="minor_arm_scale">Minor armonic scale</option>
+            <option value="ionic_scale">Ionic scale</option>
+            <option value="phrygian_scale">Phrygian scale</option>
+          </select>
+        </div>
       </div>
     </div>
 
