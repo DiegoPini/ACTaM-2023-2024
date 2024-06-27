@@ -5,8 +5,12 @@ played in the corresponding 16th.
 
 
 // Take the matrix in the original key and returns a matrix in the new key
-function changeTonality(originalMat, copyMat, oldKey, newKey) {
+function changeTonality(originalMat, copyMat, copyMat4Key, oldKey, newKey) {
     // Original matrix in the key of C
+
+    // copyMat4Key serve per avere la matrice originale ma nella chiave modificata
+    // copyMat (che è quella che viene suonata) viene modificata a partire da copyMat4Key 
+    // a cui vengo aggiunti/sottratti i semitoni per arrivare all anuova tonalità
 
     // Per testing senza JSON
     // Matrix example: originalMat = [60, 62, 64, 65, 67, 69, 71, 72];
@@ -24,9 +28,9 @@ function changeTonality(originalMat, copyMat, oldKey, newKey) {
         interval = interval - 12;
     }
     
-    for (i=0; i<originalMat.length; i++) {
+    for (let i=0; i<originalMat.length; i++) {
         if (originalMat[i] != 0) {
-            copyMat[i] = originalMat[i] + interval;
+            copyMat[i] = copyMat4Key[i] + interval;
         }
     }
 }

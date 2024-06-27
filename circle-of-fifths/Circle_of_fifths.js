@@ -5,28 +5,43 @@ let misolidian_scale = [0,2,3,5,7,9,10,12];
 let phrygian_scale = [0,1,3,5,7,8,10,12]
 let chosen_scale = major_scale;
 
+let selectedTonality;
+var change_scale;
+
+const externalButton = document.getElementById("play");
+
 document.addEventListener('DOMContentLoaded', function() {
-    var change_scale = document.getElementById('change_scale');
+
+    change_scale = document.getElementById('change_scale');
 
     //listener per il menù a tendina cambio scala
     change_scale.addEventListener('change', function() {
-    if (change_scale.value === "minor_nat_scale")
-    chosen_scale = minor_nat_scale;
-    else if (change_scale.value === "minor_arm_scale")
-    chosen_scale = minor_arm_scale;
-    else if (change_scale.value === "major_scale")
-    chosen_scale = major_scale;
-    else if (change_scale.value === "misolidian_scale")
-    chosen_scale = misolidian_scale;
-    else if (change_scale.value === "phrygian_scale")
-    chosen_scale = phrygian_scale;
-    else
-    console.log("error")
+
+        stopLoop();
+        stopDrumLoop();         // AGGIORNARE
+        // externalButton.textContent = "Play"; // Cambia il testo del pulsante
+        isPlaying = !isPlaying; // Cambia lo stato
+        
+        if (change_scale.value === "minor_nat_scale")
+        chosen_scale = minor_nat_scale;
+        else if (change_scale.value === "minor_arm_scale")
+        chosen_scale = minor_arm_scale;
+        else if (change_scale.value === "major_scale")
+        chosen_scale = major_scale;
+        else if (change_scale.value === "misolidian_scale")
+        chosen_scale = misolidian_scale;
+        else if (change_scale.value === "phrygian_scale")
+        chosen_scale = phrygian_scale;
+        else
+        console.log("error")
 
 
-    for (let i = 0; i<numInst; i++){
-        changeKey(instNotesOriginal[i], instNotesCopy[i], change_scale.value);
-    }
+        for (let i = 0; i<numInst; i++){
+            // changeKey(instNotesOriginal[i], instNotesCopy[i], change_scale.value);
+            // changeTonality(instNotesOriginal[i], instNotesCopy[i], "C", selectedTonality);
+            changeKey(instNotesOriginal[i], instNotesCopyStatica[i], change_scale.value);
+            changeTonality(instNotesOriginal[i], instNotesCopy[i], instNotesCopyStatica[i], "C", selectedTonality);
+        }
     });
 });
 
@@ -48,8 +63,6 @@ window.addEventListener('load', function() {
         document.getElementById('F'), document.getElementById('Gb'),
         document.getElementById('G'), document.getElementById('Ab')];
 
-    const externalButton = document.getElementById("play");
-
     scales.forEach(function(scale) {
         //listener per cambio chiave
             scale.addEventListener('click', function() {
@@ -57,13 +70,16 @@ window.addEventListener('load', function() {
 
                 stopLoop();
                 stopDrumLoop();         // AGGIORNARE
-                externalButton.textContent = "Play"; // Cambia il testo del pulsante
+                // externalButton.textContent = "Play"; // Cambia il testo del pulsante
                 isPlaying = !isPlaying; // Cambia lo stato
 
                 // cambia la chiave di tutte le partiture
-                let selectedScale = scale.id;
+                selectedTonality = scale.id;
                 for (let i = 0; i<numInst; i++){
-                    changeTonality(instNotesOriginal[i], instNotesCopy[i], "C", selectedScale);  // le partiture originlai sono tutte in C maggiore
+                    // changeKey(instNotesOriginal[i], instNotesCopy[i], change_scale.value);
+                    // changeTonality(instNotesOriginal[i], instNotesCopy[i], "C", selectedTonality);
+                    changeKey(instNotesOriginal[i], instNotesCopyStatica[i], change_scale.value);
+                    changeTonality(instNotesOriginal[i], instNotesCopy[i], instNotesCopyStatica[i], "C", selectedTonality);  // le partiture originlai sono tutte in C maggiore
                 }
 
                 //cancello i tasti colorati precedentemente
