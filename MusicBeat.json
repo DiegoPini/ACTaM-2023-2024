@@ -55,7 +55,7 @@
                       [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0],  
                       [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],  
                       [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
-        "title" : "British Rock",
+        "title" : "United Kingdom - British Rock",
         "description" : "British rock music describes a wide variety of musical forms produced in the United Kingdom. The first attempts to emulate American rock and roll took place in Britain in the mid-1950s, but the terms 'rock music' and 'rock' usually refer to music derived from blues rock and other genres that emerged during the 1960s. Among the most prominent exponents were the Beatles, who contributed significantly to influencing American and world rock.",
         
         "numInst" : 5,
@@ -81,7 +81,7 @@
                     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],  
                     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],  
                     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],  
-        "title" : "Blues",
+        "title" : "United States - Blues",
         "description" : "The blues has deep roots in the history of African Americans. It was born in the plantations of the South in the 19th century: its 'inventors' were slaves, former slaves and descendants of African-American sharecroppers, who sang while working in the cotton fields and tobacco plantations. From these humble beginnings, the blues grew to become the most recorded form of popular music in the world, eventually strongly influencing pop music, rock and roll and hip hop.",
 
         "numInst" : 4,
@@ -105,7 +105,7 @@
                         [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
-        "title" : "Opera",
+        "title" : "Italy - Opera",
         "description" : "Italian opera music has its origins in the Renaissance and Baroque periods, with the golden age stretching from the late 16th to the 18th century. Early Italian operas were influenced by classical Greek and Roman theatre traditions, but also introduced innovative musical elements such as the recitative and aria. During the Baroque period, composers such as Alessandro Scarlatti and Antonio Vivaldi contributed to the development of the genre, leading to the creation of famous operas. The Classical period saw the emergence of operas with catchy melodies and virtuosic vocals. In the 19th century, Italian opera reached its peak with operas of great emotional impact, such as La Traviata, Rigoletto, Tosca and La Bohème.",
 
         "numInst" : 4,
@@ -129,7 +129,7 @@
                         [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0], 
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],  
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
-        "title" : "Valzer",
+        "title" : "Austria - Valzer",
         "description" : "The Valzer, whose name is linked to the verbs 'to turn, to twirl, to twirl', is a dance in ternary rhythm that originated at the end of the 18th century as an evolution of the Ländler. The waltz established itself in Vienna at the beginning of the 19th century with Johann Strauss father and his friend, colleague and rival Joseph Lanner. Today, the waltz is a popular dance, performed with few variations in all repertoires and accompanied by traditional instruments such as the accordion, accordion, fife and bagpipe.",
 
         "numInst" : 4,
@@ -153,7 +153,7 @@
                         [1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0], 
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
-        "title" : "Flamenco",
+        "title" : "Spain - Flamenco",
         "description" : "Flamenco is a musical genre that expresses itself through cante, music and baile, three elements that dialogue with each other to give us an artistic, non-popular expression of immense emotional depth and rhythmic and harmonic complexity. Flamenco derives from the decline of the baile bolero, in vogue in the first four decades of the 19th century, which, pervaded by the influence of French ballet, lost its identity and was replaced by a new genre more representative of Spanish culture. It was sung without guitar accompaniment, using only bodily rhythmic supports, such as the tapping of feet on the ground, hands or knuckles on the table. Today, however, it is a form of performance in its own right.",
         
         "numInst" : 3,
@@ -175,7 +175,7 @@
                     [1,0,0,0,0,0,1,0,1,0,0,0,0,0,1,0],   
                     [1,0,0,0,1,0,1,0,1,0,0,0,1,0,0,0],   
                     [1,0,1,0,1,0,0,0,1,0,0,0,0,0,0,0]],
-        "title" : "Folk Indigenous Music",
+        "title" : "Australia - Folk Indigenous Music",
         "description" : "Australian indigenous music comprises the music of Australian Aboriginal and Torres Strait Islander people. It includes a variety of distinctive traditional musical styles practised by indigenous Australians. It also features a range of contemporary musical styles of and fusion with European traditions. One of the main instruments is the Didgeridoo, which consists of a long eucalyptus tube, without finger holes, through which the player blows.",
 
         "numInst" : 4,
@@ -200,7 +200,7 @@
                       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0], 
                       [0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],  
                       [1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0]],
-        "title" : "Bossa Nova",
+        "title" : "Brazil - Bossa Nova",
         "description" : "Bossa Nova is a musical genre that originated in Brazil and is characterised by a fluid and relaxed rhythm, a fusion of jazz and samba. This musical genre, whose meaning is 'new approach', was created in 1958 in Rio de Janeiro by a group of musicians including João Gilberto, Antonio Carlos Jobim and Vinicius de Moraes. Its characteristics are the often soft style, without vocal emphasis and without vibrato, on a medium or slow tempo, but with a fast-paced pace. It has had great success throughout the world, becoming one of the milestones of 20th century music.",
 
         "numInst" : 4,
