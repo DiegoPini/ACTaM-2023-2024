@@ -1,7 +1,7 @@
 let major_scale = [0, 2, 4, 5, 7, 9, 11, 12];
 let minor_nat_scale = [0, 2, 3, 5, 7, 8, 10, 12];
 let minor_arm_scale = [0, 2, 3, 5, 7, 8, 11, 12];
-let ionic_scale = [0,2,3,5,7,9,10,12];
+let misolidian_scale = [0,2,3,5,7,9,10,12];
 let phrygian_scale = [0,1,3,5,7,8,10,12]
 let chosen_scale = major_scale;
 
@@ -16,12 +16,17 @@ document.addEventListener('DOMContentLoaded', function() {
     chosen_scale = minor_arm_scale;
     else if (change_scale.value === "major_scale")
     chosen_scale = major_scale;
-    else if (change_scale.value === "ionic_scale")
-    chosen_scale = ionic_scale;
+    else if (change_scale.value === "misolidian_scale")
+    chosen_scale = misolidian_scale;
     else if (change_scale.value === "phrygian_scale")
     chosen_scale = phrygian_scale;
     else
     console.log("error")
+
+
+    for (let i = 0; i<numInst; i++){
+        changeKey(instNotesOriginal[i], instNotesCopy[i], change_scale.value);
+    }
     });
 });
 
@@ -58,7 +63,7 @@ window.addEventListener('load', function() {
                 // cambia la chiave di tutte le partiture
                 let selectedScale = scale.id;
                 for (let i = 0; i<numInst; i++){
-                    changeKey(instNotesOriginal[i], instNotesCopy[i], "C", selectedScale);  // le partiture originlai sono tutte in C maggiore
+                    changeTonality(instNotesOriginal[i], instNotesCopy[i], "C", selectedScale);  // le partiture originlai sono tutte in C maggiore
                 }
 
                 //cancello i tasti colorati precedentemente
