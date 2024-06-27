@@ -122,7 +122,16 @@ window.addEventListener("load", function () {
     stopLoop();
     stopDrumLoop();
     if (isPlaying) {
-      document.getElementById("play").textContent = "Play";
+      let button = document.getElementById("play");
+      button.disabled = true;
+
+      button.style.backgroundColor = "#CD5C5C";
+      button.textContent = "Wait";
+      setTimeout(function () {
+        button.disabled = false;
+        button.textContent = "Play";
+        button.style.backgroundColor = "#4281a4";
+      }, (6000 / myJSON[index].bpm) * 16 + 3500);
     }
     document.getElementById("customPopup").style.display = "none";
     document.getElementById("game").style.display = "block";
