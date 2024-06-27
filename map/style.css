@@ -139,3 +139,28 @@ button:hover {
   position: absolute;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.text,
+.muteButtonProgBar {
+  margin-bottom: 10px;
+}
+
+.muteButtonProgBar {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.muteButtonProgBar.clicked {
+  background-color: #FF0000;
+}

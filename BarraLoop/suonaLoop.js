@@ -217,7 +217,7 @@ muteButtons.forEach((button, index) => {
 });
 */
 
-/*                                                                   FUNZIONA MA DA IMPLEMENTARE NEL CODICE COMPLETO
+/*                                                                  FUNZIONA MA DA IMPLEMENTARE NEL CODICE COMPLETO
 document.addEventListener("DOMContentLoaded", function() {
   var muteButtons = document.querySelectorAll(".muteButtonProgBar");
 
@@ -240,7 +240,7 @@ bottoneProvaLoop.addEventListener("click", function() {
 
   setInterval(updateProgressBar, updateInterval);
 });   
-*/  
+*/
 
 
 
