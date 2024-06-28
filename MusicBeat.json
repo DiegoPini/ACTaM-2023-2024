@@ -154,7 +154,7 @@
         "title" : "Spain - Flamenco",
         "description" : "Flamenco is a musical genre that expresses itself through cante, music and baile, three elements that dialogue with each other to give us an artistic, non-popular expression of immense emotional depth and rhythmic and harmonic complexity. Flamenco derives from the decline of the baile bolero, in vogue in the first four decades of the 19th century, which, pervaded by the influence of French ballet, lost its identity and was replaced by a new genre more representative of Spanish culture. It was sung without guitar accompaniment, using only bodily rhythmic supports, such as the tapping of feet on the ground, hands or knuckles on the table. Today, however, it is a form of performance in its own right.",
         
-        "numInst" : 3,
+        "numInst" : 4,
         "SamplesInst" : ["../Samples/instruments_notes/AcousticGuitar_C3.wav","../Samples/instruments_notes/AcousticGuitar_C3.wav","../Samples/instruments_notes/AcousticGuitar_C3.wav","../Samples/instruments_notes/AcousticBass_C1.wav"],
         "SamplesNotes" : [48,48,48],
         "Inst_notes" : [[69,72,64,69,64,62,72,67,71,62,67,62,60,71,65,69,60,65,72,71,69,64,69,71,67,62,72,71],
