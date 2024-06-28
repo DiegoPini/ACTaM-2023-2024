@@ -58,4 +58,20 @@ function updateProgressBar() {
 
 // Set the interval for updating the progress bar (in milliseconds)
 const updateInterval = totTimeLoop * 1000 / 100;
-//setInterval(updateProgressBar, updateInterval);   // Messa in bottoneProvaLoop!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//setInterval(updateProgressBar, updateInterval);   // Messa in bottoneProvaLoop. Serve per aggioranre la barra
+
+
+let progressBarUpdateInterval;
+
+function startProgressBar() {
+    progressBarUpdateInterval = setInterval(updateProgressBar, updateInterval);
+}
+
+function stopAndResetProgressBar() {
+    // Stop the progress bar update
+    clearInterval(progressBarUpdateInterval);
+
+    // Reset the progress bar
+    progressBar.fill = 0;
+    drawProgressBar();
+}

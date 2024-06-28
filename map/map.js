@@ -40,6 +40,11 @@ let instNotesCopy;
 let instDurations;
 let numInst;
 let sampleNotes;
+
+let progressBarUpdateInterval;
+let updateInterval;
+
+
 map.on("click", (event) => {
   const features = map.queryRenderedFeatures(event.point, {
     layers: ["countries"], // layer name in the Style that is referred to the data (markers)
@@ -88,10 +93,7 @@ window.addEventListener("load", function () {
 
     //PROGRESS BAR
 
-    totTimeLoop = computeTimeLoop(myJSON[index].bpm, instDurations);
-
-
-//
+    //
     const canvasProgBar = document.getElementById('progressCanvasProgBar');
     const contextCanvas = canvasProgBar.getContext('2d');
 
@@ -100,6 +102,8 @@ window.addEventListener("load", function () {
       height: canvasProgBar.height,
       fill: 0,
     };
+
+    // FUNZIONI PROGRESS BAR
 
     function computeTimeLoop(bpm, arrayDurations) {
 
@@ -132,14 +136,57 @@ window.addEventListener("load", function () {
       drawProgressBar();
     }
 
-// Set the interval for updating the progress bar (in milliseconds)
-    const updateInterval = totTimeLoop * 1000 / 100;
+    function startProgressBar() {
+      progressBarUpdateInterval = setInterval(updateProgressBar, updateInterval);
+    }
+
+    // Simulate stopping the progress bar with an asynchronous operation
+    function stopProgressBar() {
+      return new Promise((resolve) => {
+        // Simulate an asynchronous fade out operation
+        setTimeout(() => {
+          clearInterval(progressBarUpdateInterval);
+          clearInterval(updateInterval);
+          console.log('Progress bar stopped.');
+          resolve(); // Resolve the promise when the operation is complete
+        }, 1000); // Assuming it takes 1 second to stop the progress bar
+      });
+    }
+
+    // Reset the progress bar's fill to 0 and return a promise
+    function resetProgressBar() {
+      return new Promise((resolve) => {
+        progressBar.fill = 0; // Reset fill to 0
+        console.log('Progress bar reset.');
+        resolve(); // Resolve immediately as this is a synchronous operation
+      });
+    }
+    
+    async function stopAndResetProgressBar() {
+      try {
+        await stopProgressBar(); // Wait for the progress bar to stop
+        await resetProgressBar(); // Wait for the progress bar to reset
+        console.log('Progress bar stopped and reset successfully.');
+      } catch (error) {
+        console.error('Failed to stop and reset the progress bar:', error);
+      }
+    }
+
+    // Set the interval for updating the progress bar (in milliseconds)
+    totTimeLoop = computeTimeLoop(myJSON[index].bpm, instDurations[0]); // 0 è il primo strumento
+    updateInterval = totTimeLoop * 1000 / 100;
+    startProgressBar();
 
 
     if (isPlaying) {
       // Se il loop sta suonando, chiama la funzione stopLoop
       stopLoop();
       stopDrumLoop();
+
+      stopAndResetProgressBar();
+      // console.log(progressBarUpdateInterval);
+      
+
       setup(
         myJSON[index].bpm,
         myJSON[index].DrumBeat,
@@ -154,6 +201,8 @@ window.addEventListener("load", function () {
         button.textContent = "Play";
         button.style.backgroundColor = "#4281a4";
       }, (6000 / myJSON[index].bpm) * 16 + 3500);
+
+
     } else {
       // Se il loop non sta suonando, inizia a suonare il loop
       playALot(myJSON[index].bpm, myJSON[index].TimeSignature);
@@ -208,3 +257,4 @@ function resizeCanvas() {
   // Redraw content
   draw();
 }
+
