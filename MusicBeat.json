@@ -9,16 +9,18 @@
         "title" : "France - Folk Music - Musette",
         "description": "Musette is a dance form that popular from 1600 to 1700 in art music. The rhythm is ternary, of moderate progression; the character is pastoral, as is also indicated by the name musette, which also designates a kind of bagpipe. Great artists such as Yvette Horner, Gus Viseur and Tony Murena contributed significantly to the development and spread of French musette music during the 20th century. Their ability to play the accordion made this art even more admired and respected both in France and internationally.",
         
-        "numInst" : 3,
-        "SamplesInst" : ["../Samples/instruments_notes/Accordion_C3.wav", "../Samples/instruments_notes/Accordion_C3.wav", "../Samples/instruments_notes/Cello_C2.wav"],
+        "numInst" : 4,
+        "SamplesInst" : ["../Samples/instruments_notes/Accordion_C3.wav", "../Samples/instruments_notes/Accordion_C3.wav", "../Samples/instruments_notes/Cello_C2.wav","../Samples/instruments_notes/piano_C3.wav"],
         "SamplesNotes": [48, 48, 48],
         "Inst_notes": [[67,71,72, 72,72, 71,67, 69,72, 67, 67,69, 67,65, 64,67, 71, 72,72, 71,72, 69,71, 67,67, 64,67, 62,64, 60,71, 72,0],
         [0,72,67,72,67,72,67,71,67,71,67,71,67,69,65,69,65,69,65,0,72,60,62,64,65,72,0,67,72,71,0,71,72,71,67,71,67,71,67,71,62,71,62,71,62,72,67,72,67,72,67,71,67,71,67,71,67,69,65,69,65,69,65,0,72,60,62,64,65,67,0,67,64,71,0,71,72,65,0,64,67,72,0],
-        [43, 47, 0, 48, 0, 43, 48, 0, 48, 0, 43, 47, 0, 47, 0, 43, 0, 45, 45, 43, 0, 43, 43, 0, 43, 0, 43, 40, 0, 40, 0, 43, 0, 40, 47, 43, 0, 43, 48, 0, 48, 0, 43, 47, 0, 47, 0, 41, 0, 45, 43, 48, 0, 43, 43, 0, 43, 0, 41, 41, 0, 41, 0, 41, 0, 43, 47, 48, 48, 0, 48, 0]],
+        [43, 47, 0, 48, 0, 43, 48, 0, 48, 0, 43, 47, 0, 47, 0, 43, 0, 45, 45, 43, 0, 43, 43, 0, 43, 0, 43, 40, 0, 40, 0, 43, 0, 40, 47, 43, 0, 43, 48, 0, 48, 0, 43, 47, 0, 47, 0, 41, 0, 45, 43, 48, 0, 43, 43, 0, 43, 0, 41, 41, 0, 41, 0, 41, 0, 43, 47, 48, 48, 0, 48, 0],
+        [0,72,67,72, 71,67,71, 69,65,69, 67,60,67, 72,67,72, 71,67,71, 67,71,67, 67,62,67, 72,64,72, 71,62,71, 69,65,69, 64,64, 67,67, 71,72, 65,64, 64,0]],
         
         "Inst_durations": [[4,4,4, 10,2, 10,2, 10,2, 12, 10,2, 10,2, 10,2, 12, 10,2, 10,2, 10,2, 8,4, 10,2, 10,2, 10,2, 8,4],
         [12,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,4,4,1,1,1,1,2,2,6,2,2,2,6,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,4,4,1,1,1,1,2,2,6,2,2,2,6,2,2,2,6,2,8,4],
-        [4,2,2,2,2,4,2,2,2,2,4,2,2,2,2,2,2,6,2,8,4,4,2,2,2,2,4,2,2,2,2,2,2,6,2,8,4,4,2,2,2,2,4,2,2,2,2,2,2,6,2,8,4,4,2,2,2,2,4,2,2,2,2,2,2,6,2,4,2,2,2,2]]    
+        [4,2,2,2,2,4,2,2,2,2,4,2,2,2,2,2,2,6,2,8,4,4,2,2,2,2,4,2,2,2,2,2,2,6,2,8,4,4,2,2,2,2,4,2,2,2,2,2,2,6,2,8,4,4,2,2,2,2,4,2,2,2,2,2,2,6,2,4,2,2,2,2],
+        [12,4,4,4, 4,4,4, 4,4,4, 4,4,4, 4,4,4, 4,4,4, 4,4,4, 4,4,4, 4,4,4, 4,4,4, 4,4,4, 8,4, 8,4, 8,4, 8,4, 8,4]]    
 
     },
 
@@ -33,7 +35,7 @@
         "description" : "Reggae music originated in Jamaica in the early 1970s as an evolution of Ska and Rocksteady, musical genres typical of the Jamaican territory, characterised by upbeat and very frenetic rhythms. A characteristic of the genre is that the rhythm falls in the strong tempo, unlike ska where it falls in the weak tempo. Bob Marley was the main icon of this genre and was instrumental in spreading it beyond the borders of the American island.",
         
         "numInst" : 4,
-        "SamplesInst" : ["../Samples/instruments_notes/Organ_C3.wav","../Samples/instruments_notes/Organ_C3.wav","../Samples/instruments_notes/AcousticGuitar_C3.wav","../Samples/instruments_notes/AcousticGuitar_C3.wav","../Samples/instruments_notes/ElectricBass_C1.wav"],
+        "SamplesInst" : ["../Samples/instruments_notes/Organ_C3.wav","../Samples/instruments_notes/AcousticGuitar_C3.wav","../Samples/instruments_notes/AcousticGuitar_C3.wav","../Samples/instruments_notes/ElectricBass_C1.wav"],
         "SamplesNotes" : [48,48,48,48,24],
         "Inst_notes" : [[0,60,62,64,60,64,62,60,60,60,60,69,67,64,65,64,62,0,60,72,71,69,67,64,67,62,71,69,69,69,64,69,67,60,62,64,65,64,62,0,60],
         [60,60,60, 60,60,60, 67,60,62,64, 62,0,62,67,64, 60, 65,0,65,69,65, 60,62,64,60, 65,0,64,67,64, 72,0,72,72,0,72, 0,67,60,62,64, 67,72,72,67,67,64, 0,67,60,62,64,67,72,67,65,0,69, 67,72,67,64,67,64, 69,71,67,67,64,67,72,71,69],
@@ -57,7 +59,7 @@
         "description" : "British rock music describes a wide variety of musical forms produced in the United Kingdom. The first attempts to emulate American rock and roll took place in Britain in the mid-1950s, but the terms 'rock music' and 'rock' usually refer to music derived from blues rock and other genres that emerged during the 1960s. Among the most prominent exponents were the Beatles, who contributed significantly to influencing American and world rock.",
         
         "numInst" : 4,
-        "SamplesInst" : ["../Samples/instruments_notes/piano_C3.wav","../Samples/instruments_notes/piano_C3.wav","../Samples/instruments_notes/ElectricGuitar_C3.wav","../Samples/instruments_notes/AcousticGuitar_C3.wav","../Samples/instruments_notes/ElectricBass_C1.wav"],
+        "SamplesInst" : ["../Samples/instruments_notes/piano_C3.wav","../Samples/instruments_notes/ElectricGuitar_C3.wav","../Samples/instruments_notes/AcousticGuitar_C3.wav","../Samples/instruments_notes/ElectricBass_C1.wav"],
         "SamplesNotes" : [48,48,48,48,24],
         "Inst_notes" : [[0,69,71,64,62,64,64,64,62,62,62,62,62,0,71,69,69,69,69,64,64,64,0,62,62,62,71,69,71,71,71,62,62,62,62,62,62],
         [0,62,64,67,71,62,64,67,71,67,0,67,67,71,67,67,67,67,71,67,0,64,71,67,64,62,64,67,62,62,62,67,67,71,0,69,69],
@@ -153,15 +155,17 @@
         "description" : "Flamenco is a musical genre that expresses itself through cante, music and baile, three elements that dialogue with each other to give us an artistic, non-popular expression of immense emotional depth and rhythmic and harmonic complexity. Flamenco derives from the decline of the baile bolero, in vogue in the first four decades of the 19th century, which, pervaded by the influence of French ballet, lost its identity and was replaced by a new genre more representative of Spanish culture. It was sung without guitar accompaniment, using only bodily rhythmic supports, such as the tapping of feet on the ground, hands or knuckles on the table. Today, however, it is a form of performance in its own right.",
         
         "numInst" : 3,
-        "SamplesInst" : ["../Samples/instruments_notes/AcousticGuitar_C3.wav","../Samples/instruments_notes/AcousticGuitar_C3.wav","../Samples/instruments_notes/AcousticGuitar_C3.wav"],
+        "SamplesInst" : ["../Samples/instruments_notes/AcousticGuitar_C3.wav","../Samples/instruments_notes/AcousticGuitar_C3.wav","../Samples/instruments_notes/AcousticGuitar_C3.wav","../Samples/instruments_notes/AcousticBass_C1.wav"],
         "SamplesNotes" : [48,48,48],
         "Inst_notes" : [[69,72,64,69,64,62,72,67,71,62,67,62,60,71,65,69,60,65,72,71,69,64,69,71,67,62,72,71],
         [69,64,72,64,60,69,60,62,64,65,64,62,60,67,64,71,64,62,67,71,60,62,64,62,60,71,65,64,69,64,60,65,67,69,72,62,72,71,69,64,64,72,64,62,71,0],
-        [69,64,0,64,69,64,0,64,71,62,0,67,71,67,0,62,69,69,69,69,0,69,69,69,69,69,69,69,0,69,69,69,62,62,62,62,0,62,62,62,62,62,62,0,62,62,62]],
+        [69,64,0,64,69,64,0,64,71,62,0,67,71,67,0,62,69,69,69,69,0,69,69,69,69,69,69,69,0,69,69,69,62,62,62,62,0,62,62,62,62,62,62,0,62,62,62],
+        [40,48,48,48,40, 48,47,47,47,43, 47,43,43,43,47, 38,47,47,47,38, 48,45,45,45,48, 40,48,48,48,40, 45,41,41,41,45, 48,45,45,45,48]],
 
         "Inst_durations" : [[6,6,4,4,4,4,4,6,6,4,4,4,4,4,6,6,4,4,4,4,4,6,6,4,4,4,4,4],
         [4,2,4,2,4,2,2,2,2,2,2,2,2,4,2,4,2,4,2,2,2,2,2,2,2,2,4,2,4,2,4,2,2,2,2,2,2,2,2,4,2,4,2,4,4,12],
-        [6,2,4,4,6,2,4,4,6,2,4,4,6,2,4,4, 2,2,2,2, 2,2,2,2, 2,2,2,2, 2,2,2,2, 2,2,2,2,  2,2,2,2, 2,4,2,2,2,2,2]]
+        [6,2,4,4,6,2,4,4,6,2,4,4,6,2,4,4, 2,2,2,2, 2,2,2,2, 2,2,2,2, 2,2,2,2, 2,2,2,2,  2,2,2,2, 2,4,2,2,2,2,2],
+        [4,2,4,2,4, 4,2,4,2,4, 4,2,4,2,4, 4,2,4,2,4, 4,2,4,2,4, 4,2,4,2,4, 4,2,4,2,4, 4,2,4,2,4]]
     },
 
     {
