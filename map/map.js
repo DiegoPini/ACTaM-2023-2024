@@ -43,6 +43,7 @@ let sampleNotes;
 
 let progressBarUpdateInterval;
 let updateInterval;
+let flagProgBar = false;
 
 
 map.on("click", (event) => {
@@ -127,49 +128,33 @@ window.addEventListener("load", function () {
     }
 
     function updateProgressBar() {
-      progressBar.fill += 1;
-
-      if (progressBar.fill > 100) {
-        progressBar.fill = 0; // Reset fill to 0 when it reaches 100
+      if (flagProgBar === false) {
+        clearInterval(progressBarUpdateInterval);
+        clearInterval(updateInterval);
+        progressBar.fill = 0;
+        // return;
       }
+      else if (flagProgBar === true){
+        progressBar.fill += 1;
 
-      drawProgressBar();
+        if (progressBar.fill > 100) {
+          progressBar.fill = 0; // Reset fill to 0 when it reaches 100
+        }
+
+        drawProgressBar();
+      }
     }
 
     function startProgressBar() {
+      flagProgBar = true;
       progressBarUpdateInterval = setInterval(updateProgressBar, updateInterval);
-    }
-
-    // Simulate stopping the progress bar with an asynchronous operation
-    function stopProgressBar() {
-      return new Promise((resolve) => {
-        // Simulate an asynchronous fade out operation
-        setTimeout(() => {
-          clearInterval(progressBarUpdateInterval);
-          clearInterval(updateInterval);
-          console.log('Progress bar stopped.');
-          resolve(); // Resolve the promise when the operation is complete
-        }, 1000); // Assuming it takes 1 second to stop the progress bar
-      });
-    }
-
-    // Reset the progress bar's fill to 0 and return a promise
-    function resetProgressBar() {
-      return new Promise((resolve) => {
-        progressBar.fill = 0; // Reset fill to 0
-        console.log('Progress bar reset.');
-        resolve(); // Resolve immediately as this is a synchronous operation
-      });
     }
     
     async function stopAndResetProgressBar() {
-      try {
-        await stopProgressBar(); // Wait for the progress bar to stop
-        await resetProgressBar(); // Wait for the progress bar to reset
-        console.log('Progress bar stopped and reset successfully.');
-      } catch (error) {
-        console.error('Failed to stop and reset the progress bar:', error);
-      }
+      flagProgBar = false;
+      clearInterval(progressBarUpdateInterval);
+      clearInterval(updateInterval);
+      progressBar.fill = 0; // Reset fill to 0
     }
 
     // Set the interval for updating the progress bar (in milliseconds)
@@ -182,9 +167,7 @@ window.addEventListener("load", function () {
       // Se il loop sta suonando, chiama la funzione stopLoop
       stopLoop();
       stopDrumLoop();
-
       stopAndResetProgressBar();
-      // console.log(progressBarUpdateInterval);
       
 
       setup(
@@ -223,6 +206,8 @@ window.addEventListener("load", function () {
   document.getElementById("close").addEventListener("click", () => {
     stopLoop();
     stopDrumLoop();
+    stopAndResetProgressBar();
+
     if (isPlaying) {
       let button = document.getElementById("play");
       button.disabled = true;
