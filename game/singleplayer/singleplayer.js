@@ -62,6 +62,7 @@ map.on("click", (event) => {
   select.style.display = "block";
   playSound1.style.display = "block";
   RWButton.style.display = "none";
+  playSound1.disabled = false;
   console.log(features[0].properties.name);
   const feature = features[0].properties.name;
 
@@ -80,6 +81,7 @@ select.addEventListener("click", () => {
   RWButton.style.display = "block";
   popup.style.display = "none";
   playSound1.style.display = "none";
+  isPlaying = false;
   stopLoop();
   stopDrumLoop();
   playSound1.textContent = "Play";
@@ -111,7 +113,6 @@ function changestate() {
     myJSON[index].SamplesDrums[2],
     myJSON[index].SamplesDrums[3]
   );
-  Play.disabled = false;
   samplesInst = myJSON[index].SamplesInst;
   numInst = myJSON[index].numInst; // CONTROLLA SE VA CON CONSOLE LOG NEL CASO DI PROBLEMI
   sampleNotes = myJSON[index].SamplesNotes; // nota originale del sample
@@ -174,6 +175,7 @@ playSound1.addEventListener("click", function () {
     stopDrumLoop();
     this.disabled = true;
     this.textContent = "Play"; // Cambia il testo del pulsante
+    this.style.display = "none";
   } else {
     // Se il loop non sta suonando, inizia a suonare il loop
     playALot(myJSON[index].bpm, myJSON[index].TimeSignature);

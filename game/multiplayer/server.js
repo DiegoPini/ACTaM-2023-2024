@@ -57,7 +57,7 @@ const map = new mapboxgl.Map({
 var myJSON = [];
 async function loadJSON() {
   try {
-    const response = await fetch("../MusicBeatMult.json");
+    const response = await fetch("musicbeatjson2.json");
     myJSON = await response.json();
   } catch (error) {
     console.error("Error loading JSON:", error);
@@ -366,8 +366,22 @@ function loadIndex(country) {
   }
 }
 
+let samplesInst;
+let numInst;
+let sampleNotes;
+let instNotesOriginal;
+let instNotesCopy;
+let instDurations;
+let instNotes;
 function changestate(index) {
   setup(myJSON[index].bpm, myJSON[index].DrumBeat, myJSON[index].TimeSignature);
+  samplesInst = myJSON[index].SamplesInst;
+  numInst = myJSON[index].numInst;
+  sampleNotes = myJSON[index].SamplesNotes; // nota originale del sample
+  instNotesOriginal = myJSON[index].Inst_notes; // partitura note
+  instNotesCopy = JSON.parse(JSON.stringify(instNotesOriginal)); // partitura note
+  instDurations = myJSON[index].Inst_durations; // partitura durate
+  instNotes = myJSON[index].Inst_notes;
 }
 
 let counter = 0;
@@ -465,6 +479,7 @@ function nextRound() {
     selectedCountry = stateList[counter];
     let index = loadIndex(selectedCountry);
     changestate(index);
+    PLAY.disabled = false;
   }
 }
 
@@ -473,6 +488,7 @@ select.addEventListener("click", () => {
   select.style.display = "none";
   PLAY.style.display = "none";
   back.style.display = "block";
+  isPlaying = false;
   stopLoop();
   stopDrumLoop();
   PLAY.textContent = "Play";
@@ -575,6 +591,7 @@ PLAY.addEventListener("click", function () {
     stopDrumLoop();
     this.disabled = true;
     this.textContent = "Play"; // Cambia il testo del pulsante
+    this.style.display = "none";
   } else {
     // Se il loop non sta suonando, inizia a suonare il loop
     playALot(myJSON[index].bpm, myJSON[index].TimeSignature);
