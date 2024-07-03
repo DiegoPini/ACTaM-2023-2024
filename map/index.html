@@ -10,11 +10,9 @@
     <title>Musical countries</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="api.mapbox.js"></script>
-<<!--   <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script -->>
-    <script src="../circle-of-fifths/Circle_of_fifths.js"></script>
-    <script src="../BarraLoop/suonaLoop.js"></script>
-    <!-- <script src="../BarraLoop/ProgBar.js"></script> -->
-    <script src="../BarraLoop/ChangeKey.js"></script>
+    <
+    <!--   <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script -->
+    >
 
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -32,7 +30,12 @@
         <p id="description" class="casella" style="font-style: italic"></p>
       </div>
 
-      <svg id="app" class="cf" viewBox="0 0 300 300" style="position: relative; width: 52%; top:1%; float: right">
+      <svg
+        id="app"
+        class="cf"
+        viewBox="0 0 300 300"
+        style="position: relative; width: 52%; top: 1%; float: right"
+      >
         <path
           class="scale"
           id="A"
@@ -226,46 +229,60 @@
         </text>
       </svg>
 
-      <div style="display: flex; justify-content: center;  width: 33%; position: absolute; float: left">
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          width: 33%;
+          position: absolute;
+          float: left;
+        "
+      >
         <button id="close">Esc</button>
         <button id="play">Play</button>
       </div>
 
+      <canvas
+        class="casella"
+        style="position: absolute; left: 30%; top: 30%; margin: 10px"
+        id="progressCanvasProgBar"
+        width="400"
+        height="15"
+      ></canvas>
 
-        <canvas class = "casella" style="position: absolute; left: 30%; top: 30%; margin: 10px" id="progressCanvasProgBar" width="400" height="15" ></canvas>
+      <div
+        class="casella"
+        id="instruments"
+        style="position: absolute; left: 48%; top: 38%; margin: 10px"
+      >
+        <div class="textProgBar">Instrument 1</div>
+        <button class="muteButtonProgBar">M</button>
 
-        <div class = "casella" id = "instruments" style="position: absolute; left: 48%; top: 38%; margin: 10px">
+        <div class="textProgBar">Instrument 2</div>
+        <button class="muteButtonProgBar">M</button>
 
-          <div class="textProgBar">Instrument 1 </div>
-          <button class="muteButtonProgBar">M</button>
+        <div class="textProgBar">Instrument 3</div>
+        <button class="muteButtonProgBar">M</button>
 
-          <div class="textProgBar">Instrument 2 </div>
-          <button class="muteButtonProgBar">M</button>
+        <div class="textProgBar">Instrument 4</div>
+        <button class="muteButtonProgBar">M</button>
+      </div>
 
-          <div class="textProgBar">Instrument 3 </div>
-          <button class="muteButtonProgBar">M</button>
+      <canvas
+        id="myCanvas"
+        width="300"
+        height="300"
+        style="position: absolute; left: 5%; top: 38%; margin: 10px"
+      ></canvas>
+      <canvas
+        id="lineCanvas"
+        width="300"
+        height="300"
+        style="position: absolute; left: 5%; top: 38%; margin: 10px"
+      ></canvas>
 
-          <div class="textProgBar">Instrument 4 </div>
-          <button class="muteButtonProgBar">M</button>
-
-        </div>
-
-        <canvas
-          id="myCanvas"
-          width="300"
-          height="300"
-          style="position: absolute; left: 5%; top: 38%; margin: 10px"
-        ></canvas>
-        <canvas
-          id="lineCanvas"
-          width="300"
-          height="300"
-          style="position: absolute; left: 5%; top: 38%; margin: 10px"
-        ></canvas>
-
-
-      <div style="position: absolute; width:33%; right:0">
-        <div class="casella" style="position:absolute; width:40%">
+      <div style="position: absolute; width: 33%; right: 0">
+        <div class="casella" style="position: absolute; width: 40%">
           <label for="change_scale">Change the scale:</label>
           <select id="change_scale">
             <option value="major_scale">Major scale</option>
@@ -277,7 +294,10 @@
         </div>
       </div>
     </div>
-
+    <script src="../circle-of-fifths/Circle_of_fifths.js"></script>
+    <script src="../BarraLoop/suonaLoop.js"></script>
+    <!-- <script src="../BarraLoop/ProgBar.js"></script> -->
+    <script src="../BarraLoop/ChangeKey.js"></script>
     <script src="../rithmic-wheel/rithmic-wheel-script.js"></script>
     <script src="map.js"></script>
   </body>

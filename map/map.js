@@ -45,7 +45,6 @@ let progressBarUpdateInterval;
 let updateInterval;
 let flagProgBar = false;
 
-
 map.on("click", (event) => {
   const features = map.queryRenderedFeatures(event.point, {
     layers: ["countries"], // layer name in the Style that is referred to the data (markers)
@@ -90,13 +89,11 @@ map.on("click", (event) => {
 let isPlaying = false; // Variabile per tenere traccia dello stato di riproduzione
 window.addEventListener("load", function () {
   document.getElementById("play").addEventListener("click", function () {
-
-
     //PROGRESS BAR
 
     //
-    const canvasProgBar = document.getElementById('progressCanvasProgBar');
-    const contextCanvas = canvasProgBar.getContext('2d');
+    const canvasProgBar = document.getElementById("progressCanvasProgBar");
+    const contextCanvas = canvasProgBar.getContext("2d");
 
     const progressBar = {
       width: canvasProgBar.width,
@@ -107,10 +104,12 @@ window.addEventListener("load", function () {
     // FUNZIONI PROGRESS BAR
 
     function computeTimeLoop(bpm, arrayDurations) {
-
-      let totBeats = arrayDurations.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+      let totBeats = arrayDurations.reduce(
+        (accumulator, currentValue) => accumulator + currentValue,
+        0
+      );
       totBeats = totBeats / 4; // 1/16
-      totTimeLoop =  totBeats * (60 / bpm); // in seconds
+      totTimeLoop = totBeats * (60 / bpm); // in seconds
       return totTimeLoop;
     }
 
@@ -118,12 +117,12 @@ window.addEventListener("load", function () {
       contextCanvas.clearRect(0, 0, progressBar.width, progressBar.height);
 
       // Draw the background
-      contextCanvas.fillStyle = '#eee';
+      contextCanvas.fillStyle = "#eee";
       contextCanvas.fillRect(0, 0, progressBar.width, progressBar.height);
 
       // Draw the filled part of the bar
       const fillWidth = (progressBar.fill / 100) * progressBar.width;
-      contextCanvas.fillStyle = '#4caf50';
+      contextCanvas.fillStyle = "#4caf50";
       contextCanvas.fillRect(0, 0, fillWidth, progressBar.height);
     }
 
@@ -133,8 +132,7 @@ window.addEventListener("load", function () {
         clearInterval(updateInterval);
         progressBar.fill = 0;
         // return;
-      }
-      else if (flagProgBar === true){
+      } else if (flagProgBar === true) {
         progressBar.fill += 1;
 
         if (progressBar.fill > 100) {
@@ -147,9 +145,12 @@ window.addEventListener("load", function () {
 
     function startProgressBar() {
       flagProgBar = true;
-      progressBarUpdateInterval = setInterval(updateProgressBar, updateInterval);
+      progressBarUpdateInterval = setInterval(
+        updateProgressBar,
+        updateInterval
+      );
     }
-    
+
     async function stopAndResetProgressBar() {
       flagProgBar = false;
       clearInterval(progressBarUpdateInterval);
@@ -159,16 +160,14 @@ window.addEventListener("load", function () {
 
     // Set the interval for updating the progress bar (in milliseconds)
     totTimeLoop = computeTimeLoop(myJSON[index].bpm, instDurations[0]); // 0 è il primo strumento
-    updateInterval = totTimeLoop * 1000 / 100;
+    updateInterval = (totTimeLoop * 1000) / 100;
     startProgressBar();
-
 
     if (isPlaying) {
       // Se il loop sta suonando, chiama la funzione stopLoop
       stopLoop();
       stopDrumLoop();
       stopAndResetProgressBar();
-      
 
       setup(
         myJSON[index].bpm,
@@ -184,8 +183,6 @@ window.addEventListener("load", function () {
         button.textContent = "Play";
         button.style.backgroundColor = "#4281a4";
       }, (6000 / myJSON[index].bpm) * 16 + 3500);
-
-
     } else {
       // Se il loop non sta suonando, inizia a suonare il loop
       playALot(myJSON[index].bpm, myJSON[index].TimeSignature);
@@ -242,4 +239,3 @@ function resizeCanvas() {
   // Redraw content
   draw();
 }
-
