@@ -45,6 +45,7 @@ let progressBarUpdateInterval;
 let updateInterval;
 let flagProgBar = false;
 
+
 map.on("click", (event) => {
   const features = map.queryRenderedFeatures(event.point, {
     layers: ["countries"], // layer name in the Style that is referred to the data (markers)
@@ -152,6 +153,7 @@ let isPlaying = false; // Variabile per tenere traccia dello stato di riproduzio
 window.addEventListener("load", function () {
   document.getElementById("play").addEventListener("click", function () {
     // Set the interval for updating the progress bar (in milliseconds)
+    stopAndResetProgressBar();
     totTimeLoop = computeTimeLoop(myJSON[index].bpm, instDurations[0]); // 0 è il primo strumento
     updateInterval = (totTimeLoop * 1000) / 100;
     startProgressBar();
@@ -213,7 +215,19 @@ window.addEventListener("load", function () {
     document.getElementById("customPopup").style.display = "none";
     document.getElementById("game").style.display = "block";
   });
+
+
+    const muteButtons = document.querySelectorAll('.muteButtonProgBar');
+
+    muteButtons.forEach(function(button, index) {
+      button.addEventListener('click', function() {
+          console.log(`Mute button for Instrument ${index + 1} clicked`);
+          toggleMute(index);
+          this.classList.toggle('clicked');
+      });
+  });
 });
+
 
 document.getElementById("game").addEventListener("click", function () {
   console.log("game");
