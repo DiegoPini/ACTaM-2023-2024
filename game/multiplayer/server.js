@@ -459,6 +459,7 @@ function startGameForPlayer(lobbyId) {
 function nextRound() {
   counter++;
   PLAY.disabled = false;
+  isPlaying = false;
   playersList.forEach((player) => {
     let playerRef = ref(db, "lobbies/" + lobbyId + "/players" + player);
     get(playerRef).then((snapshot) => {
@@ -500,6 +501,7 @@ back.addEventListener("click", () => {
   select.style.display = "block";
   back.style.display = "none";
 });
+
 let feature;
 map.on("click", (event) => {
   popup.style.display = "block";
@@ -513,7 +515,6 @@ map.on("click", (event) => {
   if (features[0] == undefined) {
     popup.style.display = "block";
     select.style.display = "block";
-    PLAY.style.display = "block";
     return;
   } else feature = features[0].properties.name;
 
@@ -530,7 +531,6 @@ map.on("click", (event) => {
   } else {
     popup.style.display = "block";
     select.style.display = "block";
-    PLAY.style.display = "block";
   }
 });
 

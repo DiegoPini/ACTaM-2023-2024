@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
         button.disabled = false;
         button.textContent = "Play";
         button.style.backgroundColor = "#4281a4";
-      }, (6000 / myJSON[index].bpm) * 16 + 3500);
+      }, (6000 / 120) * 16 + 3500);
     }
     // externalButton.textContent = "Play"; // Cambia il testo del pulsante
 
@@ -112,7 +112,7 @@ window.addEventListener("load", function () {
           button.disabled = false;
           button.textContent = "Play";
           button.style.backgroundColor = "#4281a4";
-        }, (6000 / myJSON[index].bpm) * 16 + 3500);
+        }, (6000 / 120) * 16 + 3500);
       }
       // cambia la chiave di tutte le partiture
       selectedTonality = scale.id;
