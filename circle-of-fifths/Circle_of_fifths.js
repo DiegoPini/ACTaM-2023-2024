@@ -18,6 +18,14 @@ document.addEventListener("DOMContentLoaded", function () {
     stopLoop();
     stopDrumLoop(); // AGGIORNARE
     stopAndResetProgressBar();
+
+    muteButtons.forEach(function(button, index) {
+      if (button.classList.contains('clicked')) {
+        button.classList.toggle('clicked');
+      }
+    });
+
+
     if (isPlaying) {
       let button = document.getElementById("play");
       button.disabled = true;
@@ -102,6 +110,14 @@ window.addEventListener("load", function () {
       stopDrumLoop(); // AGGIORNARE
       // externalButton.textContent = "Play"; // Cambia il testo del pulsante
       stopAndResetProgressBar();
+
+      muteButtons.forEach(function(button, index) {
+        if (button.classList.contains('clicked')) {
+          button.classList.toggle('clicked');
+        }
+      });
+
+      
       if (isPlaying) {
         let button = document.getElementById("play");
         button.disabled = true;

@@ -45,6 +45,8 @@ let progressBarUpdateInterval;
 let updateInterval;
 let flagProgBar = false;
 
+const muteButtons = document.querySelectorAll('.muteButtonProgBar');
+
 
 map.on("click", (event) => {
   const features = map.queryRenderedFeatures(event.point, {
@@ -149,8 +151,14 @@ async function stopAndResetProgressBar() {
   progressBar.fill = 0; // Reset fill to 0
 }
 
+
+
+
+
 let isPlaying = false; // Variabile per tenere traccia dello stato di riproduzione
 window.addEventListener("load", function () {
+
+
   document.getElementById("play").addEventListener("click", function () {
     // Set the interval for updating the progress bar (in milliseconds)
     stopAndResetProgressBar();
@@ -163,6 +171,12 @@ window.addEventListener("load", function () {
       stopLoop();
       stopDrumLoop();
       stopAndResetProgressBar();
+
+      muteButtons.forEach(function(button, index) {
+        if (button.classList.contains('clicked')) {
+          button.classList.toggle('clicked');
+        }
+      });
 
       setup(
         myJSON[index].bpm,
@@ -200,6 +214,12 @@ window.addEventListener("load", function () {
     stopDrumLoop();
     stopAndResetProgressBar();
 
+    muteButtons.forEach(function(button, index) {
+      if (button.classList.contains('clicked')) {
+        button.classList.toggle('clicked');
+      }
+    });
+
     if (isPlaying) {
       let button = document.getElementById("play");
       button.disabled = true;
@@ -217,14 +237,14 @@ window.addEventListener("load", function () {
   });
 
 
-    const muteButtons = document.querySelectorAll('.muteButtonProgBar');
-
-    muteButtons.forEach(function(button, index) {
-      button.addEventListener('click', function() {
-          console.log(`Mute button for Instrument ${index + 1} clicked`);
-          toggleMute(index);
-          this.classList.toggle('clicked');
-      });
+  muteButtons.forEach(function(button, index) {
+    button.addEventListener('click', function() {
+      if (isPlaying) {
+        //console.log(`Mute button for Instrument ${index + 1} clicked`);
+        toggleMute(index);
+        this.classList.toggle('clicked');
+      }
+    });
   });
 });
 
