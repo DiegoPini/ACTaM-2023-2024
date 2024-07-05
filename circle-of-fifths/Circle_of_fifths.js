@@ -149,11 +149,6 @@ window.addEventListener("load", function () {
         ); // le partiture originlai sono tutte in C maggiore
       }
 
-        notes.forEach(function(note){
-        note.classList.remove("note_selected"); });
-        scales.forEach(function(sc){
-        sc.classList.remove("scale_selected");});
-
       notes.forEach(function (note) {
         note.classList.remove("note_selected");
       });
