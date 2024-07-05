@@ -45,8 +45,7 @@ let progressBarUpdateInterval;
 let updateInterval;
 let flagProgBar = false;
 
-const muteButtons = document.querySelectorAll('.muteButtonProgBar');
-
+const muteButtons = document.querySelectorAll(".muteButtonProgBar");
 
 map.on("click", (event) => {
   const features = map.queryRenderedFeatures(event.point, {
@@ -149,16 +148,11 @@ async function stopAndResetProgressBar() {
   clearInterval(progressBarUpdateInterval);
   clearInterval(updateInterval);
   progressBar.fill = 0; // Reset fill to 0
+  drawProgressBar();
 }
-
-
-
-
 
 let isPlaying = false; // Variabile per tenere traccia dello stato di riproduzione
 window.addEventListener("load", function () {
-
-
   document.getElementById("play").addEventListener("click", function () {
     // Set the interval for updating the progress bar (in milliseconds)
     stopAndResetProgressBar();
@@ -172,9 +166,9 @@ window.addEventListener("load", function () {
       stopDrumLoop();
       stopAndResetProgressBar();
 
-      muteButtons.forEach(function(button, index) {
-        if (button.classList.contains('clicked')) {
-          button.classList.toggle('clicked');
+      muteButtons.forEach(function (button, index) {
+        if (button.classList.contains("clicked")) {
+          button.classList.toggle("clicked");
         }
       });
 
@@ -214,9 +208,9 @@ window.addEventListener("load", function () {
     stopDrumLoop();
     stopAndResetProgressBar();
 
-    muteButtons.forEach(function(button, index) {
-      if (button.classList.contains('clicked')) {
-        button.classList.toggle('clicked');
+    muteButtons.forEach(function (button, index) {
+      if (button.classList.contains("clicked")) {
+        button.classList.toggle("clicked");
       }
     });
 
@@ -236,18 +230,16 @@ window.addEventListener("load", function () {
     document.getElementById("game").style.display = "block";
   });
 
-
-  muteButtons.forEach(function(button, index) {
-    button.addEventListener('click', function() {
+  muteButtons.forEach(function (button, index) {
+    button.addEventListener("click", function () {
       if (isPlaying) {
         //console.log(`Mute button for Instrument ${index + 1} clicked`);
         toggleMute(index);
-        this.classList.toggle('clicked');
+        this.classList.toggle("clicked");
       }
     });
   });
 });
-
 
 document.getElementById("game").addEventListener("click", function () {
   console.log("game");
