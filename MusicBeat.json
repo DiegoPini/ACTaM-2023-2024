@@ -7,7 +7,7 @@
                       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],  
                       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
         "title" : "France - Folk Music - Musette",
-        "description": "Musette is a dance form that popular from 1600 to 1700 in art music. The rhythm is ternary, of moderate progression; the character is pastoral, as is also indicated by the name musette, which also designates a kind of bagpipe. Great artists such as Yvette Horner, Gus Viseur and Tony Murena contributed significantly to the development and spread of French musette music during the 20th century. Their ability to play the accordion made this art even more admired and respected both in France and internationally.",
+        "description": "Musette is a dance form that popular from 1600 to 1700 in art music. The rhythm is ternary, of moderate progression; the character is pastoral, as is also indicated by the name musette, which also designates a kind of bagpipe. Great artists such as Yvette Horner, Gus Viseur and Tony Murena contributed significantly to the development and spread of French musette music during the 20th century.",
         
         "numInst" : 4,
         "SamplesInst" : ["../Samples/instruments_notes/Accordion_C3.wav", "../Samples/instruments_notes/Accordion_C3.wav", "../Samples/instruments_notes/Cello_C2.wav","../Samples/instruments_notes/piano_C3.wav"],
@@ -80,7 +80,7 @@
                     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],  
                     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],  
         "title" : "United States - Blues",
-        "description" : "The blues has deep roots in the history of African Americans. It was born in the plantations of the South in the 19th century: its 'inventors' were slaves, former slaves and descendants of African-American sharecroppers, who sang while working in the cotton fields and tobacco plantations. From these humble beginnings, the blues grew to become the most recorded form of popular music in the world, eventually strongly influencing pop music, rock and roll and hip hop.",
+        "description" : "The blues has deep roots in history of African Americans. It was born in plantations of the South in the 19th century: its 'inventors' were former slaves and descendants of African-American sharecroppers, who sang while working in the cotton fields and tobacco plantations. From these humble beginnings, the blues grew to become the most recorded form of popular music in the world, influencing pop music, rock and roll and hip hop.",
 
         "numInst" : 4,
         "SamplesInst" : ["../Samples/instruments_notes/Sax_C3.wav","../Samples/instruments_notes/piano_C3.wav","../Samples/instruments_notes/piano_C3.wav","../Samples/instruments_notes/AcousticBass_C1.wav"],
@@ -104,7 +104,7 @@
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
         "title" : "Italy - Opera",
-        "description" : "Italian opera music has its origins in the Renaissance and Baroque periods, with the golden age stretching from the late 16th to the 18th century. Early Italian operas were influenced by classical Greek and Roman theatre traditions, but also introduced innovative musical elements such as the recitative and aria. During the Baroque period, composers such as Alessandro Scarlatti and Antonio Vivaldi contributed to the development of the genre, leading to the creation of famous operas. The Classical period saw the emergence of operas with catchy melodies and virtuosic vocals. In the 19th century, Italian opera reached its peak with operas of great emotional impact, such as La Traviata, Rigoletto, Tosca and La Bohème.",
+        "description" : "Italian opera music has its origins in the Renaissance and Baroque periods, with the golden age stretching from the late 16th to the 18th century. During the Baroque period, composers such as Alessandro Scarlatti and Antonio Vivaldi contributed to the development of the genre, leading to the creation of famous operas. In the 19th century, Italian opera reached its peak with operas of great emotional impact, such as La Traviata, Rigoletto, Tosca and La Bohème.",
 
         "numInst" : 4,
         "SamplesInst" : ["../Samples/instruments_notes/flute_C3.wav","../Samples/instruments_notes/Oboe_C3.wav","../Samples/instruments_notes/Violin_C3.wav","../Samples/instruments_notes/Violin_C3.wav"],
@@ -128,7 +128,7 @@
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],  
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
         "title" : "Austria - Valzer",
-        "description" : "The Valzer, whose name is linked to the verbs 'to turn, to twirl, to twirl', is a dance in ternary rhythm that originated at the end of the 18th century as an evolution of the Ländler. The waltz established itself in Vienna at the beginning of the 19th century with Johann Strauss father and his friend, colleague and rival Joseph Lanner. Today, the waltz is a popular dance, performed with few variations in all repertoires and accompanied by traditional instruments such as the accordion, accordion, fife and bagpipe.",
+        "description" : "The Valzer, whose name is linked to verbs 'to turn, to twirl', is a dance in ternary rhythm originated at the end of the 18th century as an evolution of the Ländler. The waltz established itself in Vienna at the beginning of the 19th century with Johann Strauss father and Joseph Lanner. Today, the waltz is a popular dance, performed with few variations in all repertoires and accompanied by traditional instruments such as the accordion, accordion, fife and bagpipe.",
 
         "numInst" : 4,
         "SamplesInst" : ["../Samples/instruments_notes/flute_C3.wav","../Samples/instruments_notes/Harpsichord_C3.wav","../Samples/instruments_notes/Violin_C3.wav","../Samples/instruments_notes/Violin_C3.wav"],
@@ -152,7 +152,7 @@
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
         "title" : "Spain - Flamenco",
-        "description" : "Flamenco is a musical genre that expresses itself through cante, music and baile, three elements that dialogue with each other to give us an artistic, non-popular expression of immense emotional depth and rhythmic and harmonic complexity. Flamenco derives from the decline of the baile bolero, in vogue in the first four decades of the 19th century, which, pervaded by the influence of French ballet, lost its identity and was replaced by a new genre more representative of Spanish culture. It was sung without guitar accompaniment, using only bodily rhythmic supports, such as the tapping of feet on the ground, hands or knuckles on the table. Today, however, it is a form of performance in its own right.",
+        "description" : "Flamenco is a musical genre characterized by cante, music and baile. Flamenco derives from the decline of the baile bolero, in vogue in the first four decades of the 19th century, which, pervaded by the influence of French ballet, lost its identity and was replaced by a new genre more representative of Spanish culture. Today, however, it is a form of performance in its own right.",
         
         "numInst" : 4,
         "SamplesInst" : ["../Samples/instruments_notes/AcousticGuitar_C3.wav","../Samples/instruments_notes/AcousticGuitar_C3.wav","../Samples/instruments_notes/AcousticGuitar_C3.wav","../Samples/instruments_notes/AcousticBass_C1.wav"],
@@ -201,7 +201,7 @@
                       [0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],  
                       [1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0]],
         "title" : "Brazil - Bossa Nova",
-        "description" : "Bossa Nova is a musical genre that originated in Brazil and is characterised by a fluid and relaxed rhythm, a fusion of jazz and samba. This musical genre, whose meaning is 'new approach', was created in 1958 in Rio de Janeiro by a group of musicians including João Gilberto, Antonio Carlos Jobim and Vinicius de Moraes. Its characteristics are the often soft style, without vocal emphasis and without vibrato, on a medium or slow tempo, but with a fast-paced pace. It has had great success throughout the world, becoming one of the milestones of 20th century music.",
+        "description" : "Bossa Nova is a musical genre originated in Brazil and is characterised by a fluid and relaxed rhythm, a fusion of jazz and samba. This musical genre, whose meaning is 'new approach', was created in 1958 in Rio de Janeiro by a group of musicians including João Gilberto, Antonio Carlos Jobim and Vinicius de Moraes. Its characteristics are the soft style, without vocal emphasis and without vibrato, on a medium or slow tempo, but with a fast-paced pace.",
 
         "numInst" : 4,
         "SamplesInst" : ["../Samples/instruments_notes/piano_C3.wav","../Samples/instruments_notes/piano_C3.wav","../Samples/instruments_notes/AcousticGuitar_C3.wav","../Samples/instruments_notes/AcousticBass_C1.wav"],
