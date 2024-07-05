@@ -45,6 +45,8 @@ let progressBarUpdateInterval;
 let updateInterval;
 let flagProgBar = false;
 
+const muteButtons = document.querySelectorAll('.muteButtonProgBar');
+
 
 map.on("click", (event) => {
   const features = map.queryRenderedFeatures(event.point, {
@@ -86,89 +88,95 @@ map.on("click", (event) => {
   countryName.textContent = myJSON[index].title;
   description.textContent = myJSON[index].description;
 });
+const canvasProgBar = document.getElementById("progressCanvasProgBar");
+const contextCanvas = canvasProgBar.getContext("2d");
+
+const progressBar = {
+  width: canvasProgBar.width,
+  height: canvasProgBar.height,
+  fill: 0,
+};
+
+// FUNZIONI PROGRESS BAR
+
+function computeTimeLoop(bpm, arrayDurations) {
+  let totBeats = arrayDurations.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    0
+  );
+  totBeats = totBeats / 4; // 1/16
+  totTimeLoop = totBeats * (60 / bpm); // in seconds
+  return totTimeLoop;
+}
+
+function drawProgressBar() {
+  contextCanvas.clearRect(0, 0, progressBar.width, progressBar.height);
+
+  // Draw the background
+  contextCanvas.fillStyle = "#eee";
+  contextCanvas.fillRect(0, 0, progressBar.width, progressBar.height);
+
+  // Draw the filled part of the bar
+  const fillWidth = (progressBar.fill / 100) * progressBar.width;
+  contextCanvas.fillStyle = "#4caf50";
+  contextCanvas.fillRect(0, 0, fillWidth, progressBar.height);
+}
+
+function updateProgressBar() {
+  if (flagProgBar === false) {
+    clearInterval(progressBarUpdateInterval);
+    clearInterval(updateInterval);
+    progressBar.fill = 0;
+    // return;
+  } else if (flagProgBar === true) {
+    progressBar.fill += 1;
+
+    if (progressBar.fill > 100) {
+      progressBar.fill = 0; // Reset fill to 0 when it reaches 100
+    }
+
+    drawProgressBar();
+  }
+}
+
+function startProgressBar() {
+  flagProgBar = true;
+  progressBarUpdateInterval = setInterval(updateProgressBar, updateInterval);
+}
+
+async function stopAndResetProgressBar() {
+  flagProgBar = false;
+  clearInterval(progressBarUpdateInterval);
+  clearInterval(updateInterval);
+  progressBar.fill = 0; // Reset fill to 0
+}
+
+
+
+
 
 let isPlaying = false; // Variabile per tenere traccia dello stato di riproduzione
 window.addEventListener("load", function () {
+
+
   document.getElementById("play").addEventListener("click", function () {
-
-
-    //PROGRESS BAR
-
-    //
-    const canvasProgBar = document.getElementById('progressCanvasProgBar');
-    const contextCanvas = canvasProgBar.getContext('2d');
-
-    const progressBar = {
-      width: canvasProgBar.width,
-      height: canvasProgBar.height,
-      fill: 0,
-    };
-
-    // FUNZIONI PROGRESS BAR
-
-    function computeTimeLoop(bpm, arrayDurations) {
-
-      let totBeats = arrayDurations.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-      totBeats = totBeats / 4; // 1/16
-      totTimeLoop =  totBeats * (60 / bpm); // in seconds
-      return totTimeLoop;
-    }
-
-    function drawProgressBar() {
-      contextCanvas.clearRect(0, 0, progressBar.width, progressBar.height);
-
-      // Draw the background
-      contextCanvas.fillStyle = '#eee';
-      contextCanvas.fillRect(0, 0, progressBar.width, progressBar.height);
-
-      // Draw the filled part of the bar
-      const fillWidth = (progressBar.fill / 100) * progressBar.width;
-      contextCanvas.fillStyle = '#4caf50';
-      contextCanvas.fillRect(0, 0, fillWidth, progressBar.height);
-    }
-
-    function updateProgressBar() {
-      if (flagProgBar === false) {
-        clearInterval(progressBarUpdateInterval);
-        clearInterval(updateInterval);
-        progressBar.fill = 0;
-        // return;
-      }
-      else if (flagProgBar === true){
-        progressBar.fill += 1;
-
-        if (progressBar.fill > 100) {
-          progressBar.fill = 0; // Reset fill to 0 when it reaches 100
-        }
-
-        drawProgressBar();
-      }
-    }
-
-    function startProgressBar() {
-      flagProgBar = true;
-      progressBarUpdateInterval = setInterval(updateProgressBar, updateInterval);
-    }
-    
-    async function stopAndResetProgressBar() {
-      flagProgBar = false;
-      clearInterval(progressBarUpdateInterval);
-      clearInterval(updateInterval);
-      progressBar.fill = 0; // Reset fill to 0
-    }
-
     // Set the interval for updating the progress bar (in milliseconds)
+    stopAndResetProgressBar();
     totTimeLoop = computeTimeLoop(myJSON[index].bpm, instDurations[0]); // 0 è il primo strumento
-    updateInterval = totTimeLoop * 1000 / 100;
+    updateInterval = (totTimeLoop * 1000) / 100;
     startProgressBar();
-
 
     if (isPlaying) {
       // Se il loop sta suonando, chiama la funzione stopLoop
       stopLoop();
       stopDrumLoop();
       stopAndResetProgressBar();
-      
+
+      muteButtons.forEach(function(button, index) {
+        if (button.classList.contains('clicked')) {
+          button.classList.toggle('clicked');
+        }
+      });
 
       setup(
         myJSON[index].bpm,
@@ -184,8 +192,6 @@ window.addEventListener("load", function () {
         button.textContent = "Play";
         button.style.backgroundColor = "#4281a4";
       }, (6000 / myJSON[index].bpm) * 16 + 3500);
-
-
     } else {
       // Se il loop non sta suonando, inizia a suonare il loop
       playALot(myJSON[index].bpm, myJSON[index].TimeSignature);
@@ -208,6 +214,12 @@ window.addEventListener("load", function () {
     stopDrumLoop();
     stopAndResetProgressBar();
 
+    muteButtons.forEach(function(button, index) {
+      if (button.classList.contains('clicked')) {
+        button.classList.toggle('clicked');
+      }
+    });
+
     if (isPlaying) {
       let button = document.getElementById("play");
       button.disabled = true;
@@ -223,7 +235,19 @@ window.addEventListener("load", function () {
     document.getElementById("customPopup").style.display = "none";
     document.getElementById("game").style.display = "block";
   });
+
+
+  muteButtons.forEach(function(button, index) {
+    button.addEventListener('click', function() {
+      if (isPlaying) {
+        //console.log(`Mute button for Instrument ${index + 1} clicked`);
+        toggleMute(index);
+        this.classList.toggle('clicked');
+      }
+    });
+  });
 });
+
 
 document.getElementById("game").addEventListener("click", function () {
   console.log("game");
@@ -242,4 +266,3 @@ function resizeCanvas() {
   // Redraw content
   draw();
 }
-
