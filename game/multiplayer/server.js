@@ -457,7 +457,8 @@ function startGameForPlayer(lobbyId) {
 }
 
 function nextRound() {
-  counter++;
+  if (counter == stateList.length - 1) counter = 0;
+  else counter++;
   PLAY.disabled = false;
   isPlaying = false;
   playersList.forEach((player) => {

@@ -98,6 +98,7 @@ let instNotes;
 let sampleNotes;
 let alreadyUsed = [];
 function changestate() {
+  if (alreadyUsed.length == myJSON.length) alreadyUsed = [];
   do {
     index = Math.floor(Math.random() * myJSON.length);
     selectedCountry = myJSON[index].State;
