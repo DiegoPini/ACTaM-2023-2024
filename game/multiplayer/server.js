@@ -374,7 +374,11 @@ let instNotesCopy;
 let instDurations;
 let instNotes;
 function changestate(index) {
-  setup(myJSON[index].bpm, myJSON[index].DrumBeat, myJSON[index].TimeSignature);
+  setup(
+    myJSON[index].bpm * 4,
+    myJSON[index].DrumBeat,
+    myJSON[index].TimeSignature
+  );
   samplesInst = myJSON[index].SamplesInst;
   numInst = myJSON[index].numInst;
   sampleNotes = myJSON[index].SamplesNotes; // nota originale del sample
@@ -595,14 +599,14 @@ PLAY.addEventListener("click", function () {
     this.style.display = "none";
   } else {
     // Se il loop non sta suonando, inizia a suonare il loop
-    playALot(myJSON[index].bpm, myJSON[index].TimeSignature);
+    playALot(myJSON[index].bpm * 4, myJSON[index].TimeSignature);
     for (let i = 0; i < numInst; i++) {
       startLoop(
         samplesInst[i],
         sampleNotes[i],
         instNotes[i],
         instDurations[i],
-        myJSON[index].bpm
+        myJSON[index].bpm * 4
       );
     }
     this.textContent = "Stop"; // Cambia il testo del pulsante
