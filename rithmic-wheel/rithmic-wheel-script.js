@@ -274,6 +274,8 @@ function playSound(bpm) {
   sound1Times.forEach((time) => {
     let id1 = setTimeout(() => {
       changeButtonColor(ctx, sound1But[(time * bpm) / 60000], "purple");
+      sound1.pause(); // Stop the sound if it is currently playing
+      sound1.currentTime = 0; // Reset the sound to the beginning
       sound1.play();
     }, time);
 
@@ -287,6 +289,8 @@ function playSound(bpm) {
   sound2Times.forEach((time) => {
     let id3 = setTimeout(() => {
       changeButtonColor(ctx, sound2But[(time * bpm) / 60000], "purple");
+      sound2.pause(); // Stop the sound if it is currently playing
+      sound2.currentTime = 0; // Reset the sound to the beginning
       sound2.play();
     }, time);
     let id4 = setTimeout(() => {
@@ -297,6 +301,8 @@ function playSound(bpm) {
   });
   sound3Times.forEach((time) => {
     let id5 = setTimeout(() => {
+      sound3.pause(); // Stop the sound if it is currently playing
+      sound3.currentTime = 0; // Reset the sound to the beginning
       sound3.play();
       changeButtonColor(ctx, sound3But[(time * bpm) / 60000], "purple");
     }, time);
@@ -309,6 +315,8 @@ function playSound(bpm) {
   sound4Times.forEach((time) => {
     let id7 = setTimeout(() => {
       changeButtonColor(ctx, sound4But[(time * bpm) / 60000], "purple");
+      sound4.pause(); // Stop the sound if it is currently playing
+      sound4.currentTime = 0; // Reset the sound to the beginning
       sound4.play();
     }, time);
     let id8 = setTimeout(() => {

@@ -62,7 +62,11 @@ map.on("click", (event) => {
 
   index = loadIndex(feature.properties.name);
 
-  setup(myJSON[index].bpm, myJSON[index].DrumBeat, myJSON[index].TimeSignature);
+  setup(
+    myJSON[index].bpm * 4,
+    myJSON[index].DrumBeat,
+    myJSON[index].TimeSignature
+  );
 
   loadDrumSounds(
     myJSON[index].SamplesDrums[0],
@@ -173,7 +177,7 @@ window.addEventListener("load", function () {
       });
 
       setup(
-        myJSON[index].bpm,
+        myJSON[index].bpm * 4,
         myJSON[index].DrumBeat,
         myJSON[index].TimeSignature
       );

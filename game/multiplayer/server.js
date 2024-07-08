@@ -374,7 +374,11 @@ let instNotesCopy;
 let instDurations;
 let instNotes;
 function changestate(index) {
-  setup(myJSON[index].bpm, myJSON[index].DrumBeat, myJSON[index].TimeSignature);
+  setup(
+    myJSON[index].bpm * 4,
+    myJSON[index].DrumBeat,
+    myJSON[index].TimeSignature
+  );
   samplesInst = myJSON[index].SamplesInst;
   numInst = myJSON[index].numInst;
   sampleNotes = myJSON[index].SamplesNotes; // nota originale del sample
