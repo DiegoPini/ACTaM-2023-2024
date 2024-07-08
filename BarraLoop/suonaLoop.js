@@ -28,34 +28,6 @@ function loadSample(sample, audioContext) {
     perciò è sufficiente chiamare solo startLoop
 */
 
-function playNoteFromSample(strumento, notaDesiderata) {
-  // Assumendo che `strumenti` sia un oggetto globale che contiene i sample per strumento
-  const samples = strumenti[strumento];
-  let sampleSelezionato = samples[0];
-  let minDifferenza = Number.MAX_VALUE;
-
-  // Trova il sample più vicino alla nota desiderata
-  for (const sample of samples) {
-    const differenza = Math.abs(notaToFrequency(notaDesiderata) - notaToFrequency(sample.nota));
-    if (differenza < minDifferenza) {
-      minDifferenza = differenza;
-      sampleSelezionato = sample;
-    }
-  }
-
-  // Calcola lo shift necessario
-  const shift = calcolaShift(sampleSelezionato.nota, notaDesiderata);
-
-  // Verifica se lo shift è entro i limiti
-  if (Math.abs(shift) <= 2) {
-    // Qui dovresti implementare la logica per applicare lo shift al sample
-    // e riprodurre il suono. Questo dipenderà dalla tua libreria audio o dal tuo framework.
-    console.log(`Suonando ${notaDesiderata} usando ${sampleSelezionato.file} con uno shift di ${shift} toni.`);
-  } else {
-    console.log("Errore: Shift richiesto supera i due toni.");
-  }
-}
-
 function playNoteFromSample(loopContext, source, envelopeGainNode, sampleNote = 48, noteToPlay = 48, duration = 2, bpm = 120, envelopeGain = 0.4) {
   // loopContext is the AudioContext for the loop
   // source is the buffer source node
