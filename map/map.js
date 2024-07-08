@@ -192,7 +192,7 @@ window.addEventListener("load", function () {
       }, (6000 / myJSON[index].bpm) * 16 + 3500);
     } else {
       // Se il loop non sta suonando, inizia a suonare il loop
-      playALot(myJSON[index].bpm * 4, myJSON[index].TimeSignature);
+      playALot(myJSON[index].bpm, myJSON[index].TimeSignature);
       for (let i = 0; i < numInst; i++) {
         startLoop(
           samplesInst[i],
