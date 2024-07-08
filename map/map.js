@@ -160,7 +160,7 @@ window.addEventListener("load", function () {
   document.getElementById("play").addEventListener("click", function () {
     // Set the interval for updating the progress bar (in milliseconds)
     stopAndResetProgressBar();
-    totTimeLoop = computeTimeLoop(myJSON[index].bpm * 4, instDurations[0]); // 0 è il primo strumento
+    totTimeLoop = computeTimeLoop(myJSON[index].bpm, instDurations[0]); // 0 è il primo strumento
     updateInterval = (totTimeLoop * 1000) / 100;
     startProgressBar();
 
@@ -189,7 +189,7 @@ window.addEventListener("load", function () {
         button.disabled = false;
         button.textContent = "Play";
         button.style.backgroundColor = "#4281a4";
-      }, (6000 / myJSON[index].bpm) * 4 * 16 + 3500);
+      }, (6000 / myJSON[index].bpm) * 16 + 3500);
     } else {
       // Se il loop non sta suonando, inizia a suonare il loop
       playALot(myJSON[index].bpm * 4, myJSON[index].TimeSignature);
@@ -199,7 +199,7 @@ window.addEventListener("load", function () {
           sampleNotes[i],
           instNotesCopy[i],
           instDurations[i],
-          myJSON[index].bpm * 4
+          myJSON[index].bpm
         );
       }
       this.textContent = "Stop"; // Cambia il testo del pulsante
@@ -228,7 +228,7 @@ window.addEventListener("load", function () {
         button.disabled = false;
         button.textContent = "Play";
         button.style.backgroundColor = "#4281a4";
-      }, (6000 / myJSON[index].bpm) * 4 * 16 + 3500);
+      }, (6000 / myJSON[index].bpm) * 16 + 3500);
     }
     document.getElementById("customPopup").style.display = "none";
     document.getElementById("game").style.display = "block";

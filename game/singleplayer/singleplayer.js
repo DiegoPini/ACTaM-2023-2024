@@ -190,7 +190,7 @@ playSound1.addEventListener("click", function () {
         sampleNotes[i],
         instNotes[i],
         instDurations[i],
-        myJSON[index].bpm * 4
+        myJSON[index].bpm
       );
     }
     this.textContent = "Stop"; // Cambia il testo del pulsante

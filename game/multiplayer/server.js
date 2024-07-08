@@ -599,14 +599,14 @@ PLAY.addEventListener("click", function () {
     this.style.display = "none";
   } else {
     // Se il loop non sta suonando, inizia a suonare il loop
-    playALot(myJSON[index].bpm * 4, myJSON[index].TimeSignature);
+    playALot(myJSON[index].bpm, myJSON[index].TimeSignature);
     for (let i = 0; i < numInst; i++) {
       startLoop(
         samplesInst[i],
         sampleNotes[i],
         instNotes[i],
         instDurations[i],
-        myJSON[index].bpm * 4
+        myJSON[index].bpm
       );
     }
     this.textContent = "Stop"; // Cambia il testo del pulsante
