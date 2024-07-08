@@ -5,7 +5,7 @@ const map = new mapboxgl.Map({
   style: "mapbox://styles/chialunghi/clpecviq600d901padnab3zej",
   // center: punto da cui di default appare la mappa, in questo caso Roma
   center: [12.4964, 41.9028],
-  zoom: 3,
+  zoom: 2.5,
 });
 
 /*
@@ -90,6 +90,17 @@ map.on("click", (event) => {
   const description = document.getElementById("description");
   countryName.textContent = myJSON[index].title;
   description.textContent = myJSON[index].description;
+
+  // Aggiungi un listener per l'evento keydown
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      document.getElementById('close').click();
+    }
+    if (event.key === ' ') {
+      document.getElementById('play').click();
+    }
+  });
+
 });
 const canvasProgBar = document.getElementById("progressCanvasProgBar");
 const contextCanvas = canvasProgBar.getContext("2d");

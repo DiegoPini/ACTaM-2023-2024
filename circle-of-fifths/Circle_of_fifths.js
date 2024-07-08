@@ -169,12 +169,19 @@ window.addEventListener("load", function () {
 
   });
 
-    // auto click per scala di Do come predefinito
+  // auto click per scala di Do come predefinito
+  map.on("click", (event) => {
+    console.log("we")
     document.getElementById('C').dispatchEvent(
         new MouseEvent('click', {
-            bubbles: true,
-            cancelable: true,
-            view: window
+          bubbles: true,
+          cancelable: true,
+          view: window
         }))
+
+    // preselezione scala
+    document.getElementById('change_scale').value = 'major_scale';
+
+  });
 
 });

@@ -141,7 +141,6 @@ button:hover {
 
 body {
   font-family: Arial, sans-serif;
-  margin: 20px;
   display: flex;
   flex-direction: column;
   text-align: center;
