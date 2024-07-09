@@ -202,7 +202,6 @@ window.addEventListener("load", function () {
 
     // Resetta la partitura in C maggiore
     for (let i = 0; i < numInst; i++) {
-      console.log("resetting");
       changeKey(
         instNotesOriginal[i],
         instNotesCopyStatica[i],
