@@ -200,6 +200,23 @@ window.addEventListener("load", function () {
     // autoclick major scale
     document.getElementById('change_scale').value = 'major_scale';
 
+    // Resetta la partitura in C maggiore
+    for (let i = 0; i < numInst; i++) {
+      console.log("resetting");
+      changeKey(
+        instNotesOriginal[i],
+        instNotesCopyStatica[i],
+        "major_scale"
+      );
+      changeTonality(
+        instNotesOriginal[i],
+        instNotesCopy[i],
+        instNotesCopyStatica[i],
+        "C",
+        "C"
+      );
+    }
+
   });
 
 });

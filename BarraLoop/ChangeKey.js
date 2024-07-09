@@ -136,7 +136,7 @@ function changeKey(originalMat, copyMat, newKey){
     else if (newKey == "phrygian_scale"){
         majNat2frigia(originalMat, copyMat);
     }
-    else if (newKey == "misolidian_scale"){
+    else if (newKey == "mixolydian_scale"){
         majNat2misolidian(originalMat, copyMat);
     }
     else{
@@ -190,7 +190,7 @@ function majNat2frigia(originalMat, copyMat){
     }
 }
 
-function matNat2misolidian(originalMat, copyMat){
+function majNat2misolidian(originalMat, copyMat){
     // Cambio da maggiore naturale a misolidia
 
     // I, II, III, IV, V, IV grado rimangono invariati
