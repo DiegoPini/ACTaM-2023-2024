@@ -21,7 +21,13 @@ Click on a marker and a popup will show up:
 ## Game
 
 
-Clicking the button at the top left of the page lets you play a game where you guess which song belongs to which country. You can play solo or challenge a friend. When the game starts, the rhythmic wheel appears: click "Play" to hear the song and "Select" to choose the country. Be careful—once you click "Select," you can't replay the song or see the rhythmic pattern again!
+Clicking the button at the top left of the page lets you play a game where you guess which song belongs to which country. You can play solo or challenge a friend. To play in multiplayer mode, you need to create a lobby or join an existing one. All lobby names are displayed below and can be easily copied and pasted.
+
+<p align="center">
+   <img src="">
+</p>
+
+When the game starts, the rhythmic wheel appears: click "Play" to hear the song and "Select" to choose the country. Be careful—once you click "Select," you can't replay the song or see the rhythmic pattern again!
 
 If you recognize the drum pattern immediately, you'll be the fastest among your friends and likely win the game! For each correct answer, you earn 1 point; for each wrong answer, you lose 1 point. Reach -3 points and you lose; reach 5 points and you win!
 
