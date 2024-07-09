@@ -5,16 +5,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="icon" type="image/png" href="../worldphoto.png" />
+    <link rel="icon" type="image/png" href="worldphoto.png" />
     <meta charset="utf-8" />
     <title>Musical countries</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="api.mapbox.js"></script>
+    <script src="/map/api.mapbox.js"></script>
     <
     <!--   <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script -->
     >
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/map/style.css" />
   </head>
 
   <body>
@@ -285,7 +285,6 @@
         <div class="casella" style="position: absolute; width: 40%">
           <label for="change_scale">Change the scale:</label>
           <select id="change_scale">
-
             <option value="major_scale">Major</option>
             <option value="minor_nat_scale">Minor natural</option>
             <option value="minor_arm_scale">Minor armonic</option>
@@ -295,16 +294,15 @@
             <option value="mixolydian_scale">Mixolydian</option>
             <!--<option value="aeolian_scale">Aeolian</option>-->
             <!--<option value="locrian_scale">Locrian</option>-->
-
           </select>
         </div>
       </div>
     </div>
-    <script src="../circle-of-fifths/Circle_of_fifths.js"></script>
-    <script src="../BarraLoop/suonaLoop.js"></script>
+    <script src="circle-of-fifths/Circle_of_fifths.js"></script>
+    <script src="BarraLoop/suonaLoop.js"></script>
     <!-- <script src="../BarraLoop/ProgBar.js"></script> -->
-    <script src="../BarraLoop/ChangeKey.js"></script>
-    <script src="../rithmic-wheel/rithmic-wheel-script.js"></script>
-    <script src="map.js"></script>
+    <script src="BarraLoop/ChangeKey.js"></script>
+    <script src="rithmic-wheel/rithmic-wheel-script.js"></script>
+    <script src="/map/map.js"></script>
   </body>
 </html>
