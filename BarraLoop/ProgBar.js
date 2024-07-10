@@ -1,3 +1,12 @@
+/*
+    All the functions in this file have been moved to map.js
+    This file is kept for reference
+    
+    This file contains the code for the progress bar that shows the progression of the loop.
+*/
+
+
+
 const canvas = document.getElementById('progressCanvasProgBar');
 const contextCanvas = canvas.getContext('2d');
 

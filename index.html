@@ -5,16 +5,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="icon" type="image/png" href="../worldphoto.png" />
+    <link rel="icon" type="image/png" href="worldphoto.png" />
     <meta charset="utf-8" />
     <title>Folk Atlas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="api.mapbox.js"></script>
+    <script src="/map/api.mapbox.js"></script>
     <
     <!--   <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script -->
     >
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/map/style.css" />
   </head>
 
   <body>
@@ -34,7 +34,8 @@
         id="app"
         class="cf"
         viewBox="0 0 300 300"
-        style="position: relative; width: 52%; top: 1%; float: right"
+        style="position: absolute; left: 80%; top: 65%; transform: translate(-50%, -50%); margin: 10px; width: 52%;"
+
       >
         <path
           class="scale"
@@ -230,30 +231,24 @@
       </svg>
 
       <div
-        style="
-          display: flex;
-          justify-content: center;
-          width: 33%;
-          position: absolute;
-          float: left;
-        "
-      >
+        style="display: flex; justify-content: center; left:14%; position: absolute; float: left;">
+
+
         <button id="close">Esc</button>
         <button id="play">Play</button>
       </div>
 
       <canvas
         class="casella"
-        style="position: absolute; left: 30%; top: 30%; margin: 10px"
+        style="position: absolute; left: 50%; transform: translateX(-50%);
+              margin: 10px; width: 30%; height: 2%"
         id="progressCanvasProgBar"
-        width="400"
-        height="15"
       ></canvas>
 
       <div
         class="casella"
         id="instruments"
-        style="position: absolute; left: 48%; top: 38%; margin: 10px"
+        style="position: absolute; left: 50%; top: 40%; transform: translateX(-50%); margin: 10px"
       >
         <div class="textProgBar">Instrument 1</div>
         <button class="muteButtonProgBar">M</button>
@@ -268,6 +263,7 @@
         <button class="muteButtonProgBar">M</button>
       </div>
 
+
       <canvas
         id="myCanvas"
         width="300"
@@ -281,11 +277,10 @@
         style="position: absolute; left: 5%; top: 38%; margin: 10px"
       ></canvas>
 
-      <div style="position: absolute; width: 33%; right: 0">
-        <div class="casella" style="position: absolute; width: 40%">
+      <div style="position: absolute; width: 15%; left:81%; transform: translateX(-50%);">
+        <div class="casella">
           <label for="change_scale">Change the scale:</label>
           <select id="change_scale">
-
             <option value="major_scale">Major</option>
             <option value="minor_nat_scale">Minor natural</option>
             <option value="minor_arm_scale">Minor armonic</option>
@@ -295,16 +290,15 @@
             <option value="mixolydian_scale">Mixolydian</option>
             <!--<option value="aeolian_scale">Aeolian</option>-->
             <!--<option value="locrian_scale">Locrian</option>-->
-
           </select>
         </div>
       </div>
     </div>
-    <script src="../circle-of-fifths/Circle_of_fifths.js"></script>
-    <script src="../BarraLoop/suonaLoop.js"></script>
+    <script src="circle-of-fifths/Circle_of_fifths.js"></script>
+    <script src="BarraLoop/suonaLoop.js"></script>
     <!-- <script src="../BarraLoop/ProgBar.js"></script> -->
-    <script src="../BarraLoop/ChangeKey.js"></script>
-    <script src="../rithmic-wheel/rithmic-wheel-script.js"></script>
-    <script src="map.js"></script>
+    <script src="BarraLoop/ChangeKey.js"></script>
+    <script src="rithmic-wheel/rithmic-wheel-script.js"></script>
+    <script src="/map/map.js"></script>
   </body>
 </html>

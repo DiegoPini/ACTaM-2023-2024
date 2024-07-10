@@ -1,3 +1,8 @@
+/*
+    Questo script contiene le funzioni per suonare un loop di note MIDI
+*/
+
+
 let loopContext = new AudioContext();   
 
 // Create master volume node. Value is set to 1 by default
@@ -7,12 +12,13 @@ let masterVolumeNode = loopContext.createGain();
 let loopMuteStates = [];
 let loopVolumeNodes = [];
 let loopState = false; // false means stopped, true means playing
-
 let loopIntervals = []; // Store interval IDs   
 
 
 
 function loadSample(sample, audioContext) { 
+  // Load a sample and return a promise with the decoded audio buffer
+
   const audio = new Audio(sample);
   return fetch(sample)
     .then(response => response.arrayBuffer())
@@ -29,6 +35,8 @@ function loadSample(sample, audioContext) {
 */
 
 function playNoteFromSample(loopContext, source, envelopeGainNode, sampleNote = 48, noteToPlay = 48, duration = 2, bpm = 120, envelopeGain = 0.4) {
+  // play a note from a sample at the selected pitch and duration
+
   // loopContext is the AudioContext for the loop
   // source is the buffer source node
 
@@ -71,7 +79,7 @@ function playNoteFromSample(loopContext, source, envelopeGainNode, sampleNote = 
 
 
 function playLoop(loopContext, envelopeGainNode, sample, sampleNote, arrayNotes, arrayDurations, bpm) {
-  // playLoop deve essere chiamata continuamente ogni volta che il loop deve essere riprodotto
+  // suona la partitura 1 volta
 
   // Example:
   // arrayNotes = [60, 62, 64, 65, 67, 69, 71, 72];
@@ -95,7 +103,9 @@ function playLoop(loopContext, envelopeGainNode, sample, sampleNote, arrayNotes,
 }
 
 
-function startLoop(sample, sampleNote, arrayNotes, arrayDurations, bpm) { // NUOVA
+function startLoop(sample, sampleNote, arrayNotes, arrayDurations, bpm) {
+  // Chiama playLoop ogni tot millisecondi per suonare la partitura a loop
+
   loopState = true;
   masterVolumeNode.gain.value = 1; // Unmute the master volume
 
@@ -143,35 +153,22 @@ function startLoop(sample, sampleNote, arrayNotes, arrayDurations, bpm) { // NUO
 
 
 function stopLoop() { 
+  // Stop the music
 
-  // Stop the loop from repeating
   loopState = false;
-
-  // Mute the master volume (the value is set to 0.001 because 0 doesn't work with the function)
   masterVolumeNode.gain.value = 0;
-  //masterVolumeNode.gain.exponentialRampToValueAtTime(0.001, loopContext.currentTime + 0.08);
 
-
-  // Mute all loops                   PROVA CON TOGGLE MUTE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  // Mute all loops
   for (let i = 0; i < loopVolumeNodes.length; i++) {
-    //loopVolumeNodes[i].gain.exponentialRampToValueAtTime(0.001, loopContext.currentTime + 0.08);
     loopVolumeNodes[i].gain.value = 0;
     loopMuteStates[i] = true;
   }
 
-
   // Clear the arrays only after all the loops are muted
-  //     USA QUESTA SE METTI IL VOLUME A 0 SENZA EXPONENTIAL RAMP
   doWhenAllGainValuesReachValue(loopVolumeNodes, 0, function() {
     loopVolumeNodes = [];
     loopMuteStates = [];
   });
-  /*     USA QUESTA SE METTI IL VOLUME A 0.001 CON EXPONENTIAL RAMP
-  doWhenAllGainValuesReachValue(loopVolumeNodes, 0.001, function() {
-    loopVolumeNodes = [];
-    loopMuteStates = [];
-  });
-  */
 
 
   // Clear all intervals
@@ -199,71 +196,9 @@ function toggleMute(loopIndex) {
   if (node) {
     if (loopMuteStates[loopIndex]) {
       node.gain.value = 1; // Unmute
-      //node.gain.exponentialRampToValueAtTime(1, loopContext.currentTime + 0.1);
     } else {
       node.gain.value = 0; // Mute
-      //node.gain.exponentialRampToValueAtTime(0.001, loopContext.currentTime + 0.1)
     }
     loopMuteStates[loopIndex] = !loopMuteStates[loopIndex]; // Toggle mute state
   }
 }
-
-
-// Add event listeners to mute buttons for each loop
-
-/*                                                                        CONTROLLA SE VA BENE QUELLA DOPO O MEGLIO QUESTA
-const muteButtons = document.querySelectorAll('.muteButton'); 
-muteButtons.forEach((button, index) => {
-  button.addEventListener('click', () => toggleMute(index));
-});
-*/
-
-/*                                                                  FUNZIONA MA DA IMPLEMENTARE NEL CODICE COMPLETO
-document.addEventListener("DOMContentLoaded", function() {
-  var muteButtons = document.querySelectorAll(".muteButtonProgBar");
-
-  muteButtons.forEach(function(muteButton, index) {
-    muteButton.addEventListener("click", function() {
-      this.classList.toggle("clicked");
-      toggleMute(index); // Toggle mute for the corresponding track
-    });     
-  });
-});
-
-
-var bottoneProvaLoop = document.querySelector(".bottoneProvaLoopProgBar");
-
-bottoneProvaLoop.addEventListener("click", function() {
-  startLoop(sample, sampleNote, arrayNotes1, arrayDurations1, bpm);
-  startLoop(sample, sampleNote, arrayNotes2, arrayDurations2, bpm);
-  startLoop(sample, sampleNote, arrayNotes3, arrayDurations3, bpm);
-  startLoop(sample, sampleNote, arrayNotes4, arrayDurations4, bpm);
-
-  setInterval(updateProgressBar, updateInterval);
-});   
-*/
-
-
-
-/*
-// PER PROVA
-
-sample = "SamplesProvaProgBar/Flauto_C3.wav";
-bpm = 40;
-sampleNote = 48;
-arrayNotes1 = [60, 62, 64, 65, 67, 69, 71, 72];
-arrayDurations1 = [4,4,4,4,4,4,4,4]; // 1 means 1/16
-arrayNotes2 = [67, 65, 60, 59, 55, 60, 60];
-arrayDurations2 = [4,4,10,2,4,4,4];
-arrayNotes3 = [48, 50, 52, 53, 55, 57, 59, 60];
-arrayDurations3 = [4,4,4,4,4,4,4,4]; // 1 means 1/16
-arrayNotes4 = [74, 72, 67, 66, 62, 67, 67];
-arrayDurations4 = [4,4,10,2,4,4,4];
-
-startLoop(sample, sampleNote, arrayNotes1, arrayDurations1, bpm)
-startLoop(sample, sampleNote, arrayNotes2, arrayDurations2, bpm)
-startLoop(sample, sampleNote, arrayNotes3, arrayDurations3, bpm)
-startLoop(sample, sampleNote, arrayNotes4, arrayDurations4, bpm)
-
-stopLoop();
-*/

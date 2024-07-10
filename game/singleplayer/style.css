@@ -219,3 +219,7 @@ button:hover {
   font-size: 1.5rem;
   font-weight: bold;
 }
+
+.mapboxgl-control-container {
+  display: none;
+}

@@ -1,11 +1,15 @@
 /*
-The part played by an instrument is described by an array in which each element represent the midi note
-played in the corresponding 16th.
+    This script contains the functions to change the key of a matrix of MIDI notes.
+
+    The part played by an instrument is described by an array in which each element represent the midi note
+    played in the corresponding 16th.
 */ 
 
 
-// Take the matrix in the original key and returns a matrix in the new key
 function changeTonality(originalMat, copyMat, copyMat4Key, oldKey, newKey) {
+    // Take the matrix in the original key and returns a matrix in the new key
+
+
     // Original matrix in the key of C
 
     // copyMat4Key serve per avere la matrice originale ma nella chiave modificata
@@ -36,8 +40,9 @@ function changeTonality(originalMat, copyMat, copyMat4Key, oldKey, newKey) {
 }
 
 
-// Take as input 2 MIDI pitches and returns the interval between them ignoring the octave distances
 function minInterval(pitch1, pitch2){
+    // Take as input 2 MIDI pitches and returns the interval between them ignoring the octave distances
+
     if (pitch1 < pitch2){
         var temp = pitch1;
         pitch1 = pitch2;
@@ -51,8 +56,9 @@ function minInterval(pitch1, pitch2){
 }
 
 
-// Take as input the string of the key and returns the MIDI pitch of the tonic
 function key2midiPitch(key){
+    // Take as input the string of the key and returns the MIDI pitch of the tonic
+
     var midiPitch = 60;
     switch (key) {
         case "C":
@@ -136,7 +142,7 @@ function changeKey(originalMat, copyMat, newKey){
     else if (newKey == "phrygian_scale"){
         majNat2frigia(originalMat, copyMat);
     }
-    else if (newKey == "misolidian_scale"){
+    else if (newKey == "mixolydian_scale"){
         majNat2misolidian(originalMat, copyMat);
     }
     else{
@@ -190,7 +196,7 @@ function majNat2frigia(originalMat, copyMat){
     }
 }
 
-function matNat2misolidian(originalMat, copyMat){
+function majNat2misolidian(originalMat, copyMat){
     // Cambio da maggiore naturale a misolidia
 
     // I, II, III, IV, V, IV grado rimangono invariati
