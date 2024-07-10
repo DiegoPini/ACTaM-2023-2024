@@ -24,7 +24,7 @@ Click on a marker and a popup will show up:
 Clicking the button at the top left of the page lets you play a game where you guess which song belongs to which country. You can play solo or challenge a friend. To play in multiplayer mode, you need to create a lobby or join an existing one. All lobby names are displayed below and can be easily copied and pasted.
 
 <p align="center">
-   <img src="https://github.com/DiegoPini/ACTaM-2023-2024/assets/127502273/bcf6794e-76b1-4efd-b4da-f4b994fec0ae">
+   <img src="https://github.com/DiegoPini/ACTaM-2023-2024/assets/127502273/85c6ccbc-6489-4b49-8452-c99bd9210260">
 </p>
 
 When the game starts, the rhythmic wheel appears: click "Play" to hear the song and "Select" to choose the country. Be careful—once you click "Select," you can't replay the song or see the rhythmic pattern again!
