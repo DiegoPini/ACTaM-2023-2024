@@ -212,3 +212,7 @@ button:hover {
   position: absolute;
   z-index: 1;
 }
+
+.mapboxgl-control-container {
+  display: none;
+}

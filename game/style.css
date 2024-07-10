@@ -31,7 +31,7 @@ button:hover {
 #choose {
   position: absolute;
   top: 42%;
-  left: 42%;
+  left: 44%;
   z-index: 1;
 }
 #map {
@@ -56,4 +56,8 @@ button:hover {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer; /* Change mouse cursor on hover */
+}
+
+.mapboxgl-control-container {
+  display: none;
 }
