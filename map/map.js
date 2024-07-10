@@ -75,11 +75,9 @@ map.on("click", (event) => {
     myJSON[index].SamplesDrums[3]
   );
 
-  // array dei sample degli strumenti
-  samplesInst = myJSON[index].SamplesInst;
-
-  // array delle note degli strumenti
-  numInst = myJSON[index].numInst; // CONTROLLA SE VA CON CONSOLE LOG NEL CASO DI PROBLEMI
+  
+  samplesInst = myJSON[index].SamplesInst; // array dei sample degli strumenti
+  numInst = myJSON[index].numInst; // numero di strumenti (1 per canale)
   sampleNotes = myJSON[index].SamplesNotes; // nota originale del sample
   instNotesOriginal = myJSON[index].Inst_notes; // partitura note
   instNotesCopy = JSON.parse(JSON.stringify(instNotesOriginal)); // copia partitura note per modifiche
@@ -114,6 +112,8 @@ const progressBar = {
 // FUNZIONI PROGRESS BAR
 
 function computeTimeLoop(bpm, arrayDurations) {
+  // Compute the total time of the loop in seconds
+
   let totBeats = arrayDurations.reduce(
     (accumulator, currentValue) => accumulator + currentValue,
     0
@@ -124,6 +124,8 @@ function computeTimeLoop(bpm, arrayDurations) {
 }
 
 function drawProgressBar() {
+  // Draw the progress bar
+
   contextCanvas.clearRect(0, 0, progressBar.width, progressBar.height);
 
   // Draw the background
@@ -137,11 +139,12 @@ function drawProgressBar() {
 }
 
 function updateProgressBar() {
+  // Update the progress bar
+
   if (flagProgBar === false) {
     clearInterval(progressBarUpdateInterval);
     clearInterval(updateInterval);
     progressBar.fill = 0;
-    // return;
   } else if (flagProgBar === true) {
     progressBar.fill += 1;
 
@@ -154,11 +157,15 @@ function updateProgressBar() {
 }
 
 function startProgressBar() {
+  // Start the progress bar
+
   flagProgBar = true;
   progressBarUpdateInterval = setInterval(updateProgressBar, updateInterval);
 }
 
 async function stopAndResetProgressBar() {
+  // Stop and reset the progress bar
+
   flagProgBar = false;
   clearInterval(progressBarUpdateInterval);
   clearInterval(updateInterval);
@@ -166,10 +173,12 @@ async function stopAndResetProgressBar() {
   drawProgressBar();
 }
 
+
 let isPlaying = false; // Variabile per tenere traccia dello stato di riproduzione
+
 window.addEventListener("load", function () {
   document.getElementById("play").addEventListener("click", function () {
-    // Set the interval for updating the progress bar (in milliseconds)
+
     stopAndResetProgressBar();
     totTimeLoop = computeTimeLoop(myJSON[index].bpm, instDurations[0]); // 0 è il primo strumento
     updateInterval = (totTimeLoop * 1000) / 100;
@@ -213,9 +222,9 @@ window.addEventListener("load", function () {
           myJSON[index].bpm
         );
       }
-      this.textContent = "Stop"; // Cambia il testo del pulsante
+      this.textContent = "Stop";
     }
-    isPlaying = !isPlaying; // Cambia lo stato
+    isPlaying = !isPlaying;
   });
 
   document.getElementById("close").addEventListener("click", () => {
@@ -248,7 +257,6 @@ window.addEventListener("load", function () {
   muteButtons.forEach(function (button, index) {
     button.addEventListener("click", function () {
       if (isPlaying) {
-        //console.log(`Mute button for Instrument ${index + 1} clicked`);
         toggleMute(index);
         this.classList.toggle("clicked");
       }

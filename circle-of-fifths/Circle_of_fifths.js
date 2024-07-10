@@ -21,8 +21,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // listener change scale labels
   change_scale.addEventListener("change", function () {
+
+    // stop loop and reset progress bar when changing scale
     stopLoop();
-    stopDrumLoop(); // AGGIORNARE
+    stopDrumLoop();
     stopAndResetProgressBar();
 
     muteButtons.forEach(function(button, index) {
@@ -71,6 +73,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     else console.log("error");
 
+
+    // change key and tonality to the selected ones
     for (let i = 0; i < numInst; i++) {
       changeKey(
         instNotesOriginal[i],
@@ -130,6 +134,8 @@ window.addEventListener("load", function () {
   scales.forEach(function (scale) {
     //listener per cambio chiave
     scale.addEventListener("click", function () {
+
+      // stop loop and reset progress bar when changing scale
       stopLoop();
       stopDrumLoop();
       stopAndResetProgressBar();
@@ -154,7 +160,7 @@ window.addEventListener("load", function () {
         }, (6000 / 120) * 16 + 3500);
       }
 
-      // change key
+      // change key and tonality to the selected ones
       selectedTonality = scale.id;
       for (let i = 0; i < numInst; i++) {
        changeKey(
