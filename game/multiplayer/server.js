@@ -392,6 +392,12 @@ function changestate(index) {
     myJSON[index].DrumBeat,
     myJSON[index].TimeSignature
   );
+  loadDrumSounds(
+    myJSON[index].SamplesDrums[0],
+    myJSON[index].SamplesDrums[1],
+    myJSON[index].SamplesDrums[2],
+    myJSON[index].SamplesDrums[3]
+  );
   samplesInst = myJSON[index].SamplesInst;
   numInst = myJSON[index].numInst;
   sampleNotes = myJSON[index].SamplesNotes; // nota originale del sample
@@ -619,7 +625,7 @@ PLAY.addEventListener("click", function () {
     this.style.display = "none";
   } else {
     // Se il loop non sta suonando, inizia a suonare il loop
-    playALot(myJSON[index].bpm, myJSON[index].TimeSignature);
+    playALot(myJSON[index].bpm * 4, myJSON[index].TimeSignature);
     for (let i = 0; i < numInst; i++) {
       startLoop(
         samplesInst[i],
