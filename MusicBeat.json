@@ -98,7 +98,7 @@
     
     {
         "State" : "Italy", "bpm" : 120, "TimeSignature" : 1, "genre" : "Opera",
-        "SamplesDrums" : ["../Samples/Percussion/triangolo.wav","../Samples/Percussion/legnetti.wav","../Samples/Percussion/hi hat chiuso.wav","../Samples/Percussion/hi hat chiuso.wav"],
+        "SamplesDrums" : ["../Samples/Percussion/Triangle closed.wav","../Samples/Percussion/legnetti.wav","../Samples/Percussion/hi hat chiuso.wav","../Samples/Percussion/hi hat chiuso.wav"],
         "DrumBeat" : [[0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],  
                         [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
