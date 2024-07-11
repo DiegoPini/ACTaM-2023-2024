@@ -169,7 +169,7 @@
     },
 
     {
-        "State" : "Australia", "bpm" : 140, "TimeSignature" : 1, "genre" : "Folk",
+        "State" : "Australia", "bpm" : 130, "TimeSignature" : 1, "genre" : "Folk",
         "SamplesDrums" : ["../Samples/Percussion/grancassa.wav","../Samples/Percussion/grancassa.wav","../Samples/Percussion/nacchere.wav","../Samples/Percussion/maracas.wav"],
         "DrumBeat" : [[0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0],  
                     [1,0,0,0,0,0,1,0,1,0,0,0,0,0,1,0],   
