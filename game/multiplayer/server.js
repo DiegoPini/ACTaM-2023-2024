@@ -58,7 +58,7 @@ const map = new mapboxgl.Map({
 var myJSON = [];
 async function loadJSON() {
   try {
-    const response = await fetch("musicbeatjson2.json");
+    const response = await fetch("../MusicBeatMult.json");
     myJSON = await response.json();
   } catch (error) {
     console.error("Error loading JSON:", error);
@@ -378,12 +378,12 @@ function loadIndex(country) {
 }
 
 let samplesInst;
-let numInst;
-let sampleNotes;
 let instNotesOriginal;
 let instNotesCopy;
 let instDurations;
+let numInst;
 let instNotes;
+let sampleNotes;
 
 // Function to change the state of the game by selecting a new country and loading its music
 function changestate(index) {
@@ -506,6 +506,8 @@ function nextRound() {
   select.style.display = "block";
   PLAY.style.display = "block";
   if (!CheckWin()) {
+    stopLoop();
+    stopDrumLoop();
     selectedCountry = stateList[counter];
     let index = loadIndex(selectedCountry);
     changestate(index);
