@@ -54,6 +54,7 @@ const map = new mapboxgl.Map({
   zoom: 3,
 });
 
+// Load JSON data from a file
 var myJSON = [];
 async function loadJSON() {
   try {
@@ -90,6 +91,7 @@ let rotation = setInterval(() => {
   map.rotateTo(rotationAngle);
 }, 100);
 
+// Sign in anonymously to Firebase
 signInAnonymously(auth)
   .then(() => {
     console.log("Signed in anonymously");
@@ -102,6 +104,7 @@ signInAnonymously(auth)
 
 let lobbyId;
 let point = 0;
+
 create.addEventListener("click", () => {
   createLobby();
 });
@@ -110,6 +113,7 @@ let playerId;
 let stateList = [];
 let creator;
 let onDisconnectCreator;
+// Function to create a lobby in firebase, and check if there are enough players to start the game
 function createLobby() {
   temp.style.display = "none";
   clearInterval(rotation);
@@ -180,6 +184,8 @@ join.addEventListener("click", () => {
 });
 
 let namecheck = [];
+
+// Function to join a lobby in firebase
 function joinLobby() {
   clearInterval(rotation);
   map.rotateTo(0);
@@ -257,6 +263,7 @@ function joinLobby() {
   });
 }
 
+// Function to start the game adn chabge element in firebase
 function startGame(lobbyId) {
   onDisconnectCreator.cancel();
   const lobbyRef = ref(db, "lobbies/" + lobbyId);
@@ -264,6 +271,7 @@ function startGame(lobbyId) {
   startGameForPlayer(lobbyId);
 }
 
+// Function to display the active lobbies in the UI
 const activeLobbiesList = document.getElementById("active-lobbies-list");
 function displayActiveLobbies() {
   onValue(lobbiesRef, (snapshot) => {
@@ -306,6 +314,7 @@ function displayActiveLobbies() {
 }
 
 let playersList = [];
+// Function to update the lobby members in the UI
 function updateLobbyMembersUI(lobbyId) {
   const lobbyMembersList = document.getElementById("lobby-members-list");
   lobbyMembersList.setAttribute(
@@ -340,6 +349,7 @@ function updateLobbyMembersUI(lobbyId) {
 
 displayActiveLobbies();
 
+// Function to shuffle the array
 function shuffleArray(array) {
   var currentIndex = array.length,
     temporaryValue,
@@ -358,6 +368,7 @@ function shuffleArray(array) {
 
 let selectedCountry;
 
+// Function to find the index of the country
 function loadIndex(country) {
   for (let i = 0; i < myJSON.length; i++) {
     if (myJSON[i].State == country) {
@@ -373,6 +384,8 @@ let instNotesOriginal;
 let instNotesCopy;
 let instDurations;
 let instNotes;
+
+// Function to change the state of the game by selecting a new country and loading its music
 function changestate(index) {
   setup(
     myJSON[index].bpm * 4,
@@ -390,6 +403,8 @@ function changestate(index) {
 
 let counter = 0;
 let index;
+
+// Function to start the game for the player
 function startGameForPlayer(lobbyId) {
   title.style.display = "none";
   popup.style.display = "block";
@@ -460,6 +475,7 @@ function startGameForPlayer(lobbyId) {
   });
 }
 
+// Function that select the new state and get to the next round
 function nextRound() {
   if (counter == stateList.length - 1) counter = 0;
   else counter++;
@@ -508,6 +524,7 @@ back.addEventListener("click", () => {
 });
 
 let feature;
+// Function to check if the player has clicked on the correct country
 map.on("click", (event) => {
   popup.style.display = "block";
   back.style.display = "none";
@@ -539,6 +556,7 @@ map.on("click", (event) => {
   }
 });
 
+// Function to check if the player has won
 function CheckWin() {
   const lobbyref = ref(db, "lobbies/" + lobbyId);
   onValue(lobbyref, (snapshot) => {
@@ -563,6 +581,7 @@ function CheckWin() {
   }
 }
 
+//Function to end the game
 function end() {
   const lobbyref = ref(db, "lobbies/" + lobbyId);
   remove(lobbyref);
@@ -589,6 +608,7 @@ GAME.addEventListener("click", () => {
 });
 
 let isPlaying = false;
+// Gestisce il click sul pulsante di play/stop del suono
 PLAY.addEventListener("click", function () {
   if (isPlaying) {
     // Se il loop sta suonando, chiama la funzione stopLoop
