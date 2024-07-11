@@ -506,8 +506,6 @@ function nextRound() {
   select.style.display = "block";
   PLAY.style.display = "block";
   if (!CheckWin()) {
-    stopLoop();
-    stopDrumLoop();
     selectedCountry = stateList[counter];
     let index = loadIndex(selectedCountry);
     changestate(index);
@@ -568,16 +566,26 @@ map.on("click", (event) => {
 
 // Function to check if the player has won
 function CheckWin() {
+  const alert = document.getElementById("alert");
   const lobbyref = ref(db, "lobbies/" + lobbyId);
+  const alerttext = document.getElementById("text");
   onValue(lobbyref, (snapshot) => {
     const lobby = snapshot.val();
     if (lobby.state == "ended") {
       if (point == 3) {
-        alert("You Win");
-        end();
+        alert.style.display = "flex";
+        alerttext.textContent = "YOU WON!";
+        const buttonalert = document.getElementById("alert-button");
+        buttonalert.addEventListener("click", () => {
+          end();
+        });
       } else {
-        alert("You Lose");
-        end();
+        alerttext.textContent = "YOU LOST!";
+        alert.style.display = "flex";
+        const buttonalert = document.getElementById("alert-button");
+        buttonalert.addEventListener("click", () => {
+          end();
+        });
       }
     }
   });

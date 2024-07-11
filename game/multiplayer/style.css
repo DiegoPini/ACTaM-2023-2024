@@ -2,6 +2,38 @@ body {
   margin: 0;
   padding: 0;
 }
+#alert {
+  display: none;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+#alert-button {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  left: 45%;
+  top: 50%;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#text {
+  position: absolute;
+  display: block;
+  left: 45%;
+  top: 42%;
+  z-index: 1;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
 
 #myCanvas {
   position: absolute;
