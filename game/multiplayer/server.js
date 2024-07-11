@@ -392,6 +392,8 @@ function changestate(index) {
     myJSON[index].DrumBeat,
     myJSON[index].TimeSignature
   );
+
+  // Carica i suoni della batteria
   loadDrumSounds(
     myJSON[index].SamplesDrums[0],
     myJSON[index].SamplesDrums[1],
@@ -400,10 +402,10 @@ function changestate(index) {
   );
   samplesInst = myJSON[index].SamplesInst;
   numInst = myJSON[index].numInst;
-  sampleNotes = myJSON[index].SamplesNotes; // nota originale del sample
-  instNotesOriginal = myJSON[index].Inst_notes; // partitura note
-  instNotesCopy = JSON.parse(JSON.stringify(instNotesOriginal)); // partitura note
-  instDurations = myJSON[index].Inst_durations; // partitura durate
+  sampleNotes = myJSON[index].SamplesNotes;
+  instNotesOriginal = myJSON[index].Inst_notes;
+  instNotesCopy = JSON.parse(JSON.stringify(instNotesOriginal));
+  instDurations = myJSON[index].Inst_durations;
   instNotes = myJSON[index].Inst_notes;
 }
 

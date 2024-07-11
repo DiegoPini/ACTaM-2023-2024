@@ -2,10 +2,11 @@
 let coin = 0;
 let selectedCountry;
 let playClicked = false;
-mapboxgl.accessToken = "your_access_token_here";
+mapboxgl.accessToken =
+  "pk.eyJ1IjoiY2hpYWx1bmdoaSIsImEiOiJjbG5vbHhqb3gwZWQyMnZwZjZkZDlxa2FhIn0.hT_7Fs3WyTZHUA3fNOsCsQ";
 const map = new mapboxgl.Map({
   container: "map",
-  style: "mapbox://styles/your_style_here",
+  style: "mapbox://styles/chialunghi/clpecviq600d901padnab3zej",
   center: [12.4964, 41.9028], // Roma
   zoom: 3,
 });
