@@ -204,7 +204,12 @@ window.addEventListener("load", function () {
         }))
 
     // autoclick major scale
-    document.getElementById('change_scale').value = 'major_scale';
+    change_scale.value = 'major_scale';
+    change_scale.dispatchEvent(
+      new Event('change', {
+        bubbles: true,
+        cancelable: true
+      }))
 
     // Resetta la partitura in C maggiore
     for (let i = 0; i < numInst; i++) {
@@ -221,7 +226,5 @@ window.addEventListener("load", function () {
         "C"
       );
     }
-
   });
-
 });
