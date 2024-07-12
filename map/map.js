@@ -262,7 +262,7 @@ window.addEventListener("load", function () {
 
 document.getElementById("game").addEventListener("click", function () {
   console.log("game");
-  window.location.href = "game/game.html";
+  window.location.href = "ACTaM-2023-2024/game/game.html";
 });
 
 var canva = document.getElementById("myCanvas");

@@ -603,7 +603,7 @@ function CheckWin() {
 function end() {
   const lobbyref = ref(db, "lobbies/" + lobbyId);
   remove(lobbyref);
-  window.location.href = "../game.html";
+  window.location.href = "ACTaM-2023-2024/game/game.html";
 }
 
 const Quit = document.getElementById("Quit");
@@ -622,7 +622,7 @@ Quit.addEventListener("click", () => {
 
 const GAME = document.getElementById("game");
 GAME.addEventListener("click", () => {
-  window.location.href = "../game.html";
+  window.location.href = "ACTaM-2023-2024/game/game.html";
 });
 
 let isPlaying = false;
