@@ -15,7 +15,7 @@ const map = new mapboxgl.Map({
 var myJSON = [];
 async function loadJSON() {
   try {
-    const response = await fetch("../MusicBeat.json");
+    const response = await fetch("MusicBeat.json");
     myJSON = await response.json();
   } catch (error) {
     console.error("Error loading JSON:", error);
