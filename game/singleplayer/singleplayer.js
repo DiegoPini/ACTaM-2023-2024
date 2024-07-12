@@ -79,7 +79,7 @@ map.on("click", (event) => {
 
 // Torna al menu principale
 document.getElementById("back").addEventListener("click", function () {
-  window.location.href = "game/game.html";
+  window.location.href = "../game.html";
 });
 
 // Seleziona un paese e prepara il gioco
