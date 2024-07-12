@@ -1,7 +1,7 @@
 [
     {
         "State" : "France", "bpm" : 120, "TimeSignature" : 0, "genre" : "Folk - Musette",
-        "SamplesDrums" : ["../Samples/Percussion/low tom.wav", "../Samples/Percussion/hi hat chiuso.wav", "../Samples/Percussion/hi hat chiuso.wav", "../Samples/Percussion/hi hat chiuso.wav"],
+        "SamplesDrums" : ["Samples/Percussion/low tom.wav", "Samples/Percussion/hi hat chiuso.wav", "Samples/Percussion/hi hat chiuso.wav", "Samples/Percussion/hi hat chiuso.wav"],
         "DrumBeat" : [[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],   
                       [0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],   
                       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],  
@@ -10,7 +10,7 @@
         "description": "Musette is a dance form that popular from 1600 to 1700 in art music. The rhythm is ternary, of moderate progression; the character is pastoral, as is also indicated by the name musette, which also designates a kind of bagpipe. Great artists such as Yvette Horner, Gus Viseur and Tony Murena contributed significantly to the development and spread of French musette music during the 20th century.",
         
         "numInst" : 4,
-        "SamplesInst" : ["../Samples/instruments_notes/Accordion_C3.wav", "../Samples/instruments_notes/Accordion_C3.wav", "../Samples/instruments_notes/Cello_C2.wav","../Samples/instruments_notes/piano_C3.wav"],
+        "SamplesInst" : ["Samples/instruments_notes/Accordion_C3.wav", "Samples/instruments_notes/Accordion_C3.wav", "Samples/instruments_notes/Cello_C2.wav","Samples/instruments_notes/piano_C3.wav"],
         "SamplesNotes": [60, 60, 48, 60],
         "Inst_notes": [[67,71,72, 72,72, 71,67, 69,72, 67, 67,69, 67,65, 64,67, 71, 72,72, 71,72, 69,71, 67,67, 64,67, 62,64, 60,71, 72,0],
         [0,72,67,72,67,72,67,71,67,71,67,71,67,69,65,69,65,69,65,0,72,60,62,64,65,72,0,67,72,71,0,71,72,71,67,71,67,71,67,71,62,71,62,71,62,72,67,72,67,72,67,71,67,71,67,71,67,69,65,69,65,69,65,0,72,60,62,64,65,67,0,67,64,71,0,71,72,65,0,64,67,72,0],
