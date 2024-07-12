@@ -51,8 +51,9 @@ Scores - >MusicBeat.json collects a set of strings that are called each time a c
 
 Pop-up -> Progress bar and Rhythmic wheel are Canvas, while the Circle of fifths is an SVG.
 
-Game -> developed via the Google Firebase API. Players are associated with a user ID within the game database. Each time the database (or part of it) changes, the onvalue function works as a listener, i.e. it handles the change. The get function takes the data from the database, while the set function sets the data. The game takes advantage of the changes in the data in the database to continue the game, with functions being activated for all players in parallel.
 Player -> suonaLoop.js to be able to play the scores and to be able to change the channels for each instrument, ProgBar (html, css, js) to be able to display the progress bar, ChangeKey.js to be able to change the key.
+
+Game -> developed via the Google Firebase API. Players are associated with a user ID within the game database. Each time the database (or part of it) changes, the onvalue function works as a listener, i.e. it handles the change. The get function takes the data from the database, while the set function sets the data. The game takes advantage of the changes in the data in the database to continue the game, with functions being activated for all players in parallel.
 
 
 ## Difficulties faced
