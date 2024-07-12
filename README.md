@@ -2,8 +2,9 @@
 
 Folk Atlas is an interactive web application that lets you explore folk melodies from various countries. Select a country to hear a traditional folk melody, change the scale and tonality, and see the characteristic drum pattern being played through the rhytmhic wheel. Additionally, enjoy a fun game where you can guess the country a song belongs to, available in both single-player and multiplayer modes!
 
-## Link of the project
+## Links of the project
 Here you can find the link of the project [Folk Atlas](https://diegopini.github.io/ACTaM-2023-2024/).
+Check out also the video demonstration of the project [video](https://www.youtube.com/watch?v=mSk8SOocMwI)
 
 ## Map
 
@@ -38,7 +39,3 @@ If you recognize the drum pattern immediately, you'll be the fastest among your 
    <img src="https://github.com/DiegoPini/ACTaM-2023-2024/assets/127502273/bcf6794e-76b1-4efd-b4da-f4b994fec0ae">
 </p>
 
-
-## Video Link
-
-https://www.youtube.com/watch?v=mSk8SOocMwI
