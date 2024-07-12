@@ -4,6 +4,7 @@ Folk Atlas is an interactive web application that lets you explore folk melodies
 
 ## Links of the project
 Here you can find the link of the project [Folk Atlas](https://diegopini.github.io/ACTaM-2023-2024/).
+
 Check out also the video demonstration of the project [video](https://www.youtube.com/watch?v=mSk8SOocMwI)
 
 ## Map
