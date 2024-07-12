@@ -75,7 +75,6 @@ map.on("click", (event) => {
     myJSON[index].SamplesDrums[3]
   );
 
-  
   samplesInst = myJSON[index].SamplesInst; // array dei sample degli strumenti
   numInst = myJSON[index].numInst; // numero di strumenti (1 per canale)
   sampleNotes = myJSON[index].SamplesNotes; // nota originale del sample
@@ -90,15 +89,14 @@ map.on("click", (event) => {
   description.textContent = myJSON[index].description;
 
   // Aggiungi un listener per l'evento keydown
-  document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-      document.getElementById('close').click();
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      document.getElementById("close").click();
     }
-    if (event.key === ' ') {
-      document.getElementById('play').click();
+    if (event.key === " ") {
+      document.getElementById("play").click();
     }
   });
-
 });
 const canvasProgBar = document.getElementById("progressCanvasProgBar");
 const contextCanvas = canvasProgBar.getContext("2d");
@@ -173,12 +171,10 @@ async function stopAndResetProgressBar() {
   drawProgressBar();
 }
 
-
 let isPlaying = false; // Variabile per tenere traccia dello stato di riproduzione
 
 window.addEventListener("load", function () {
   document.getElementById("play").addEventListener("click", function () {
-
     stopAndResetProgressBar();
     totTimeLoop = computeTimeLoop(myJSON[index].bpm, instDurations[0]); // 0 è il primo strumento
     updateInterval = (totTimeLoop * 1000) / 100;
@@ -212,7 +208,7 @@ window.addEventListener("load", function () {
       }, (6000 / myJSON[index].bpm) * 16 + 3500);
     } else {
       // Se il loop non sta suonando, inizia a suonare il loop
-      playALot(myJSON[index].bpm*4, myJSON[index].TimeSignature);
+      playALot(myJSON[index].bpm * 4, myJSON[index].TimeSignature);
       for (let i = 0; i < numInst; i++) {
         startLoop(
           samplesInst[i],
@@ -266,7 +262,7 @@ window.addEventListener("load", function () {
 
 document.getElementById("game").addEventListener("click", function () {
   console.log("game");
-  window.location.href = "../game/game.html";
+  window.location.href = "game/game.html";
 });
 
 var canva = document.getElementById("myCanvas");
