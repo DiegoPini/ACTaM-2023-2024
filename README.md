@@ -53,9 +53,9 @@ Pop-up -> Progress bar and Rhythmic wheel are Canvas, while the Circle of fifths
 
 Player -> suonaLoop.js to be able to play the scores and to be able to change the channels for each instrument, ProgBar (html, css, js) to be able to display the progress bar, ChangeKey.js to be able to change the key.
 
-Game -> developed via the Google Firebase API. Players are associated with a user ID within the game database. Each time the database (or part of it) changes, the onvalue function works as a listener, i.e. it handles the change. The update function takes the data from the database, while the set function sets the data. The game takes advantage of the changes in the data in the database to continue the game, with functions being activated for all players in parallel.
+Game -> developed via the Google Firebase API. Players are associated with a user ID within the game database. Each time the database (or part of it) changes, the onvalue function works as a listener, i.e. it handles the change. The get function takes the data from the database, while the update function sets the data in the database. The game takes advantage of the changes in the data in the database to continue the game, with functions being activated for all players in parallel.
 
 
 ## Difficulties faced
 
-The two main difficulties faced are the inclusion of the Mapbox and Firebase APIs, so that they are consistent with the rest of the project; secondly, the construction of the pop-up in a cohesive and balanced manner, to achieve a union of objects that function in a coordinated but independent manner.
+The two main difficulties faced are the inclusion of the Mapbox and the creation of a real time multiplayer through Firebase APIs, so that they are consistent with the rest of the project; secondly, the construction of the pop-up in a cohesive and balanced manner, to achieve a union of objects that function in a coordinated but independent manner.
