@@ -28,31 +28,13 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyCrCM-4KbqYargFjfSTPz4VVYDMvWDS9Zk",
-  authDomain: "multiplayer-test-a9a46.firebaseapp.com",
-  databaseURL:
-    "https://multiplayer-test-a9a46-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "multiplayer-test-a9a46",
-  storageBucket: "multiplayer-test-a9a46.appspot.com",
-  messagingSenderId: "746008047029",
-  appId: "1:746008047029:web:01e7932703a4907374fdfc",
-};
+
 let app;
 if (!getApps().length) {
   app = initializeApp(firebaseConfig);
 } else {
   app = getApp();
 }
-mapboxgl.accessToken =
-  "pk.eyJ1IjoiY2hpYWx1bmdoaSIsImEiOiJjbG5vbHhqb3gwZWQyMnZwZjZkZDlxa2FhIn0.hT_7Fs3WyTZHUA3fNOsCsQ";
-const map = new mapboxgl.Map({
-  container: "map",
-  style: "mapbox://styles/chialunghi/clpecviq600d901padnab3zej",
-  // center: punto da cui di default appare la mappa, in questo caso Roma
-  center: [12.4964, 41.9028],
-  zoom: 3,
-});
 
 // Load JSON data from a file
 var myJSON = [];
